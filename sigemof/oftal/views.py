@@ -52,10 +52,11 @@ def DeletePaciente(request,id):
 
 def VerConsulta(request, exp):
 	consul = Consulta.objects.filter(expedientePac_id=exp)
+
 	if request.method == 'GET':
 		if "q" in request.GET:
 			q = request.GET.get('q', '')
-			consul = Consulta.objects.filter(diag__icontains=q)
+			consul = Consulta.objects.filter(fecha__icontains=q ).filter(expedientePac_id=exp)
 			c = Consulta.objects.all() 
 	return render(request, 'VerConsulta.html', {'consul' : consul,})
 
