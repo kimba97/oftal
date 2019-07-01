@@ -1,0 +1,38 @@
+{% extends "Base.html" %}
+}
+{% load crispy_forms_tags %}
+
+
+{% load static %}
+<title>Registrar Paciente</title>
+
+
+{% block content %}
+     <body class="d-flex align-items-start">
+        <h1 style=" text-align: center;">Registrar Paciente</h1>
+        <br>
+        <br>
+    <div  class="d-inline-flex pl-5">
+
+    <form style="position: absolute;right:43%" method="post">
+      {%csrf_token%}
+
+      {{form.as_p}}
+<br>
+<div class="input-group mb-3" style=" text-align: center;"class="d-inline-flex pl-5 flex-column d-flex align-items-center" >
+  <br>
+   <button style=" text-align: center;" type="submit" class="btn btn-primary">Registrar</button>
+ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+<a style="width:90px;"class="btn btn-danger" href="{%url 'ListaPaciente'%}">Salir</a>
+<br>
+<br>
+<br>
+<br>
+ </div> 	
+
+</form>
+
+</div>
+
+    </body>
+{% endblock %}

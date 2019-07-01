@@ -1,0 +1,58 @@
+{% extends "Base.html" %}
+
+{% block content %}
+<title>Paciente</title>
+    <body class="d-flex align-items-start">
+        <h1 class="d-flex justify-content-center">Pacientes registrados</h1>
+        <br>
+        <br>
+                    <a class="btn btn-success" style="position: absolute;top: 18%; right: 5%" href="{%url 'RegistrarPaciente'%}">Agregar Paciente</a>
+
+            
+      
+      <div style="right:53%;text-align: center" class="d-inline-flex pl-5">
+      <table class= "table table-bordered table-striped table-hover">
+  <thead style="text-align: center;">
+    <tr style="text-align: center">
+      <td scope="col">Nombre</td>
+      <td scope="col">DUI</td>
+      <td scope="col">Edad</td> 
+      <td scope="col">Sexo</td>
+      <td scope="col">Telefono</td>
+      <td scope="col">Correo</td>      
+      
+    </tr>
+  </thead>
+  <tbody>
+    {%if object_list%}
+
+    {% for Paciente in object_list%}
+    <tr>
+     <td>{{Paciente.nombrePersona}}</td>
+     <td>{{Paciente.dui}}</td>
+     <td>{{Paciente.edad}}</td>
+     {% if Paciente.sexo == 2 %}
+     <td>Masculino</td>
+     {% endif %}
+     {%if Paciente.sexo == 3 %}
+     <td>Femenino</td>
+     {% endif %}
+
+     <td>{{Paciente.telefono}}</td>
+     <td>{{Paciente.correo}}</td>
+
+     <td>
+       <a class="btn btn-primary" href="{%url 'EditarPaciente' Paciente.id %}">Editar</a>
+       <a class="btn btn-danger" href="{%url 'EliminarPaciente' Paciente.id %}">Eliminar</a>
+     </td>
+    </tr>
+    
+    {% endfor %}
+    {% endif %}
+
+  </tbody>
+</table>
+
+  
+    </body>
+{% endblock %}
