@@ -10,8 +10,13 @@ from oftal.forms import *
 
 # Create your views here.
 
+def index(request):
+    return render(request, 'index.html')
+def Base(request):
+	return render(request, 'Base.html')
+
 class CreatePaciente(CreateView):
-	model=Paciente
+	model=Expediente
 	form_class=PacienteForm
 	template_name='RegistrarPaciente.html'
 	success_url='/ListaPaciente/'
@@ -44,3 +49,21 @@ def DeletePaciente(request,id):
 		paciente.delete()
 		return redirect('ListaPaciente')
 	return render(request, 'EliminarPaciente.html', {'Paciente': paciente})	
+
+def VerConsulta(request):
+	consul = Consulta.objects.all()
+	if request.method == 'GET':
+		if "q" in request.GET:
+			q = request.GET.get('q', '')
+			consul = Consulta.objects.filter(diag__icontains=q)
+			c = Consulta.objects.all() 
+	return render(request, 'VerConsulta.html', {'consul' : consul,})
+
+#def VerExpediente(request):
+#	exp = Expediente.objects.all()
+#	if request.method == 'GET':
+#		if "q" in request.GET:
+#			q = request.GET.get('q', '')
+#			exp = Expediente.objects.filter(NumExp__icontains=q)
+#			c = Expediente.objects.all() 
+#	return render(request, 'VerExpediente.html', {'exp' : exp,})

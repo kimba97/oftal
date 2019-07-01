@@ -12,17 +12,17 @@
     <form method="post">
       {%csrf_token%}
       <h1 style="text-align: center;">¿Desea eliminar el registro de este Paciente?</h1>
-      <h2 style="text-align: center;"> Nombre: {{Paciente.nombrePersona}} </h2>
-      <h2 style="text-align: center;"> DUI: {{Paciente.dui}} </h2>
-      <h2 style="text-align: center;"> Edad: {{Paciente.edad}} </h2>
+      <h3 style="text-align: center;"> Nombre: {{Paciente.nombrePersona}} </h3>
+      <h3 style="text-align: center;"> DUI: {{Paciente.dui}} </h3>
+      <h3 style="text-align: center;"> Edad: {{Paciente.edad}} </h3>
       {% if Paciente.sexo == 2 %}
-      <h2 style="text-align: center;"> Sexo: Masculino</h2>
+      <h3 style="text-align: center;"> Sexo: Masculino</h3>
       {% endif %}
       {%if Paciente.sexo == 3 %}
-      <h2 style="text-align: center;"> Sexo: Femenino</h2>
+      <h3 style="text-align: center;"> Sexo: Femenino</h3>
      {% endif %}
-      <h2 style="text-align: center;"> Telefono: {{Paciente.telefono}} </h2>
-      <h2 style="text-align: center;"> Correo: {{Paciente.correo}} </h2>
+      <h3 style="text-align: center;"> Telefono: {{Paciente.telefono}} </h3>
+      <h3 style="text-align: center;"> Correo: {{Paciente.correo}} </h3>
 
       
     

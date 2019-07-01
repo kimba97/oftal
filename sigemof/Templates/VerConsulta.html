@@ -1,0 +1,49 @@
+{% extends "Base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="col-md-8 col-md-offset-2 tex">
+	<div class="col-md-8">
+	</div>
+
+	<title>Consultas</title>
+	<h1>Consultas</h1>
+	<table class= "table table-bordered table-striped table-hover">
+		<br>
+					<form class="form-goup" method="GET">
+					<div class="form-group">
+    					<label><b>Buscar por nombre: &nbsp; &nbsp;</b></label>
+    					<input style="width: 200px;"type="text" class="form-control" name="q" placeholder="Escriba el nombre " id="">
+			<thead tyle="text-align: center;">
+			
+				<tr tyle="text-align: center;">
+					<th>Nombre</th>
+					<th>Numero de expediente</th>
+					<th>Fecha</th>
+					<th>Diagnostico</th>
+					
+					
+				</tr>
+			</thead>
+
+            <tbody>
+            		<tr>
+            			{%for c in consul%}
+            			{% csrf_token %}
+            			</a></label></td>
+            			<td><label> {{c.expedientePac.paciente.nombrePersona}}</label></td>
+            			<td><label> {{c.expedientePac.NumExp}}</label></td>
+            			<td><label> {{c.fecha}}</label></td>
+            			<td> <label> {{c.diag}}</label></td>
+            			
+            			
+            			
+            		</tr>
+            		{%endfor%}
+            		
+            		
+            		
+            </tbody>
+	</table>
+	
+{% endblock %}

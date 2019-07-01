@@ -18,6 +18,7 @@ from django.conf.urls import url
 from oftal.views import *
 from django.urls import path, re_path
 from oftal import views
+from django.contrib.auth.views import login
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -25,4 +26,9 @@ urlpatterns = [
     path('ListaPaciente/', views.ListPaciente.as_view(), name='ListaPaciente'),
     re_path(r'^Paciente/editar/(?P<id>\d+)', UpdatePaciente, name='EditarPaciente'),
     re_path(r'^Paciente/eliminar/(?P<id>\d+)', DeletePaciente, name='EliminarPaciente'),
+    path('', views.index, name='index'),
+    url(r'^VerConsulta/', VerConsulta),
+    #url(r'^VerExpediente/', VerExpediente),
+    #url(r'^login/$', 'django.contrib.auth.views.login'),
+    #url(r'^logout/$',   'django.contrib.auth.views.logout', {'next_page': '/index/'}),
 ]

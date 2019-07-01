@@ -1,0 +1,42 @@
+
+{% extends "Base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Iniciar Sesion</title>
+	<link rel="stylesheet" href="../static/css/master.css">
+	<!--<link rel="stylesheet" href="../static/css/estilos.css">-->
+</head>
+<body>
+		<form method = 'post' action=>
+			{% csrf_token %}
+			<br>
+			<br>
+		<div class="login-box">
+			<h1>Iniciar Sesion</h1>
+			<form>
+				<!-- Username                 -->
+				<label for="username">Usuario</label>
+				<input class = "form-control" name= username type="text" placeholder="Ingrese su Usuario">
+
+				<!-- Password                 -->
+				<label for="password">Contrase&ntilde;a</label>
+				<input class = "form-control" name=password type="password" placeholder="Ingrese su Contraseña">
+				
+				{% if form.errors %}
+                    <p class=" label label-danger">
+                        Your username and password didn't match. 
+                        Please try again.
+                    </p>
+                {% endif %}
+				<input class="btn btn-primary" type="submit" value="Iniciar">
+
+			</form>
+
+		</div>
+</body>
+</html>  
+{% endblock %}

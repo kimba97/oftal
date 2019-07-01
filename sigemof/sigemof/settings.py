@@ -78,13 +78,13 @@ WSGI_APPLICATION = 'sigemof.wsgi.application'
 DATABASES = {
     'default': {
     'ENGINE': 'django.db.backends.postgresql_psycopg2',
-    'NAME': 'oftal',
-    'USER': 'sigemof',
-    'PASSWORD': 'admin123',
+    'NAME': 'sigemof',
+    'USER': 'postgres',
+    'PASSWORD': 'admin',
     'HOST': 'localhost',
-    'ṔORT': '',
+    'ṔORT': '5432',
     }
-}
+
 
 
 # Password validation
@@ -131,3 +131,5 @@ STATICFILES_DIRS = (
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+LOGIN_REDIRECT_URL= '/ListaPaciente/' 

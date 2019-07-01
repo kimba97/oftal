@@ -1,0 +1,54 @@
+{% extends "Base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="col-md-8 col-md-offset-2 tex">
+	<div class="col-md-8">
+	</div>
+
+	<title>Expediente</title>
+	<h1>Expediente</h1>
+	<table class= "table table-bordered table-striped table-hover">
+		<br>
+					<form class="form-goup" method="GET">
+					<div class="form-group">
+    					<label><b>Buscar numero de expediente: &nbsp; &nbsp;</b></label>
+    					<input style="width: 200px;"type="text" class="form-control" name="q" placeholder="Escriba el nombre " id="">
+			<thead tyle="text-align: center;">
+			
+				<tr tyle="text-align: center;">
+					<th>Numero de Expediente</th>
+					<th>Nombre </th>
+					<th>Dui</th>
+					<th>Edad</th>
+					<th>Sexo</th>
+					<th>Telefono</th>
+					<th>Correo</th>
+					
+					
+				</tr>
+			</thead>
+
+            <tbody>
+            		<tr>
+            			{%for e in exp%}
+            			{% csrf_token %}
+            			</a></label></td>
+            			<td><label> {{e.NumExp}}</label></td>
+            			<td><label> {{e.paciente.nombrePersona}}</label></td>
+            			<td><label> {{e.paciente.dui}}</label></td>
+            			<td> <label> {{e.paciente.edad}}</label></td>
+            			<td> <label> {{e.paciente.sexo}}</label></td>
+            			<td> <label> {{e.paciente.telefono}}</label></td>
+            			<td> <label> {{e.paciente.correo}}</label></td>
+            			
+            			
+            			
+            		</tr>
+            		{%endfor%}
+            		
+            		
+            		
+            </tbody>
+	</table>
+	{% endblock %}
