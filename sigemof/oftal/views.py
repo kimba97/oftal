@@ -50,8 +50,8 @@ def DeletePaciente(request,id):
 		return redirect('ListaPaciente')
 	return render(request, 'EliminarPaciente.html', {'Paciente': paciente})	
 
-def VerConsulta(request):
-	consul = Consulta.objects.all()
+def VerConsulta(request, exp):
+	consul = Consulta.objects.filter(expedientePac_id=exp)
 	if request.method == 'GET':
 		if "q" in request.GET:
 			q = request.GET.get('q', '')
@@ -59,11 +59,13 @@ def VerConsulta(request):
 			c = Consulta.objects.all() 
 	return render(request, 'VerConsulta.html', {'consul' : consul,})
 
-#def VerExpediente(request):
-#	exp = Expediente.objects.all()
-#	if request.method == 'GET':
-#		if "q" in request.GET:
-#			q = request.GET.get('q', '')
-#			exp = Expediente.objects.filter(NumExp__icontains=q)
-#			c = Expediente.objects.all() 
-#	return render(request, 'VerExpediente.html', {'exp' : exp,})
+def VerExpediente(request):
+	exp = Expediente.objects.all()
+	pac = Paciente.objects.all()
+
+	if request.method == 'GET':
+		if "q" in request.GET:
+			q = request.GET.get('q', '')
+			exp = Expediente.objects.filter(NumExp__icontains=q)
+			c = Expediente.objects.all() 
+	return render(request, 'VerExpediente.html', {'exp' : exp,})

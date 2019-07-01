@@ -27,8 +27,9 @@ urlpatterns = [
     re_path(r'^Paciente/editar/(?P<id>\d+)', UpdatePaciente, name='EditarPaciente'),
     re_path(r'^Paciente/eliminar/(?P<id>\d+)', DeletePaciente, name='EliminarPaciente'),
     path('', views.index, name='index'),
-    url(r'^VerConsulta/', VerConsulta),
-    #url(r'^VerExpediente/', VerExpediente),
+    
+    url(r"^VerConsulta/(?P<exp>[^/]+)/$", VerConsulta, name='VerConsulta'),
+    url(r'^VerExpediente/', VerExpediente),
     #url(r'^login/$', 'django.contrib.auth.views.login'),
     #url(r'^logout/$',   'django.contrib.auth.views.logout', {'next_page': '/index/'}),
 ]

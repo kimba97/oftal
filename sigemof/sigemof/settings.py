@@ -77,14 +77,14 @@ WSGI_APPLICATION = 'sigemof.wsgi.application'
 
 DATABASES = {
     'default': {
-    'ENGINE': 'django.db.backends.postgresql_psycopg2',
-    'NAME': 'sigemof',
-    'USER': 'postgres',
-    'PASSWORD': 'admin',
+    'ENGINE': 'django.db.backends.mysql',
+    'NAME': 'sigemof2',
+    'USER': 'sigemof2',
+    'PASSWORD': '',
     'HOST': 'localhost',
-    'ṔORT': '5432',
+    'PORT': '',
     }
-
+}
 
 
 # Password validation
