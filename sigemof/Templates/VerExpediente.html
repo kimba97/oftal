@@ -13,16 +13,16 @@
 					<form class="form-goup" method="GET">
 					<div class="form-group">
     					<label><b>Buscar numero de expediente: &nbsp; &nbsp;</b></label>
-    					<input style="width: 200px;"type="text" class="form-control" name="q" placeholder="Escriba el nombre " id="">
-			<thead tyle="text-align: center;">
+    					<input style="width: 250px;"type="text" class="form-control" name="q" placeholder="Escriba el numero de expediente " id="">
+			<thead style="text-align: center;">
 			
-				<tr tyle="text-align: center;">
+				<tr style="text-align: center;">
 					<th>Numero de Expediente</th>
 					<th>Nombre </th>
 					<th>Telefono</th>
 					<th>Correo</th>
 
-					<th>Acciones</th>
+					<th style="text-align: center;">Acciones</th>
 					
 					
 				</tr>
@@ -37,7 +37,8 @@
             			<td><label> {{e.paciente.nombrePersona}}</label></td>
             			<td> <label> {{e.paciente.telefono}}</label></td>
             			<td> <label> {{e.paciente.correo}}</label></td>
-            			<td> <a class="btn btn-primary" href="{%url 'VerConsulta' exp=e.id %}">Detalles</a></td>
+            			<td>  &nbsp; &nbsp;<a class="btn btn-primary" href="{%url 'VerConsulta' exp=e.id %}">Detalles</a> &nbsp; &nbsp;
+            			<a class="btn btn-success" href="{%url 'RegistrarConsulta' exp=e.id %}">Nueva consulta</a></td>
             			
             			
             			

@@ -1,0 +1,39 @@
+{% extends "Base.html" %}
+
+{% block content %}
+<div class="col-md-8 col-md-offset-2 tex">
+	<div class="col-md-8">
+</div>
+        <h1 style=" text-align: center;">Registrar Consulta</h1>
+        <br>
+        <br>
+	<div class="col-md-7 col-sm-offset-0 col-sm-6 col-xs-offset-1 col-xs-10">
+		<div class="contact-form">
+			<form class="form-group" id="form-group" role="form" method="POST" nctype="multipart/form-data">
+				{% csrf_token %}
+
+				<div class="form-group" align="center">
+                	<label>Fecha</label><br>
+                	<input style="text-align: center" class="form-control" type="date" name="fecha" id="fecha"></input>
+                	<br>
+                	<label>Diagnostico</label><br>
+                	<input style="height: 200px;width: 500px" class="form-control" type="text" name="diag" id="diag"></input>
+                	<br>
+
+                	{% if blank == True %}
+                	<br>
+                	<label>Uno de los campos esta vacio. Por favor, intente de nuevo </label>
+
+                	<br>
+                	<br>
+            		{% endif %}
+						<button type="submit" id="boton" class="btn btn-success">Guardar</button>
+
+				</div>
+</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

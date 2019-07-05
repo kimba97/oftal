@@ -143,8 +143,11 @@ body {
   <div class="overlay-content">
      {% if request.user.is_authenticated %}
       <a href="{%url 'ListaPaciente' %}">Gestor de pacientes</a>
+      <a href="{%url 'VerExpediente' %}">Ver Expedientes </a>
+      <a href="{%url 'logout' %}">Cerrar sesión </a>
       {% else %}
-      <a href="{%url 'ListaPaciente' %}">Iniciar Sesion</a>
+      <!--<a href="{%url 'ListaPaciente' %}">Iniciar Sesion</a>-->
+      <a href="{%url 'login' %}">Iniciar sesión </a>
 
     {% endif %}
 

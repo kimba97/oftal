@@ -1,17 +1,23 @@
 {% extends "Base.html" %}
 
 {% block content %}
+<div class="col-md-8 col-md-offset-2 tex">
+  <div class="col-md-8"></div>
 <title>Paciente</title>
     <body class="d-flex align-items-start">
-        <h1 class="d-flex justify-content-center">Pacientes registrados</h1>
+        <h1 style = 'text-align: left;'>Pacientes registrados</h1>
         <br>
         <br>
-                    <a class="btn btn-success" style="position: absolute;top: 18%; right: 5%" href="{%url 'RegistrarPaciente'%}">Agregar Paciente</a>
-
+        <a class="btn btn-success" style="position: absolute;top: 68%; right: 5%" href="{%url 'RegistrarPaciente'%}">Agregar Paciente</a>
+        <div>
+          <form class="form-goup" method="GET">
+          <div class="form-group">
+              <label><b>Buscar por nombre: &nbsp; &nbsp;</b></label>
+              <input style= 'width: 250px; left: 2% 'type="text" class="form-control" name="q" placeholder="Escriba el nombre y presione enter" id="">
+              <br>
+        </div>
             
-      
-      <div style="right:53%;text-align: center" class="d-inline-flex pl-5">
-      <table class= "table table-bordered table-striped table-hover">
+      <table style= 'position: absolute; left: 2%' class= "table table-bordered table-striped table-hover">
   <thead style="text-align: center;">
     <tr style="text-align: center">
       <td scope="col">Nombre</td>
@@ -19,14 +25,13 @@
       <td scope="col">Edad</td> 
       <td scope="col">Sexo</td>
       <td scope="col">Telefono</td>
-      <td scope="col">Correo</td>      
-      
+      <td scope="col">Correo</td> 
+      <td scope="col">Acciones</td>       
     </tr>
   </thead>
   <tbody>
-    {%if object_list%}
 
-    {% for Paciente in object_list%}
+    {% for Paciente in pacientes%}
     <tr>
      <td>{{Paciente.nombrePersona}}</td>
      <td>{{Paciente.dui}}</td>
@@ -41,14 +46,23 @@
      <td>{{Paciente.telefono}}</td>
      <td>{{Paciente.correo}}</td>
 
-     <td>
+     <td width="350">
        <a class="btn btn-primary" href="{%url 'EditarPaciente' Paciente.id %}">Editar</a>
        <a class="btn btn-danger" href="{%url 'EliminarPaciente' Paciente.id %}">Eliminar</a>
+       {% for e in expedientes%}
+       {% if e.paciente.id == Paciente.id %}
+       &nbsp; &nbsp; &nbsp;<label style="text-align: center">Ya posee expediente</label>
+       {% endif %}
+       {% endfor %}
+       {% for p in noexp %}
+       {% if Paciente.id == p.id %}
+       &nbsp; &nbsp; &nbsp;<a class="btn btn-primary" href="{%url 'RegistrarExpediente' pac=Paciente.id %}">Registrar Expediente</a>
+       {% endif %}
+       {% endfor %}
      </td>
     </tr>
     
     {% endfor %}
-    {% endif %}
 
   </tbody>
 </table>

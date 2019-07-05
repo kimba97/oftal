@@ -1,0 +1,44 @@
+{% extends "Base.html" %}
+
+{% block content %}
+<div class="col-md-8 col-md-offset-2 tex">
+	<div class="col-md-8">
+</div>
+	<div class="col-md-7 col-sm-offset-0 col-sm-6 col-xs-offset-1 col-xs-10">
+		<div class="contact-form">
+			<form class="form-group" id="form-group" role="form" method="POST" nctype="multipart/form-data">
+				{% csrf_token %}
+				<br>
+				<br>
+				<br>
+				<br>
+				<div class="form-group" align="center">
+                	<label >Numero de Expediente:</label><br>
+                	<input class="form-control" type="text" name="numExp" id="numExp"></input>
+                	{% if cont == True %}
+                	<br>
+                	<label>Este numero de expediente ya fue utilizado </label>
+
+                	<br>
+            		{% endif %}
+
+            		{% if blank == True %}
+                	<br>
+                	<label>Campo vacio</label>
+
+                	<br>
+            		{% endif %}
+                <br>
+
+
+
+						<button type="submit" id="boton" class="btn btn-success">Guardar</button>
+
+				</div>
+</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

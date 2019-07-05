@@ -6,7 +6,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Iniciar Sesion</title>
 	<link rel="stylesheet" href="../static/css/master.css">
 	<!--<link rel="stylesheet" href="../static/css/estilos.css">-->
 </head>
@@ -20,19 +19,22 @@
 			<form>
 				<!-- Username                 -->
 				<label for="username">Usuario</label>
-				<input class = "form-control" name= username type="text" placeholder="Ingrese su Usuario">
+				<br>
+				<input class = "form-control" name= "username" type="text" placeholder="Ingrese su Usuario">
 
 				<!-- Password                 -->
 				<label for="password">Contrase&ntilde;a</label>
-				<input class = "form-control" name=password type="password" placeholder="Ingrese su Contraseña">
+				<br>
+				<input class = "form-control" name="password" type="password" placeholder="Ingrese su Contraseña">
 				
-				{% if form.errors %}
+				<!--{% if form.errors %}
                     <p class=" label label-danger">
                         Your username and password didn't match. 
                         Please try again.
                     </p>
-                {% endif %}
-				<input class="btn btn-primary" type="submit" value="Iniciar">
+                {% endif %}-->
+                <br>
+				<button style="position: absolute; bottom: 15%; right: 28%; width: 150px" class="btn btn-primary" type="submit"> Iniciar </button>
 
 			</form>
 

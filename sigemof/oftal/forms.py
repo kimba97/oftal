@@ -33,6 +33,7 @@ class PacienteForm(forms.ModelForm):
 		'sexo':forms.Select(attrs={'class':'form-control'}),
 		'correo':forms.TextInput(attrs={'class':'form-control'}),
 		'nombrePadre':forms.TextInput(attrs={'class':'form-control'}),
-		'NombreMadre':forms.TextInput(attrs={'class':'form-control'}),
+		'nombreMadre':forms.TextInput(attrs={'class':'form-control'}),
 		'remitente':forms.TextInput(attrs={'class':'form-control'})
 		}
+
