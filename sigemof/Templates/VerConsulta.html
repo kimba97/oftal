@@ -2,16 +2,17 @@
 {% load static %}
 
 {% block content %}
-<div class="col-md-8 col-md-offset-2 tex">
-	<div class="col-md-8">
+<div class="col-lg">
 	</div>
 
 	<title>Consultas</title>
-	<h1>Consultas</h1>
-	<table class= "table table-bordered table-striped table-hover">
+	<h1 style="padding-left: 30px">Consultas</h1>
+	<input style="position: absolute; right: 10%; top: 30%" class="btn btn-danger" type="button" onclick="history.back()" name="cancelar" value="Regresar">
+
+	<table style= 'position: absolute; left: 2%' class= "table table-bordered table-striped table-hover">
 		<br>
 					<form class="form-goup" method="GET">
-					<div class="form-group">
+					<div style="padding-left: 30px" class="form-group">
     					<label><b>Buscar por fecha: &nbsp; &nbsp;</b></label>
     					<input style="width: 200px;"type="text" class="form-control" name="q" placeholder="Escriba la fecha" id="">
 			<thead tyle="text-align: center;">
