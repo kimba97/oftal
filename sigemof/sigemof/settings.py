@@ -121,7 +121,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
-STATICFILES_DIRS = (('assets', '/home/oftal/oftal.pythonanywhere.com/sigemof/static/'),)
+STATIC_ROOT = (('assets', '/home/oftal/oftal.pythonanywhere.com/sigemof/static/'),)
 # https://docs.djangoproject.com/en/1.11/howto/static-files
 
 
