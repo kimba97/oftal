@@ -81,8 +81,7 @@ DATABASES = {
     'NAME': 'sigemof2',
     'USER': 'oftal',
     'PASSWORD': 'admin123',
-    'HOST': 'localhost',
-    'PORT': '',
+    'HOST': 'oftal.mysql.pythonanywhere-services.com',
     }
 }
 
