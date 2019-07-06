@@ -77,11 +77,11 @@ WSGI_APPLICATION = 'sigemof.wsgi.application'
 
 DATABASES = {
     'default': {
-    'ENGINE': 'django.db.backends.mysql',
-    'NAME': 'oftal$sigemof2',
-    'USER': 'oftal',
+    'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    'NAME': 'oftal',
+    'USER': 'sigemof',
     'PASSWORD': 'admin123',
-    'HOST': 'oftal.mysql.pythonanywhere-services.com',
+    'HOST': 'localhost',
     }
 }
 
@@ -121,8 +121,15 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
-STATIC_ROOT = (('assets', '/home/oftal/oftal.pythonanywhere.com/sigemof/static/'),)
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'media'),
+    )
 # https://docs.djangoproject.com/en/1.11/howto/static-files
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/') 
 
 
 LOGIN_REDIRECT_URL = '/ListaPaciente/'
