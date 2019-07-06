@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'qxn7_b9b=vw!5*=(e#_i=18k-=8ek(5$uw4x)t=)lm!dxpbp1x'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -120,9 +120,9 @@ USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
-STATIC_URL = '/static/'
 STATIC_ROOT = '/home/oftal/oftal.pythonanywhere.com/sigemof/static/'
-STATICFILES_DIRS = (('assets', '/home/oftal/oftal.pythonanywhere.com/sigemof/static/'),)
+STATIC_URL = '/static/'
+STATICFILES_DIRS = ('/home/oftal/oftal.pythonanywhere.com/sigemof/static/')
 # https://docs.djangoproject.com/en/1.11/howto/static-files
 
 
