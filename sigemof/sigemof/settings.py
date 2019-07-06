@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'sigemof.wsgi.application'
 DATABASES = {
     'default': {
     'ENGINE': 'django.db.backends.mysql',
-    'NAME': 'sigemof2',
+    'NAME': 'oftal$sigemof2',
     'USER': 'oftal',
     'PASSWORD': 'admin123',
     'HOST': 'oftal.mysql.pythonanywhere-services.com',
