@@ -124,12 +124,10 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
-    os.path.join(BASE_DIR, 'media'),
     )
 # https://docs.djangoproject.com/en/1.11/howto/static-files
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/') 
+
 
 
 LOGIN_REDIRECT_URL = '/ListaPaciente/'
