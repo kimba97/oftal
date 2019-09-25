@@ -1,38 +1,55 @@
+
 {% extends "Base.html" %}
-}
-{% load crispy_forms_tags %}
+{% block content%}
+<div class="col-md-80 col-md-offset-2 tex">
+  <div class="col-md-80">
+</div>
+  <div class="col-md-7 col-sm-offset-0 col-sm-6 col-xs-offset-1 col-xs-10">
+    <h3>Registrar paciente</h3>
+            
 
 
-{% load static %}
-<title>Registrar Paciente</title>
+    <div class="contact-form">
+
+      <form class="form-group" id="form-group" role="form" method="POST" nctype="multipart/form-data">
+          {% csrf_token %}
+                <label><b>Nombre Paciente</b></label>
+                <input type="text" class="form-control" name="paci" placeholder="" required>
+                <label><b>DUI</b></label>
+                <input type="text" class="form-control" name="dui" placeholder="" required >
+                <label><b>Direccion</b></label>
+                <input type="textarea" class="form-control" name="direccion" placeholder="" required >
+                <label><b>Telefono</b></label>
+                <input type="text" class="form-control" name="tel" placeholder="" required>
+                <label><b>Fecha de nacimiento</b></label>
+                <input type="date" class="form-control" name="naci" placeholder="" required>
+               
+                <label><b>Sexo</b></label>
+                <select name="sexo">
+                <!-- Opciones de la lista -->
+                <option value="Masculino">Masculino</option>
+                <option value="Femenino" selected>Femenino</option> 
+                </select>
+                <label><b>Correo</b></label>
+                <input type="email" class="form-control" name="correo" placeholder="" required>
+                <label><b>Nombre de padre</b></label>
+                <input type="text" class="form-control" name="nameP" placeholder="" required>
+                <label><b>Nombre de madre</b></label>
+                <input type="text" class="form-control" name="nameM" placeholder="" required>
+                <label><b>Nombre de remitente</b></label>
+                <input type="text" class="form-control" name="nameR" placeholder="" required>
 
 
-{% block content %}
-     <body class="d-flex align-items-start">
-        <h1 style=" text-align: center;">Registrar Paciente</h1>
-        <br>
-        <br>
-    <div  class="d-inline-flex pl-5">
+                
+               
 
-    <form style="position: absolute;right:43%" method="post">
-      {%csrf_token%}
-
-      {{form.as_p}}
-<br>
-<div class="input-group mb-3" style=" text-align: center;"class="d-inline-flex pl-5 flex-column d-flex align-items-center" >
-  <br>
-   <button style=" text-align: center;" type="submit" class="btn btn-primary">Registrar</button>
- &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-<a style="width:90px;"class="btn btn-danger" href="{%url 'ListaPaciente'%}">Salir</a>
-<br>
-<br>
-<br>
-<br>
- </div> 	
-
-</form>
-
+        <div class="col-md-12 text-center">
+          <br><button type="submit" id="boton" class="btn btn-primary">Guardar</button> 
+        </div>
+            </form>
+        </div>
+    </div>
+  </div>
 </div>
 
-    </body>
-{% endblock %}
+{% endblock content %}

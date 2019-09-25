@@ -12,7 +12,7 @@ class Persona(models.Model):
 	telefono=models.CharField(max_length=9)
 	fechaNac=models.DateField()
 	edad=models.IntegerField()
-	sexo=models.IntegerField(choices=SEX_CHOICES, default=1)
+	sexo=models.CharField(max_length=20)
 
 	class Meta:
 		verbose_name='Persona'
