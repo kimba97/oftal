@@ -21,6 +21,9 @@ def Base(request):
 def inicio(request):
     return render(request, 'inicio.html')
 
+def calendario(request):
+    return render(request, 'calendario.html')
+    
 def registrarPaciente(request):
     if request.method == 'POST':
         pacientes = Paciente()
