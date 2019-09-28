@@ -11,7 +11,7 @@ class Persona(models.Model):
 	dui=models.CharField(max_length=10, unique=True)
 	direccion=models.CharField(max_length=250)
 	telefono=models.CharField(max_length=9)
-	fechaNac=models.DateField()
+	fechaNac=models.DateTimeField()
 	edad=models.IntegerField()
 	sexo=models.CharField(max_length=20)
 

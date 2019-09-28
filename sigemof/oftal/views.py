@@ -8,6 +8,7 @@ from django.http.response import HttpResponseRedirect
 from oftal.forms import *
 from django.contrib.auth import authenticate, login
 from datetime import datetime
+import time
 
 # Create your views here.
 
@@ -29,7 +30,10 @@ def registrarPaciente(request):
         pacientes.direccion = request.POST['direccion']
         pacientes.telefono = request.POST['tel']
         pacientes.fechaNac = request.POST['naci']
-        pacientes.edad = 18
+        dati = datetime.now()
+        fechaN = datetime.strptime(pacientes.fechaNac, '%Y-%m-%d')
+        pacientes.edad = (dati.year - fechaN.year)
+        print(pacientes.edad)
         pacientes.sexo = request.POST['sexo']
         pacientes.correo = request.POST['correo']
         pacientes.nombrePadre = request.POST['nameP']
