@@ -143,6 +143,7 @@ body {
      {% if request.user.is_authenticated %}
       <a href="{%url 'ListaPaciente' %}">Gestor de pacientes</a>
 	  <a href="{%url 'ListaLente' %}">Gestor de Lentes </a>
+	  <a href="{%url 'ListaCristal' %}">Gestor de Cristales </a>
       <a href="{%url 'VerExpediente' %}">Ver Expedientes </a>
       <a href="{%url 'logout' %}">Cerrar sesión </a>
       {% else %}

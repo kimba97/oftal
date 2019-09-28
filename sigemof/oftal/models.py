@@ -7,6 +7,7 @@ from oftal.choices import SEX_CHOICES
 
 class Persona(models.Model):
 	nombrePersona=models.CharField(max_length=200)
+	apellidoPersona=models.CharField(max_length=200)
 	dui=models.CharField(max_length=10, unique=True)
 	direccion=models.CharField(max_length=250)
 	telefono=models.CharField(max_length=9)

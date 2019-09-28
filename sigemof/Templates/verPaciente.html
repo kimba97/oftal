@@ -20,6 +20,7 @@
   <thead style="text-align: center;">
     <tr style="text-align: center;word-wrap: break-word;">
       <td style="width: 300px;" scope="col">Nombre Completo</td>
+      <td  scope="col">Apellidos</td>
       <td scope="col">DUI</td>
       <td scope="col">Edad</td> 
       <td scope="col">Sexo</td>
@@ -33,6 +34,7 @@
     {% for Paciente in pacientes%}
     <tr>
      <td>{{Paciente.nombrePersona}}</td>
+     <td>{{Paciente.apellidoPersona}}</td>
      <td>{{Paciente.dui}}</td>
      <td>{{Paciente.edad}}</td>
      <!--{% if Paciente.sexo == 2 %}

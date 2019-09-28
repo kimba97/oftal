@@ -21,22 +21,23 @@ def inicio(request):
     return render(request, 'inicio.html')
 
 def registrarPaciente(request):
-	if request.method == 'POST':
-		pacientes = Paciente()
-		pacientes.nombrePersona = request.POST['paci']
-		pacientes.dui = request.POST['dui']
-		pacientes.direccion = request.POST['direccion']
-		pacientes.telefono = request.POST['tel']
-		pacientes.fechaNac = request.POST['naci']
-		pacientes.edad = 18
-		pacientes.sexo = request.POST['sexo']
-		pacientes.correo = request.POST['correo']
-		pacientes.nombrePadre = request.POST['nameP']
-		pacientes.nombreMadre = request.POST['nameM']
-		pacientes.remitente = request.POST['nameR']
-		pacientes.save()
-		return HttpResponseRedirect('/ListaPaciente/')
-	return render(request, 'RegistrarPaciente.html', )
+    if request.method == 'POST':
+        pacientes = Paciente()
+        pacientes.nombrePersona = request.POST['paci']
+        pacientes.apellidoPersona = request.POST['apellido']
+        pacientes.dui = request.POST['dui']
+        pacientes.direccion = request.POST['direccion']
+        pacientes.telefono = request.POST['tel']
+        pacientes.fechaNac = request.POST['naci']
+        pacientes.edad = 18
+        pacientes.sexo = request.POST['sexo']
+        pacientes.correo = request.POST['correo']
+        pacientes.nombrePadre = request.POST['nameP']
+        pacientes.nombreMadre = request.POST['nameM']
+        pacientes.remitente = request.POST['nameR']
+        pacientes.save()
+        return HttpResponseRedirect('/ListaPaciente/')
+    return render(request, 'RegistrarPaciente.html', )
 
 def registrarLente(request):
     if request.method == 'POST':

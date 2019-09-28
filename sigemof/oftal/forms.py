@@ -6,11 +6,12 @@ class PacienteForm(forms.ModelForm):
 
 	class Meta:
 		model = Paciente
-		fields=['nombrePersona', 'dui', 'direccion', 'telefono', 'fechaNac', 'edad', 
+		fields=['nombrePersona', 'apellidoPersona', 'dui', 'direccion', 'telefono', 'fechaNac', 'edad', 
 		'sexo', 'correo', 'nombrePadre', 'nombreMadre', 'remitente']
 
 		labels={
 		'nombrePersona':'Nombre Paciente',
+		'apellidoPersona': 'Apellido',
 		'dui':'DUI',
 		'direccion':'Dirección',
 		'telefono':'Telefono',
@@ -25,6 +26,7 @@ class PacienteForm(forms.ModelForm):
 
 		widgets={
 		'nombrePersona':forms.TextInput(attrs={'class':'form-control'}),
+		'apellidoPersona':forms.TextInput(attrs={'class':'form-control'}),
 		'dui':forms.TextInput(attrs={'class':'form-control'}),
 		'direccion': forms.TextInput(attrs={'class':'form-control'}),
 		'telefono':forms.TextInput(attrs={'class':'form-control'}),

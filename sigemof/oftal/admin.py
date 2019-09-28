@@ -7,7 +7,7 @@ from .models import *
 # Register your models here.
 
 class PersonaAdmin(admin.ModelAdmin):
-	list_display = ('nombrePersona','dui', 'direccion', 'telefono', 'fechaNac', 'edad')
+	list_display = ('nombrePersona','apellidoPersona','dui', 'direccion', 'telefono', 'fechaNac', 'edad')
 admin.site.register(Persona,PersonaAdmin)
 
 class LenteAdmin(admin.ModelAdmin):
