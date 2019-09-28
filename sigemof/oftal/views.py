@@ -49,8 +49,9 @@ def registrarLente(request):
         lente.codigo = request.POST['codigo']
         lente.color = request.POST['color']
         lente.marca = request.POST['marca']
-        lente.cantidad = request.POST['cantidad']
-        lente.precioCompra = request.POST['precioC']
+        lente.tamano = request.POST['tamano']
+#        lente.cantidad = request.POST['cantidad']
+#        lente.precioCompra = request.POST['precioC']
         lente.save()
         return HttpResponseRedirect('/ListaLente/')
     return render(request, 'registrarLente.html',)
@@ -237,12 +238,18 @@ def registrarCristal(request):
     if request.method == 'POST':
         cristal = Cristal()
         cristal.codigo = request.POST['codigo']
+        cristal.esfera = request.POST['esfera']
+        cristal.cilindro = request.POST['cilindro']
+        cristal.eje = request.POST['eje']
+        cristal.prisma = request.POST['prisma']
+        cristal.base = request.POST['base']
+        cristal.adicion = request.POST['adicion']
         cristal.graduacion = request.POST['graduacion']
-        cristal.material = request.POST['material']
+#        cristal.material = request.POST['material']
         cristal.color = request.POST['color']
-        cristal.marca = request.POST['marca']
-        cristal.cantidad = request.POST['cantidad']
-        cristal.precioCompra = request.POST['precioC']
+#        cristal.marca = request.POST['marca']
+#        cristal.cantidad = request.POST['cantidad']
+#        cristal.precioCompra = request.POST['precioC']
         cristal.save()
         return HttpResponseRedirect('/ListaCristal/')
     return render(request, 'registrarCristal.html',)

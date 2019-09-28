@@ -4,7 +4,7 @@
   <div class="col-md-80">
 </div>
   <div class="col-md-7 col-sm-offset-0 col-sm-6 col-xs-offset-1 col-xs-10">
-    <h3>Registrar Cristal</h3>
+    <h3>Registrar Lente</h3>
 
 
 
@@ -14,19 +14,22 @@
           {% csrf_token %}
                 <label><b>Codigo</b></label>
                 <input type="text" class="form-control" name="codigo" placeholder="" required>
+                <label><b>Esfera</b></label>
+                <input type="text" class="form-control" name="esfera" placeholder="" required>
+                <label><b>Cilindro</b></label>
+                <input type="text" class="form-control" name="cilindro" placeholder="" required>
+                <label><b>Eje</b></label>
+                <input type="text" class="form-control" name="eje" placeholder="" required>
+                <label><b>Prisma</b></label>
+                <input type="text" class="form-control" name="prisma" placeholder="" required >
+                <label><b>Base</b></label>
+                <input type="textarea" class="form-control" name="base" placeholder="" required >
+                <label><b>Adicion</b></label>
+                <input type="textarea" class="form-control" name="adicion" placeholder="" required >
                 <label><b>Graduacion</b></label>
-                <input type="text" class="form-control" name="graduacion" placeholder="" required>
-                <label><b>Material</b></label>
-                <input type="text" class="form-control" name="material" placeholder="" required>
-                <label><b>Color</b></label>
-                <input type="text" class="form-control" name="color" placeholder="" required>
-                <label><b>Marca</b></label>
-                <input type="text" class="form-control" name="marca" placeholder="" required >
-                <label><b>cantidad</b></label>
-                <input type="textarea" class="form-control" name="cantidad" placeholder="" required >
-                <label><b>Precio Compra</b></label>
-                <input type="textarea" class="form-control" name="precioC" placeholder="" value="0" required readonly="readonly">
-
+                <input type="textarea" class="form-control" name="graduacion" placeholder="" required >
+                <label><b>color</b></label>
+                <input type="textarea" class="form-control" name="color" placeholder="" required >
 
 
         <div class="col-md-12 text-center">

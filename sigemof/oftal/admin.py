@@ -11,7 +11,7 @@ class PersonaAdmin(admin.ModelAdmin):
 admin.site.register(Persona,PersonaAdmin)
 
 class LenteAdmin(admin.ModelAdmin):
-	list_display = ('codigo','color','marca','cantidad','precioCompra')
+	list_display = ('codigo','color','marca','tamano')
 admin.site.register(Lente,LenteAdmin)
 
 class SecretariaAdmin(admin.ModelAdmin):
@@ -35,7 +35,7 @@ class PacienteAdmin(admin.ModelAdmin):
 admin.site.register(Paciente,PacienteAdmin)
 
 class CristalAdmin(admin.ModelAdmin):
-	list_display = ('codigo','graduacion', 'material', 'color', 'marca', 'cantidad', 'precioCompra')
+	list_display = ('codigo', 'esfera', 'cilindro', 'eje', 'prisma', 'base', 'adicion', 'graduacion', 'color')
 admin.site.register(Cristal,CristalAdmin)
 
 class FacturaVentaAdmin(admin.ModelAdmin):
