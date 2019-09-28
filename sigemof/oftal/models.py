@@ -20,6 +20,34 @@ class Persona(models.Model):
 	def __str__(self):
 		return '%s' %(self.nombrePersona)
 
+class Lente(models.Model):
+	codigo=models.CharField(max_length=20)
+	color=models.CharField(max_length=30)
+	marca=models.CharField(max_length=50)
+	cantidad=models.IntegerField()
+	precioCompra=models.FloatField()
+
+	class Meta:
+		verbose_name='Lente'
+		verbose_name_plural='Lentes'
+	def __str__(self):
+		return '%s' %(self.codigo)
+
+class Cristal(models.Model):
+	codigo = models.CharField(max_length=20)
+	graduacion=models.CharField(max_length=20)
+	material=models.CharField(max_length=30)
+	color=models.CharField(max_length=30)
+	marca=models.CharField(max_length=50)
+	cantidad=models.IntegerField()
+	precioCompra=models.FloatField()
+
+	class Meta:
+		verbose_name='Cristal'
+		verbose_name_plural='Cristals'
+	def __str__(self):
+		return '%s' %(self.codigo)
+
 class Secretaria(Persona):
 	isss=models.CharField(max_length=12, unique=True)
 	afp=models.CharField(max_length=9, unique=True)
@@ -67,6 +95,18 @@ class Consulta(models.Model):
 		verbose_name_plural='Consultas'
 	def __str__(self):
 		return '%s' %(self.id)
+
+
+class FacturaVenta(models.Model):
+
+#	class Meta:
+#		verbose_name='FacturaVenta'
+#		verbose_name_pural='FacturaVentas'
+	def __str__(self):
+		return '%s' %(self.id)
+
+
+
 
 
 

@@ -1,0 +1,42 @@
+{% extends "Base.html" %}
+{% block content%}
+<div class="col-md-80 col-md-offset-2 tex">
+  <div class="col-md-80">
+</div>
+  <div class="col-md-7 col-sm-offset-0 col-sm-6 col-xs-offset-1 col-xs-10">
+    <h3>Registrar Cristal</h3>
+
+
+
+    <div class="contact-form">
+
+      <form class="form-group" id="form-group" role="form" method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+                <label><b>Codigo</b></label>
+                <input type="text" class="form-control" name="codigo" placeholder="" required>
+                <label><b>Graduacion</b></label>
+                <input type="text" class="form-control" name="graduacion" placeholder="" required>
+                <label><b>Material</b></label>
+                <input type="text" class="form-control" name="material" placeholder="" required>
+                <label><b>Color</b></label>
+                <input type="text" class="form-control" name="color" placeholder="" required>
+                <label><b>Marca</b></label>
+                <input type="text" class="form-control" name="marca" placeholder="" required >
+                <label><b>cantidad</b></label>
+                <input type="textarea" class="form-control" name="cantidad" placeholder="" required >
+                <label><b>Precio Compra</b></label>
+                <input type="textarea" class="form-control" name="precioC" placeholder="" value="0" required readonly="readonly">
+
+
+
+        <div class="col-md-12 text-center">
+          <br><button type="submit" id="boton" class="btn btn-primary">Guardar</button>
+          <input style="text.align:center; position:absolute; left:68%" class="btn btn-success" type="button" onclick="history.back()" name="cancelar" value="Cancelar">
+        </div>
+            </form>
+        </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

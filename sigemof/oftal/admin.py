@@ -10,6 +10,10 @@ class PersonaAdmin(admin.ModelAdmin):
 	list_display = ('nombrePersona','dui', 'direccion', 'telefono', 'fechaNac', 'edad')
 admin.site.register(Persona,PersonaAdmin)
 
+class LenteAdmin(admin.ModelAdmin):
+	list_display = ('codigo','color','marca','cantidad','precioCompra')
+admin.site.register(Lente,LenteAdmin)
+
 class SecretariaAdmin(admin.ModelAdmin):
 	list_display = ('nombrePersona','dui', 'direccion', 'telefono', 'fechaNac', 'edad', 'isss', 'afp')
 admin.site.register(Secretaria,SecretariaAdmin)
@@ -30,5 +34,10 @@ class PacienteAdmin(admin.ModelAdmin):
 	list_display = ('nombrePersona','dui', 'direccion', 'telefono', 'fechaNac', 'edad', 'remitente')
 admin.site.register(Paciente,PacienteAdmin)
 
+class CristalAdmin(admin.ModelAdmin):
+	list_display = ('codigo','graduacion', 'material', 'color', 'marca', 'cantidad', 'precioCompra')
+admin.site.register(Cristal,CristalAdmin)
 
-
+class FacturaVentaAdmin(admin.ModelAdmin):
+	list_display = ()
+admin.site.register(FacturaVenta,FacturaVentaAdmin)

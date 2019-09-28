@@ -1,0 +1,57 @@
+{% extends "Base.html" %}
+
+{% block content %}
+<div class="col-lg ">
+<title>Lente</title>
+    <body >
+        <h1 style="padding-left: 30px">Cristales registrados</h1>
+        <br>
+        <br>
+        <a class="btn btn-success" style="position: absolute; right: 5%" href="{%url 'registrarCristal'%}">Agregar Cristal</a>
+        <div>
+          <form class="form-goup" method="GET">
+          <div style="padding-left: 30px" class="form-group">
+              <label ><b>Buscar por codigo: &nbsp; &nbsp;</b></label>
+              <input style='width: 250px;'type="text" class="form-control" name="q" placeholder="Escriba el nombre y presione enter" id="">
+              <br>
+        </div>
+
+      <table style= 'position: absolute; left: 2%' class= "table table-bordered table-striped table-hover table-responsive">
+  <thead style="text-align: center;">
+    <tr style="text-align: center;word-wrap: break-word;">
+      <td style="width: 300px;" scope="col">Codigo</td>
+      <td scope="col">Graduacion</td>
+      <td scope="col">Material</td>
+      <td scope="col">Color</td>
+      <td scope="col">Marca</td>
+      <td scope="col">Cantidad</td>
+      <td scope="col">Precio Compra</td>
+    </tr>
+  </thead>
+  <tbody>
+
+    {% for Cristal in cristals%}
+    <tr>
+     <td>{{Cristal.codigo}}</td>
+     <td>{{Cristal.graduacion}}</td>
+     <td>{{Cristal.material}}</td>
+     <td>{{Cristal.color}}</td>
+     <td>{{Cristal.marca}}</td>
+     <td>{{Cristal.cantidad}}</td>
+     <td>{{Cristal.precioCompra}}</td>
+</div>
+     <td style="width: 400px">
+       <a class="btn btn-primary" href="{%url 'EditarCristal' Cristal.id %}">Editar</a>
+       <a class="btn btn-danger" href="{%url 'EliminarCristal' Cristal.id %}">Eliminar</a>
+
+     </td>
+    </tr>
+
+    {% endfor %}
+
+  </tbody>
+</table>
+
+
+    </body>
+{% endblock %}

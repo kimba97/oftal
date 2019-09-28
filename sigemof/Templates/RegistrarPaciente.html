@@ -1,35 +1,31 @@
 
 {% extends "Base.html" %}
 {% block content%}
-<div class="col-md-80 col-md-offset-2 tex">
-  <div class="col-md-80">
-</div>
-  <div class="col-md-7 col-sm-offset-0 col-sm-6 col-xs-offset-1 col-xs-10">
+<style>
+    input {width:200px;}
+</style>
+
+    <div style="position:absolute;left:38%; width:400px" class="contact-form">
     <h3>Registrar paciente</h3>
-            
-
-
-    <div class="contact-form">
-
-      <form class="form-group" id="form-group" role="form" method="POST" nctype="multipart/form-data">
+      <form class="form-group" id="form-group" role="form" method="post" enctype="multipart/form-data">
           {% csrf_token %}
                 <label><b>Nombre Paciente</b></label>
                 <input type="text" class="form-control" name="paci" placeholder="" required>
                 <label><b>DUI</b></label>
                 <input type="text" class="form-control" name="dui" placeholder="" required >
                 <label><b>Direccion</b></label>
-                <input type="textarea" class="form-control" name="direccion" placeholder="" required >
+                <input type="text" class="form-control" name="direccion" placeholder="" required >
                 <label><b>Telefono</b></label>
                 <input type="text" class="form-control" name="tel" placeholder="" required>
                 <label><b>Fecha de nacimiento</b></label>
                 <input type="date" class="form-control" name="naci" placeholder="" required>
                
-                <label><b>Sexo</b></label>
+                <label><b>Sexo</b></label><br>
                 <select name="sexo">
                 <!-- Opciones de la lista -->
                 <option value="Masculino">Masculino</option>
                 <option value="Femenino" selected>Femenino</option> 
-                </select>
+                </select><br>
                 <label><b>Correo</b></label>
                 <input type="email" class="form-control" name="correo" placeholder="" required>
                 <label><b>Nombre de padre</b></label>
@@ -39,17 +35,13 @@
                 <label><b>Nombre de remitente</b></label>
                 <input type="text" class="form-control" name="nameR" placeholder="" required>
 
-
-                
-               
-
         <div class="col-md-12 text-center">
-          <br><button type="submit" id="boton" class="btn btn-primary">Guardar</button> 
+          <br><button type="submit" id="boton" class="btn btn-primary">Guardar</button>
+          <input style="text.align:center; position:absolute; left:68%" class="btn btn-success" type="button" onclick="history.back()" name="cancelar" value="Cancelar">
         </div>
             </form>
         </div>
-    </div>
-  </div>
+
 </div>
 
 {% endblock content %}

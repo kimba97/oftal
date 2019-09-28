@@ -28,20 +28,20 @@
       <td scope="col">Acciones</td>       
     </tr>
   </thead>
-  <tbody>
+  <tbody style="text-align:center;">
 
     {% for Paciente in pacientes%}
     <tr>
      <td>{{Paciente.nombrePersona}}</td>
      <td>{{Paciente.dui}}</td>
      <td>{{Paciente.edad}}</td>
-     {% if Paciente.sexo == 2 %}
+     <!--{% if Paciente.sexo == 2 %}
      <td>Masculino</td>
      {% endif %}
      {%if Paciente.sexo == 3 %}
      <td>Femenino</td>
-     {% endif %}
-
+     {% endif %}-->
+        <td> {{Paciente.sexo}}</td>
      <td>{{Paciente.telefono}}</td>
      <td>{{Paciente.correo}}</td>
 </div>
