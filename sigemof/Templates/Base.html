@@ -6,11 +6,10 @@
 body {
     font-family: 'Lato', sans-serif;
 }
-
 /* Style the header with a grey background and some padding */
 .header {
   overflow: hidden;
-  background-color: #b84dff;
+  background-image: url("/static/img/fondo-header.jpg");
   padding: 20px 10px;
 
 }
@@ -114,7 +113,7 @@ body {
   }
 }
 </style>
-	<title>{% block Titulo %}Inicio{% endblock Titulo %}</title>
+
 
 	{% block META %}
 		<meta charset="UTF-8">
@@ -144,8 +143,6 @@ body {
      {% if request.user.is_authenticated %}
       <a href="{%url 'ListaPaciente' %}">Gestor de pacientes</a>
 	  <a href="{%url 'ListaLente' %}">Gestor de Lentes </a>
-	  <a href="{%url 'ListaCristal' %}">Gestor de Cristales </a>
-	  <a href="{%url 'FacturaVenta' %}">Factura Venta </a>
       <a href="{%url 'VerExpediente' %}">Ver Expedientes </a>
       <a href="{%url 'logout' %}">Cerrar sesión </a>
       {% else %}
@@ -157,10 +154,10 @@ body {
   </div>
 </div>
  <div class="header">
- 	<a href=".." class="logo">SIGEMOF</a>
+ 	<a href=".." class="logo"><font color="white" face="Verdana">SIGEMOF</font> </a>
   <div class="header-right">
 
-	<span style="font-size:30px;cursor:pointer; float: right;" onclick="openNav()">&#9776; Menu </span>
+	<span style="font-size:50px;cursor:pointer; position: absolute;right: 3%; top:1%" onclick="openNav()"><font color="white">&#9776;</font> </span>
   </div>
 </div> 
 
@@ -175,42 +172,8 @@ function openNav() {
 function closeNav() {
   document.getElementById("myNav").style.height = "0%";
 }
+
 </script>
-	<!--<nav class="navbar navbar-default">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<li class="active"><a class="navbar-brand" href="/">Sistema Contable</a></li>
-			</div>
-			<div class="collapse navbar-collapse" id="myNavbar">
-			<ul class="nav navbar-nav">
-				<li><a href="/">Home</a></li>
-				<li><a href="/transaccion">Registrar Transaccion</a></li>
-				<li class="dropdown">
-					<a class=""href="" class="dropdown-toggle" data-toggle="dropdown" role="button">Cuentas<span class="caret"></span></a>
-					<ul class="dropdown-menu">
-						 <li><a href="/admin/sistemacontable/cuenta/">Catalogo de cuentas</a></li>
-
-						</ul>
-
-				<li class="dropdown">
-					<a class=""href="" class="dropdown-toggle" data-toggle="dropdown" role="button">Libros contables<span class="caret"></span></a>
-					<ul class="dropdown-menu">
-						 <li><a href="/libroscontables">Libro mayor</a></li>
-						 <li><a href="/libroauxiliar">Libro auxiliar</a></li>
-						</ul>
-
-				
-				<li class="dropdown">
-					<a class=""href="" class="dropdown-toggle" data-toggle="dropdown" role="button">Cierre de período<span class="caret"></span></a>
-					<ul class="dropdown-menu">
-						 <li><a href="/saldoxMensual">Saldo por periodo mensual </a></li>
-						</ul>
-						<li><a href="/admin/">Administrador de base de datos</a></li>
-				
-
-		</div>
-	</div>
-	</nav>--->
 
 
 
@@ -220,9 +183,6 @@ function closeNav() {
 
 	{% endblock content %}
 
-	{% block PiePaginas %}
-
-	{% endblock PiePaginas %}
 
 </body>
 </html>
