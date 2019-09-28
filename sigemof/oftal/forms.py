@@ -44,22 +44,24 @@ class LenteForm(forms.ModelForm):
 
 	class Meta:
 		model = Lente
-		fields=['codigo', 'color', 'marca', 'cantidad', 'precioCompra']
+		fields=['codigo', 'color', 'marca', 'tamano']
 
 		labels={
 		'codigo':'Codigo',
 		'color':'Color',
 		'Marca':'marca',
-		'cantidad':'Cantidad',
-		'precioCompra':'PrecioCompra'
+		'tamano': 'tamano',
+#		'cantidad':'Cantidad',
+#		'precioCompra':'PrecioCompra'
 		}
 
 		widgets={
 		'codigo':forms.TextInput(attrs={'class':'form-control'}),
 		'color':forms.TextInput(attrs={'class':'form-control'}),
 		'marca': forms.TextInput(attrs={'class':'form-control'}),
-		'cantidad':forms.TextInput(attrs={'class':'form-control'}),
-		'precioCompra':forms.TextInput(attrs={'class':'form-control'})
+		'tamano': forms.TextInput(attrs={'class': 'form-control'}),
+#		'cantidad':forms.TextInput(attrs={'class':'form-control'}),
+#		'precioCompra':forms.TextInput(attrs={'class':'form-control'})
 		}
 
 
@@ -69,26 +71,38 @@ class CristalForm(forms.ModelForm):
 
 	class Meta:
 		model = Cristal
-		fields=['codigo', 'graduacion', 'material', 'color', 'marca', 'cantidad', 'precioCompra']
+		fields=['codigo', 'esfera', 'cilindro', 'eje', 'prisma', 'base', 'adicion', 'graduacion', 'color']
 
 		labels={
 		'codigo':'Codigo',
+		'esfera': 'Esfera',
+		'cilindro': 'Cilindro',
+		'eje': 'Eje',
+		'prisma': 'Prisma',
+		'base': 'Base',
+		'adicion': 'Adicion',
 		'graduacion':'Graduacion',
-		'material':'Material',
+#		'material':'Material',
 		'color':'Color',
-		'Marca':'marca',
-		'cantidad':'Cantidad',
-		'precioCompra':'PrecioCompra'
+#		'Marca':'marca',
+#		'cantidad':'Cantidad',
+#		'precioCompra':'PrecioCompra'
 		}
 
 		widgets={
 		'codigo':forms.TextInput(attrs={'class':'form-control'}),
+			'esfera': forms.TextInput(attrs={'class': 'form-control'}),
+			'cilindro': forms.TextInput(attrs={'class': 'form-control'}),
+			'eje': forms.TextInput(attrs={'class': 'form-control'}),
+			'prisma': forms.TextInput(attrs={'class': 'form-control'}),
+			'base': forms.TextInput(attrs={'class': 'form-control'}),
+			'adicion': forms.TextInput(attrs={'class': 'form-control'}),
 		'graduacion': forms.TextInput(attrs={'class': 'form-control'}),
-		'material': forms.TextInput(attrs={'class': 'form-control'}),
+#		'material': forms.TextInput(attrs={'class': 'form-control'}),
 		'color':forms.TextInput(attrs={'class':'form-control'}),
-		'marca': forms.TextInput(attrs={'class':'form-control'}),
-		'cantidad':forms.TextInput(attrs={'class':'form-control'}),
-		'precioCompra':forms.TextInput(attrs={'class':'form-control'})
+#		'marca': forms.TextInput(attrs={'class':'form-control'}),
+#		'cantidad':forms.TextInput(attrs={'class':'form-control'}),
+#		'precioCompra':forms.TextInput(attrs={'class':'form-control'})
 		}
 
 

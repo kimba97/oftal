@@ -4,10 +4,10 @@
 <div class="col-lg ">
 <title>Lente</title>
     <body >
-        <h1 style="padding-left: 30px">Lentes registrados</h1>
+        <h1 style="padding-left: 30px">Aros registrados</h1>
         <br>
         <br>
-        <a class="btn btn-success" style="position: absolute; right: 5%" href="{%url 'registrarLente'%}">Agregar Lente</a>
+        <a class="btn btn-success" style="position: absolute; right: 5%" href="{%url 'registrarLente'%}">Agregar Aro</a>
         <div>
           <form class="form-goup" method="GET">
           <div style="padding-left: 30px" class="form-group">
@@ -22,8 +22,7 @@
       <td style="width: 300px;" scope="col">Codigo</td>
       <td scope="col">Color</td>
       <td scope="col">Marca</td>
-      <td scope="col">Cantidad</td>
-      <td scope="col">Precio Compra</td>
+      <td scope="col">Tamaño</td>
     </tr>
   </thead>
   <tbody>
@@ -33,8 +32,7 @@
      <td>{{Lente.codigo}}</td>
      <td>{{Lente.color}}</td>
      <td>{{Lente.marca}}</td>
-     <td>{{Lente.cantidad}}</td>
-     <td>{{Lente.precioCompra}}</td>
+     <td>{{Lente.tamano}}</td>
 </div>
      <td style="width: 400px">
        <a class="btn btn-primary" href="{%url 'EditarLente' Lente.id %}">Editar</a>

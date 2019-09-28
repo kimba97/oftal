@@ -25,8 +25,9 @@ class Lente(models.Model):
 	codigo=models.CharField(max_length=20)
 	color=models.CharField(max_length=30)
 	marca=models.CharField(max_length=50)
-	cantidad=models.IntegerField()
-	precioCompra=models.FloatField()
+	tamano=models.FloatField(max_length=50)
+#	cantidad=models.IntegerField()
+#	precioCompra=models.FloatField()
 
 	class Meta:
 		verbose_name='Lente'
@@ -36,12 +37,18 @@ class Lente(models.Model):
 
 class Cristal(models.Model):
 	codigo = models.CharField(max_length=20)
-	graduacion=models.CharField(max_length=20)
-	material=models.CharField(max_length=30)
-	color=models.CharField(max_length=30)
-	marca=models.CharField(max_length=50)
-	cantidad=models.IntegerField()
-	precioCompra=models.FloatField()
+	esfera = models.CharField(max_length=20)
+	cilindro = models.CharField(max_length=20)
+	eje = models.CharField(max_length=20)
+	prisma = models.CharField(max_length=20)
+	base = models.CharField(max_length=20)
+	adicion = models.CharField(max_length=20)
+	graduacion = models.CharField(max_length=20)
+#	material=models.CharField(max_length=30)
+	color = models.CharField(max_length=30)
+#	marca=models.CharField(max_length=50)
+#	cantidad=models.IntegerField()
+#	precioCompra=models.FloatField()
 
 	class Meta:
 		verbose_name='Cristal'
