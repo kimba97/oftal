@@ -4,15 +4,17 @@
 
 
 		<div class="contact-form">
-			<form class="form-group" id="form-group" role="form" method="POST" nctype="multipart/form-data">
+			<form class="form-group" id="form-group" role="form" method="GET" nctype="multipart/form-data">
 				{% csrf_token %}
 				<br>
 				<br>
 				<br>
 				<br>
 				<div style= "position: absolute; top: 30%; right: 38%" class="form-group" align="center">
+					{{ codigo }}
                 	<label >Numero de Expediente:</label><br>
-                	<input style= " width: 350px" class="form-control" type="text" name="numExp" id="numExp"></input>
+
+                	<input style= " width: 350px" class="form-control" type="text" value="{{num}}" name="numExp" id="numExp" disabled></input>
                 	{% if cont == True %}
                 	<br>
                 	<label>Este numero de expediente ya fue utilizado </label>

@@ -160,11 +160,21 @@ def RegistrarExpediente(request, pac):
     cont = False
     blank = False
 
-    if request.method == 'POST':
+    if request.method == 'GET':
         exp = Expediente()
-        pac = Paciente.objects.get(id=pac)
-        exp.NumExp = request.POST['numExp']
-        exp.paciente = pac
+        paci = Paciente.objects.get(id=pac)
+        letra = paci.apellidoPersona[0]
+        sex = paci.sexo[0]
+        codigo = sex + letra
+        co = paci.id
+        ram = str(co).zfill(4)
+        numm = str(ram)
+        num = codigo + numm
+        print(num)
+
+
+        exp.NumExp = num
+        exp.paciente = paci
         if Expediente.objects.filter(NumExp=exp.NumExp).exists() == True:
             cont = True
             return render(request, 'crearExpediente.html', {'cont': cont, })
@@ -173,9 +183,9 @@ def RegistrarExpediente(request, pac):
             return render(request, 'crearExpediente.html', {'cont': cont, 'blank': blank, })
         else:
             exp.save()
-            return HttpResponseRedirect('/ListaPaciente/')
+            return HttpResponseRedirect('/VerExpediente/')
 
-    return render(request, 'crearExpediente.html', {'cont': cont, })
+    return render(request, 'crearExpediente.html', {'cont': cont,})
 
 
 def RegistrarConsulta(request, exp):
