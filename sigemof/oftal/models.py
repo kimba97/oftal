@@ -35,6 +35,18 @@ class Lente(models.Model):
 	def __str__(self):
 		return '%s' %(self.codigo)
 
+class FacturaLente(models.Model):
+	descripcion= models.CharField(max_length=50)
+	precio = models.FloatField(null=True)
+	total = models.FloatField(null=True)
+	cantidad = models.IntegerField(null=True)
+	
+#	class Meta:
+#		verbose_name='FacturaVenta'
+#		verbose_name_pural='FacturaVentas'
+	def __str__(self):
+		return '%s' %(self.id)		
+
 class Cristal(models.Model):
 	codigo = models.CharField(max_length=20)
 	esfera = models.CharField(max_length=20)
@@ -56,6 +68,7 @@ class Cristal(models.Model):
 	adiciond = models.CharField(max_length=20)
 	graduaciond = models.CharField(max_length=20)
 	colord = models.CharField(max_length=30)
+	factura = models.ForeignKey(FacturaLente, on_delete=models.CASCADE,null=True, blank=True)
 
 	class Meta:
 		verbose_name='Cristal'
@@ -125,6 +138,13 @@ class Cita(models.Model):
 
 
 class FacturaVenta(models.Model):
+	paciente=models.ForeignKey(Paciente, on_delete=models.CASCADE,null=True, blank=True)
+	codigoFactura = models.IntegerField(null=True)
+	descripcion = models.CharField(max_length=100,null=True)
+	lente = models.ForeignKey(Cristal, on_delete=models.CASCADE,null=True, blank=True)
+	aro = models.ForeignKey(Lente, on_delete=models.CASCADE,null=True, blank=True)
+	precioVenta = models.FloatField(null=True)
+	total = models.FloatField(null=True)
 
 #	class Meta:
 #		verbose_name='FacturaVenta'

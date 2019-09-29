@@ -27,6 +27,8 @@ urlpatterns = [
     url(r'^registrarLente/', registrarLente, name='registrarLente'),
     url(r'^registrarCristal/', registrarCristal, name='registrarCristal'),
     url(r'^verCita/', verCita, name='verCita'),
+    url(r'^registrarFacturaLente/', registrarFacturaLente, name='registrarFacturaLente'),
+    url(r'^verFacturaLente/', verFacturaLente, name='verFacturaLente'),
 
 #    path('ListaPaciente/', views.ListPaciente.as_view(), name='ListaPaciente'),
     url(r'^ListaPaciente/', ListPaciente, name='ListaPaciente'),

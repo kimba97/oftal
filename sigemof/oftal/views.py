@@ -330,3 +330,19 @@ def editarEstado(request,id):
         #cita.update()
 
     return render(request, 'editarEstado.html', {'form':form, })
+
+
+def registrarFacturaLente(request):
+    if request.method == 'POST':
+        facturaLente = FacturaLente()
+        facturaLente.descripcion= request.POST['descripcion']
+        facturaLente.precio = request.POST['precio']
+        facturaLente.cantidad=request.POST['cantidad']
+        facturaLente.total = request.POST['total']
+        facturaLente.save()
+        return HttpResponseRedirect('/verFacturaLente')
+    return render(request, 'registrarFacturaLente.html',)
+
+def verFacturaLente(request):
+    fac = FacturaLente.objects.all()
+    return render(request, 'verFacturaLente.html', {'fac' : fac, })

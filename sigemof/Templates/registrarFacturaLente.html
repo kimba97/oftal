@@ -1,0 +1,35 @@
+{% extends "Base.html" %}
+
+{% block content %}
+<title>{% block Titulo %}Registrar Factura Lente{% endblock Titulo %}</title>
+<h1 style=" text-align: center;">Registrar Factura de lentes</h1>
+        <br>
+        <br>
+    
+        <div class="contact-form">
+            <form class="form-group" id="form-group" role="form" method="POST" nctype="multipart/form-data">
+                {% csrf_token %}
+
+                <div style="position: absolute; left: 40%" class="form-group" align="center">
+                    <label>Descipcion</label><br>
+                    <input style="text-align: center" class="form-control" type="text" name="descripcion" id="descripcion"></input>
+                    <br>
+                    <label>Precio</label><br>
+                    <input style="text-align: center;" min="0.00" class="form-control" type="number" step="0.01" name="precio" id="precio"></input>
+                    <label> Cantidad</label>
+                    <input style="text-align: center;" min="0" class="form-control" type="numer" step="1" name="cantidad" id="cantidad"></input>
+                    <label>Total</label>
+                    <input class="form-control" min="0.00" type="number" step="0.01" name="total" id="total">
+                    <br>
+
+                        <button type="submit" id="boton" class="btn btn-success">Guardar</button>
+                        <input class="btn btn-danger" type="button" onclick="history.back()" name="cancelar" value="Cancelar">
+
+                </div>
+</div>
+            </form>
+        </div>
+    
+
+
+{% endblock %}
