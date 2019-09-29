@@ -1,0 +1,46 @@
+{% extends "Base.html" %}
+
+{% block content%}
+    <title>{% block Titulo %}Editar Estado{% endblock Titulo %}</title>
+
+            
+
+
+    <div style="align-items: center; position:absolute;left:2%; width:400px" class="contact-form">
+    <h3>Editar Cita</h3><br>
+      <form class="form-group" id="form-group" role="form" method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+          {{form.as_p}}
+               <!-- <label><b>Fecha</b></label>
+                <input type="date" class="form-control" name="fecha" placeholder="" value = "{{cita.fecha}}" required>
+                <label><b>Hora de Inicio</b></label>
+                <input placeholder=""  type="time" value="08:30" min="08:30" max="15:00" class="form-control" name="horaI" " value="{{cita.horaI}}" required>
+                <label><b>Hora de Finalizacion</b></label>
+                <input type="time" placeholder=""  type="time" value="09:00" min="08:30" max="15:00"  class="form-control" name="horaF" value="{{cita.horaF}}"  required>
+
+                <label><b>Estado</b></label><br>
+                <select style="width: 400px; height: 30px; border-width: 0.5px" name="estado">
+                
+                <option value="Programada">Realizada</option>
+                <option value="Reprogramada" selected>Reprogramada</option> 
+                <option value="Realizada" selected>Programada</option> 
+                </select><br>-->
+             
+                
+
+
+                
+               
+
+        <div class="col-md-12 text-center">
+        
+        </div>
+           
+        </div>
+  <br>
+  <button style="position: absolute; bottom: 10%; right:20%" type="submit" id="boton" class="btn btn-primary">Guardar</button> 
+     <input style="position: absolute; bottom: 10%; right:12%; width:80px" class="btn btn-danger" type="button" onclick="history.back()" name="cancelar" value="Cancelar">
+ </form>
+</div>
+
+{% endblock content %}

@@ -142,9 +142,10 @@ body {
   <div class="overlay-content">
      {% if request.user.is_authenticated %}
       <a href="{%url 'ListaPaciente' %}">Gestor de pacientes</a>
-	  <a href="{%url 'ListaLente' %}">Gestor de Aros </a>
-	  <a href="{%url 'ListaCristal' %}">Gestor de Lentes </a>
+      <a href="{%url 'ListaLente' %}">Gestor de Aros </a>
+      <a href="{%url 'ListaCristal' %}">Gestor de Lentes </a>
       <a href="{%url 'VerExpediente' %}">Ver Expedientes </a>
+      <a href="{%url 'verCita' %}">Ver Citas </a>
       <a href="{%url 'calendario'%}"> Calendario de Google</a>
       <a href="{%url 'logout' %}">Cerrar sesión </a>
       {% else %}

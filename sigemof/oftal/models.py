@@ -104,6 +104,18 @@ class Consulta(models.Model):
 	def __str__(self):
 		return '%s' %(self.id)
 
+class Cita(models.Model):
+	fecha=models.DateField()
+	horaI=models.CharField(max_length=10)
+	horaF=models.CharField(max_length=10)
+	estado=models.CharField(max_length=20)
+	paciCita=models.ForeignKey(Paciente, on_delete=models.CASCADE, null=True, blank=True)
+	class Meta:
+		verbose_name='Cita'
+		verbose_name_plural='Citas'
+	def __str__(self):
+		return '%s' %(self.id)
+
 
 class FacturaVenta(models.Model):
 

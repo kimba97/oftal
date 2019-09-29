@@ -1,0 +1,43 @@
+{% extends "Base.html" %}
+
+{% block content %}
+<div class="col-lg ">
+<title>Citas por paciente</title>
+    <body >
+        <h1 style="padding-left: 30px">Citas</h1>
+         {% csrf_token %}
+        <br>
+        
+        <br>
+        
+      <table style= 'position: absolute; left: 2%' class= "table table-bordered table-striped table-hover table-responsive">
+  <thead style="text-align: center;">
+    <tr style="text-align: center;word-wrap: break-word;">
+      <td scope="col">Fecha</td>
+      <td scope="col">Hora de Inicio</td>
+      <td scope="col">Hora de Finalizacion</td>
+      <td scope="col">Estado</td>
+      <td scope="col">Acciones</td>
+    </tr>
+  </thead>
+  <tbody>
+
+    {% for c in cits %}
+    <tr>
+     <td>{{c.fecha}}</td>
+     <td>{{c.horaI}}</td>
+     <td>{{c.horaF}}</td>
+     <td>{{c.estado}}</td>
+    <td><a class="btn btn-primary" href="{%url 'editarEstado' c.id %}">Editar</a></td>  
+
+     </td>
+    </tr>
+
+    {% endfor %}
+
+  </tbody>
+</table>
+
+
+    </body>
+{% endblock %}

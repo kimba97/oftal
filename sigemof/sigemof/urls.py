@@ -26,11 +26,13 @@ urlpatterns = [
     url(r'^registrarPaciente/', registrarPaciente, name='registrarPaciente'),
     url(r'^registrarLente/', registrarLente, name='registrarLente'),
     url(r'^registrarCristal/', registrarCristal, name='registrarCristal'),
+    url(r'^verCita/', verCita, name='verCita'),
 
 #    path('ListaPaciente/', views.ListPaciente.as_view(), name='ListaPaciente'),
     url(r'^ListaPaciente/', ListPaciente, name='ListaPaciente'),
     url(r'^ListaLente/', ListLente, name='ListaLente'),
     url(r'^ListaCristal/', ListCristal, name='ListaCristal'),
+
 
     re_path(r'^Paciente/editar/(?P<id>\d+)', UpdatePaciente, name='EditarPaciente'),
     re_path(r'^Lente/editar/(?P<id>\d+)', UpdateLente, name='EditarLente'),
@@ -39,12 +41,16 @@ urlpatterns = [
     re_path(r'^Paciente/eliminar/(?P<id>\d+)', DeletePaciente, name='EliminarPaciente'),
     re_path(r'^Lente/eliminar/(?P<id>\d+)', DeleteLente, name='EliminarLente'),
     re_path(r'^Cristal/eliminar/(?P<id>\d+)', DeleteCristal, name='EliminarCristal'),
-
+    re_path(r'^editarEstado/(?P<id>\d+)', editarEstado, name='editarEstado'),
+    re_path(r"^verCitasP/(?P<pac>\d+)", verCitasP, name='verCitasP'), 
     #path('', views.index, name='index'),
     url(r"^VerConsulta/(?P<exp>[^/]+)/$", VerConsulta, name='VerConsulta'),
+
     url(r'^VerExpediente/', VerExpediente, name='VerExpediente'),
     url(r"^RegistrarExpediente/(?P<pac>[^/]+)/$", RegistrarExpediente, name='RegistrarExpediente'),
+   
     url(r"^RegistrarConsulta/(?P<exp>[^/]+)/$", RegistrarConsulta, name='RegistrarConsulta'),
+    url(r"^registrarCita/(?P<pac>[^/]+)/$", registrarCita, name='registrarCita'),
     #url(r'^login/$', 'django.contrib.auth.views.login'),
     #url(r'^logout/$',   'django.contrib.auth.views.logout', {'next_page': '/index/'}),
     path('login/', auth_views.LoginView.as_view(template_name = 'index.html'), name = 'login'),

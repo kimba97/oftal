@@ -9,7 +9,6 @@ from oftal.forms import *
 from django.contrib.auth import authenticate, login
 from datetime import datetime
 import time
-from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -25,7 +24,7 @@ def inicio(request):
 def calendario(request):
     return render(request, 'calendario.html')
 
-@login_required
+
 def registrarPaciente(request):
     if request.method == 'POST':
         pacientes = Paciente()
@@ -48,7 +47,7 @@ def registrarPaciente(request):
         return HttpResponseRedirect('/ListaPaciente/')
     return render(request, 'RegistrarPaciente.html', )
 
-@login_required
+
 def registrarLente(request):
     if request.method == 'POST':
         lente = Lente()
@@ -79,7 +78,7 @@ def ListLente(request):
 #    form_class = LenteForm
 #    template_name = 'RegistrarLente.html'
 #    success_url = '/ListaLente/'
-@login_required
+
 def UpdateLente(request, id):
     lente = Lente.objects.get(id=id)
     if request.method == 'GET':
@@ -90,14 +89,14 @@ def UpdateLente(request, id):
             form.save()
         return redirect('ListaLente')
     return render(request, 'EditarLente.html', {'form': form})
-@login_required
+
 def DeleteLente(request, id):
     lente = Lente.objects.get(id=id)
     if request.method == 'POST':
         lente.delete()
         return redirect('ListaLente')
     return render(request, 'EliminarLente.html', {'Lente': lente})
-@login_required
+
 def ListPaciente(request):
     pacientes = Paciente.objects.all()
     expedientes = Expediente.objects.all()
@@ -118,7 +117,7 @@ def ListPaciente(request):
   #  form_class = PacienteForm
    # template_name = 'RegistrarPaciente.html'
     #success_url = '/ListaPaciente/'
-@login_required
+
 def UpdatePaciente(request, id):
     paciente = Paciente.objects.get(id=id)
     if request.method == 'GET':
@@ -130,7 +129,7 @@ def UpdatePaciente(request, id):
         return redirect('ListaPaciente')
     return render(request, 'EditarPaciente.html', {'form': form})
 
-@login_required
+
 def DeletePaciente(request, id):
     paciente = Paciente.objects.get(id=id)
     if request.method == 'POST':
@@ -138,7 +137,6 @@ def DeletePaciente(request, id):
         return redirect('ListaPaciente')
     return render(request, 'EliminarPaciente.html', {'Paciente': paciente})
 
-@login_required
 def VerConsulta(request, exp):
     consul = Consulta.objects.filter(expedientePac_id=exp)
 
@@ -149,7 +147,7 @@ def VerConsulta(request, exp):
             c = Consulta.objects.all()
     return render(request, 'VerConsulta.html', {'consul': consul, })
 
-@login_required
+
 def VerExpediente(request):
     exp = Expediente.objects.all()
     pac = Paciente.objects.all()
@@ -161,7 +159,7 @@ def VerExpediente(request):
             c = Expediente.objects.all()
     return render(request, 'VerExpediente.html', {'exp': exp, })
 
-@login_required
+
 def RegistrarExpediente(request, pac):
     expedientes = Expediente.objects.all()
     cont = False
@@ -194,7 +192,7 @@ def RegistrarExpediente(request, pac):
 
     return render(request, 'crearExpediente.html', {'cont': cont,})
 
-@login_required
+
 def RegistrarConsulta(request, exp):
     blank = False
     if request.method == 'POST':
