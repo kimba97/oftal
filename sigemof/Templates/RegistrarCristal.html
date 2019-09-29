@@ -1,15 +1,11 @@
 {% extends "Base.html" %}
 {% block content%}
-<div class="col-md-80 col-md-offset-2 tex">
-  <div class="col-md-80">
-</div>
-  <div class="col-md-7 col-sm-offset-0 col-sm-6 col-xs-offset-1 col-xs-10">
-    <h3>Registrar Lente</h3>
+    
 
 
 
-    <div class="contact-form">
-
+    <div style="position:absolute;left:2%; width:400px" class="contact-form">
+      <h3>Registrar Lente</h3>
       <form class="form-group" id="form-group" role="form" method="post" enctype="multipart/form-data">
           {% csrf_token %}
                 <label><b>Codigo</b></label>
@@ -22,24 +18,30 @@
                 <input type="text" class="form-control" name="eje" placeholder="" required>
                 <label><b>Prisma</b></label>
                 <input type="text" class="form-control" name="prisma" placeholder="" required >
+
+                <div style="position:absolute;right:-150%; top: 14%;width:400px">
+                <label><b>Prisma</b></label>
+                <input type="text" class="form-control" name="prisma" placeholder="" required >
                 <label><b>Base</b></label>
                 <input type="textarea" class="form-control" name="base" placeholder="" required >
                 <label><b>Adicion</b></label>
                 <input type="textarea" class="form-control" name="adicion" placeholder="" required >
                 <label><b>Graduacion</b></label>
                 <input type="textarea" class="form-control" name="graduacion" placeholder="" required >
-                <label><b>color</b></label>
+                <label><b>Color</b></label>
                 <input type="textarea" class="form-control" name="color" placeholder="" required >
+                
 
+                
 
-        <div class="col-md-12 text-center">
-          <br><button type="submit" id="boton" class="btn btn-primary">Guardar</button>
-          <input style="text.align:center; position:absolute; left:68%" class="btn btn-success" type="button" onclick="history.back()" name="cancelar" value="Cancelar">
-        </div>
-            </form>
-        </div>
-    </div>
-  </div>
+                <br><button style="position: absolute; right: 30%; bottom: -15%" type="submit" id="boton" class="btn btn-primary">Guardar</button>
+                <input style="text.align:center; position: absolute; right: -10%; bottom:-15%" class="btn btn-success" type="button" onclick="history.back()" name="cancelar" value="Cancelar">
 </div>
+
+
+     
+           
+        </div>
+ </form>
 
 {% endblock content %}
