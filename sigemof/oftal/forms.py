@@ -1,6 +1,7 @@
 from django import forms
 from .models import *
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from .choices import *
 
 class PacienteForm(forms.ModelForm):
 
@@ -105,5 +106,26 @@ class CristalForm(forms.ModelForm):
 #		'precioCompra':forms.TextInput(attrs={'class':'form-control'})
 		}
 
+class CitaForm(forms.ModelForm):
 
+	class Meta:
+		model = Cita
+		fields=['fecha', 'horaI', 'horaF', 'estado', 'paciCita']
+
+		labels={
+		'fecha':'Fecha',
+		'horaI': 'Hora de Inicio',
+		'horaF': 'Hora de Fin',
+		'estado': 'Estado de Cita',
+		'paciCita': 'Nombre del Paciente',
+		}
+
+		widgets={
+		'fecha':forms.TextInput(attrs={'class': 'form-control','readonly':'True', 'disabled': 'True'}),
+			'horaI': forms.DateInput(attrs={'class': 'form-control','readonly':'True', 'disabled': 'True'}),
+			'horaF': forms.DateInput(attrs={'class': 'form-control','readonly':'True', 'disabled': 'True'}),
+			#STATUS_CHOICES = ((PROGRAMADA, "programada"), (REPROGRAMADA, "reprogramada"), (REALIZADA, "realizada"))
+			'estado': forms.Select(attrs={'class': 'form-control'}, choices=ESTADO_CHOICES),
+			'paciCita': forms.TextInput(attrs={'class': 'form-control', 'readonly': 'True', 'disabled': 'True'})
+			}
 

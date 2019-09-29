@@ -212,31 +212,6 @@ def RegistrarConsulta(request, exp):
 
     return render(request, 'RegistrarConsulta.html', )
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 def registrarCristal(request):
     if request.method == 'POST':
         cristal = Cristal()
@@ -257,6 +232,13 @@ def registrarCristal(request):
         return HttpResponseRedirect('/ListaCristal/')
     return render(request, 'registrarCristal.html',)
 
+def verCita(request):
+    c = Cita.objects.all()
+    if request.method == 'GET':
+        if "q" in request.GET:
+            q = request.GET.get('q','')
+            c = Cita.objects.filter(fecha__icontains=q)
+    return render(request, 'verCita.html', {'c' : c, })
 
 def ListCristal(request):
     cristals = Cristal.objects.all()
@@ -297,4 +279,45 @@ def DeleteCristal(request, id):
 def FacturaVenta(request):
     if request.method == 'POST':
         return render(request, 'FacturaVenta.html',{})
+
+def registrarCita(request, pac):
+    paciente = Paciente.objects.get(id=pac)
+    cita = Cita()
+    now = datetime.now()
+    val= True
+    if request.method == 'POST':
+        cita.fecha = request.POST['fecha']
+        cita.horaI = request.POST['horaI']
+        cita.horaF = request.POST['horaF']
+        cita.estado = request.POST['estado']
+        cita.paciCita = paciente
+        fechaI = datetime.strptime(cita.fecha, '%Y-%m-%d')
+        if now > fechaI:
+            val = False
+            return render(request, 'registrarCita.html', {'val': val })
+        else:
+            cita.save()
+        return redirect('ListaPaciente')
+    return render(request, 'registrarCita.html', {'Paciente': paciente, 'val': val})
+
+
+def verCitasP(request, pac):
+    
+    cits = Cita.objects.filter(paciCita=pac).order_by('fecha')
+    return render(request, 'verCitasP.html', {'cits': cits, })
+
+def editarEstado(request,id):
+    cita = Cita.objects.get(id=id)
+    if request.method == 'GET':
+        form = CitaForm(instance=cita)
+    else: 
+        form = CitaForm(request.POST, instance=cita)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/verCitasP/'+ str(cita.paciCita.id))
+        #cita.estado = request.POST['estado']
+        #cita.update()
+
+    return render(request, 'editarEstado.html', {'form':form, })
+
 

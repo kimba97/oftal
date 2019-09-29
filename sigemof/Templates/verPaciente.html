@@ -50,6 +50,8 @@
      <td style="width: 400px">
        <a class="btn btn-primary" href="{%url 'EditarPaciente' Paciente.id %}">Editar</a>
        <a class="btn btn-danger" href="{%url 'EliminarPaciente' Paciente.id %}">Eliminar</a>
+       <a class="btn btn-danger" href="{%url 'registrarCita' Paciente.id %}">Registrar Cita</a>
+       <a class="btn btn-primary" href="{%url 'verCitasP' Paciente.id %}">Ver Citas</a>
        {% for e in expedientes%}
        {% if e.paciente.id == Paciente.id %}
         <label style="text-align: center">Ya posee expediente</label>
