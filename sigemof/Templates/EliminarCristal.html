@@ -7,20 +7,37 @@
 
     <body class="d-flex align-items-start">
 
-    <div  class="d-inline-flex pl-5">
+ <!--   <div  class="d-inline-flex pl-5">  -->
+        <div style="position:absolute;left:2%; width:400px" class="contact-form">
 
     <form method="post">
       {%csrf_token%}
       <h1 style="text-align: center;">¿Desea eliminar el registro de este Lente?</h1>
-      <h3 style="text-align: center;"> Codigo: {{Cristal.codigo}} </h3>
-      <h3 style="text-align: center;"> Esfera: {{Cristal.esfera}} </h3>
-      <h3 style="text-align: center;"> Cilindro: {{Cristal.cilindro}} </h3>
-      <h3 style="text-align: center;"> Eje: {{Cristal.eje}} </h3>
-      <h3 style="text-align: center;"> Prisma: {{Cristal.prisma}} </h3>
-      <h3 style="text-align: center;"> Base: {{Cristal.base}} </h3>
-      <h3 style="text-align: center;"> Adicion: {{Cristal.adicion}} </h3>
-      <h3 style="text-align: center;"> Graduacion: {{Cristal.graduacion}} </h3>
-      <h3 style="text-align: center;"> Color: {{Cristal.color}} </h3>
+      <br>
+      <h2>Lente Derecho</h2>
+      <h3 style="text-align: center;"> Codigo OI: {{Cristal.codigo}} </h3>
+      <h3 style="text-align: center;"> Esfera OI: {{Cristal.esfera}} </h3>
+      <h3 style="text-align: center;"> Cilindro OI: {{Cristal.cilindro}} </h3>
+      <h3 style="text-align: center;"> Eje OI: {{Cristal.eje}} </h3>
+      <h3 style="text-align: center;"> Prisma OI: {{Cristal.prisma}} </h3>
+      <h3 style="text-align: center;"> Base OI: {{Cristal.base}} </h3>
+      <h3 style="text-align: center;"> Adicion OI: {{Cristal.adicion}} </h3>
+      <h3 style="text-align: center;"> Graduacion OI: {{Cristal.graduacion}} </h3>
+      <h3 style="text-align: center;"> Color OI: {{Cristal.color}} </h3>
+
+      <div style="position:absolute;right:-150%; top: 14%;width:400px">
+      <br>
+      <br>
+      <h2>Lente Izquierdo</h2>
+      <h3 style="text-align: center;"> Codigo OD: {{Cristal.codigod}} </h3>
+      <h3 style="text-align: center;"> Esfera OD: {{Cristal.esferad}} </h3>
+      <h3 style="text-align: center;"> Cilindro OD: {{Cristal.cilindrod}} </h3>
+      <h3 style="text-align: center;"> Eje OD: {{Cristal.ejed}} </h3>
+      <h3 style="text-align: center;"> Prisma OD: {{Cristal.prismad}} </h3>
+      <h3 style="text-align: center;"> Base OD: {{Cristal.based}} </h3>
+      <h3 style="text-align: center;"> Adicion OD: {{Cristal.adiciond}} </h3>
+      <h3 style="text-align: center;"> Graduacion OD: {{Cristal.graduaciond}} </h3>
+      <h3 style="text-align: center;"> Color Od: {{Cristal.colord}} </h3>
 
 
 

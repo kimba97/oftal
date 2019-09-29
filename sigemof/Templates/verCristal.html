@@ -20,15 +20,26 @@
       <table style= 'position: absolute; left: 2%' class= "table table-bordered table-striped table-hover table-responsive">
   <thead style="text-align: center;">
     <tr style="text-align: center;word-wrap: break-word;">
-      <td style="width: 300px;" scope="col">Codigo</td>
-      <td scope="col">Esfera</td>
-        <td scope="col">Cilindro</td>
-        <td scope="col">Eje</td>
-        <td scope="col">Prisma</td>
-        <td scope="col">Base</td>
-        <td scope="col">Adicion</td>
-      <td scope="col">Graduacion</td>
-      <td scope="col">Color</td>
+      <td style="width: 300px;" scope="col">Codigo OI</td>
+      <td scope="col">Esfera OI</td>
+        <td scope="col">Cilindro OI</td>
+        <td scope="col">Eje OI</td>
+        <td scope="col">Prisma OI</td>
+        <td scope="col">Base OI</td>
+        <td scope="col">Adicion OI</td>
+      <td scope="col">Graduacion OI</td>
+      <td scope="col">Color OI</td>
+
+        <td scope="col">Codigo OD</td>
+        <td scope="col">Esfera OD</td>
+        <td scope="col">Cilindro OD</td>
+        <td scope="col">Eje OD</td>
+        <td scope="col">Prisma OD</td>
+        <td scope="col">Base OD</td>
+        <td scope="col">Adicion OD</td>
+      <td scope="col">Graduacion OD</td>
+      <td scope="col">Color OD</td>
+        <td scope="col">Acciones</td>
     </tr>
   </thead>
   <tbody>
@@ -44,6 +55,18 @@
      <td>{{Cristal.adicion}}</td>
      <td>{{Cristal.graduacion}}</td>
      <td>{{Cristal.color}}</td>
+
+
+     <td>{{Cristal.codigod}}</td>
+     <td>{{Cristal.esferad}}</td>
+     <td>{{Cristal.cilindrod}}</td>
+     <td>{{Cristal.ejed}}</td>
+     <td>{{Cristal.prismad}}</td>
+     <td>{{Cristal.based}}</td>
+     <td>{{Cristal.adiciond}}</td>
+     <td>{{Cristal.graduaciond}}</td>
+     <td>{{Cristal.colord}}</td>
+
 </div>
      <td style="width: 400px">
        <a class="btn btn-primary" href="{%url 'EditarCristal' Cristal.id %}">Editar</a>

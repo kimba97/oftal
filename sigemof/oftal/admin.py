@@ -35,7 +35,7 @@ class PacienteAdmin(admin.ModelAdmin):
 admin.site.register(Paciente,PacienteAdmin)
 
 class CristalAdmin(admin.ModelAdmin):
-	list_display = ('codigo', 'esfera', 'cilindro', 'eje', 'prisma', 'base', 'adicion', 'graduacion', 'color')
+	list_display = ('codigo', 'esfera', 'cilindro', 'eje', 'prisma', 'base', 'adicion', 'graduacion', 'color', 'codigod', 'esferad', 'cilindrod', 'ejed', 'prismad', 'based', 'adiciond', 'graduaciond', 'colord')
 admin.site.register(Cristal,CristalAdmin)
 
 class FacturaVentaAdmin(admin.ModelAdmin):

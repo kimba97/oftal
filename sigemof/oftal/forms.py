@@ -72,35 +72,58 @@ class CristalForm(forms.ModelForm):
 
 	class Meta:
 		model = Cristal
-		fields=['codigo', 'esfera', 'cilindro', 'eje', 'prisma', 'base', 'adicion', 'graduacion', 'color']
+		fields=['codigo', 'esfera', 'cilindro', 'eje', 'prisma', 'base', 'adicion', 'graduacion', 'color', 'codigod', 'esferad', 'cilindrod', 'ejed', 'prismad', 'based', 'adiciond', 'graduaciond', 'colord']
 
 		labels={
-		'codigo':'Codigo',
-		'esfera': 'Esfera',
-		'cilindro': 'Cilindro',
-		'eje': 'Eje',
-		'prisma': 'Prisma',
-		'base': 'Base',
-		'adicion': 'Adicion',
-		'graduacion':'Graduacion',
+		'codigo':'Codigo OI',
+		'esfera': 'Esfera OI',
+		'cilindro': 'Cilindro OI',
+		'eje': 'Eje OI',
+		'prisma': 'Prisma OI',
+		'base': 'Base OI',
+		'adicion': 'Adicion OI',
+		'graduacion':'Graduacion OI',
 #		'material':'Material',
-		'color':'Color',
+		'color':'Color OI',
+
+		'codigod': 'Codigo OI',
+		'esferad': 'Esfera OI',
+		'cilindrod': 'Cilindro OI',
+		'ejed': 'Eje OI',
+		'prismad': 'Prisma OI',
+		'based': 'Base OI',
+		'adiciond': 'Adicion OI',
+		'graduaciond': 'Graduacion OI',
+#		'material':'Material',
+		'colord': 'Color OI',
 #		'Marca':'marca',
 #		'cantidad':'Cantidad',
 #		'precioCompra':'PrecioCompra'
 		}
 
 		widgets={
-		'codigo':forms.TextInput(attrs={'class':'form-control'}),
-			'esfera': forms.TextInput(attrs={'class': 'form-control'}),
-			'cilindro': forms.TextInput(attrs={'class': 'form-control'}),
-			'eje': forms.TextInput(attrs={'class': 'form-control'}),
-			'prisma': forms.TextInput(attrs={'class': 'form-control'}),
-			'base': forms.TextInput(attrs={'class': 'form-control'}),
-			'adicion': forms.TextInput(attrs={'class': 'form-control'}),
+
+		'codigo':forms.TextInput(attrs={'class':'form-left'}),
+		'esfera': forms.TextInput(attrs={'class': 'form-control'}),
+		'cilindro': forms.TextInput(attrs={'class': 'form-control'}),
+		'eje': forms.TextInput(attrs={'class': 'form-control'}),
+		'prisma': forms.TextInput(attrs={'class': 'form-control'}),
+		'base': forms.TextInput(attrs={'class': 'form-control'}),
+		'adicion': forms.TextInput(attrs={'class': 'form-control'}),
 		'graduacion': forms.TextInput(attrs={'class': 'form-control'}),
 #		'material': forms.TextInput(attrs={'class': 'form-control'}),
 		'color':forms.TextInput(attrs={'class':'form-control'}),
+
+		'codigod': forms.TextInput(attrs={'class': 'form-control'}),
+		'esferad': forms.TextInput(attrs={'class': 'form-control'}),
+		'cilindrod': forms.TextInput(attrs={'class': 'form-control'}),
+		'ejed': forms.TextInput(attrs={'class': 'form-control'}),
+		'prismad': forms.TextInput(attrs={'class': 'form-control'}),
+		'based': forms.TextInput(attrs={'class': 'form-control'}),
+		'adiciond': forms.TextInput(attrs={'class': 'form-control'}),
+		'graduaciond': forms.TextInput(attrs={'class': 'form-control'}),
+#		'material': forms.TextInput(attrs={'class': 'form-control'}),
+		'colord': forms.TextInput(attrs={'class': 'form-control'}),
 #		'marca': forms.TextInput(attrs={'class':'form-control'}),
 #		'cantidad':forms.TextInput(attrs={'class':'form-control'}),
 #		'precioCompra':forms.TextInput(attrs={'class':'form-control'})
@@ -126,6 +149,6 @@ class CitaForm(forms.ModelForm):
 			'horaF': forms.DateInput(attrs={'class': 'form-control','readonly':'True', 'disabled': 'True'}),
 			#STATUS_CHOICES = ((PROGRAMADA, "programada"), (REPROGRAMADA, "reprogramada"), (REALIZADA, "realizada"))
 			'estado': forms.Select(attrs={'class': 'form-control'}, choices=ESTADO_CHOICES),
-			'paciCita': forms.TextInput(attrs={'class': 'form-control', 'readonly': 'True', 'disabled': 'True'})
+			'paciCita': forms.TextInput(attrs={'class': 'form-control', 'readonly': 'True', 'disabled': 'True'}),
 			}
 

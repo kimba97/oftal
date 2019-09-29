@@ -46,9 +46,16 @@ class Cristal(models.Model):
 	graduacion = models.CharField(max_length=20)
 #	material=models.CharField(max_length=30)
 	color = models.CharField(max_length=30)
-#	marca=models.CharField(max_length=50)
-#	cantidad=models.IntegerField()
-#	precioCompra=models.FloatField()
+
+	codigod = models.CharField(max_length=20)
+	esferad = models.CharField(max_length=20)
+	cilindrod = models.CharField(max_length=20)
+	ejed = models.CharField(max_length=20)
+	prismad = models.CharField(max_length=20)
+	based = models.CharField(max_length=20)
+	adiciond = models.CharField(max_length=20)
+	graduaciond = models.CharField(max_length=20)
+	colord = models.CharField(max_length=30)
 
 	class Meta:
 		verbose_name='Cristal'
