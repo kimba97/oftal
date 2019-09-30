@@ -335,9 +335,9 @@ def editarEstado(request,id):
 def registrarFacturaLente(request):
     if request.method == 'POST':
         facturaLente = FacturaLente()
-        facturaLente.descripcion= request.POST['descripcion']
+        facturaLente.descripcion = request.POST['descripcion']
         facturaLente.precio = request.POST['precio']
-        facturaLente.cantidad=request.POST['cantidad']
+        facturaLente.cantidad = request.POST['cantidad']
         facturaLente.total = request.POST['total']
         facturaLente.save()
         return HttpResponseRedirect('/verFacturaLente')

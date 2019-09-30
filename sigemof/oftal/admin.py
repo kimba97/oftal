@@ -39,9 +39,12 @@ class CristalAdmin(admin.ModelAdmin):
 admin.site.register(Cristal,CristalAdmin)
 
 class FacturaVentaAdmin(admin.ModelAdmin):
-	list_display = ()
+	list_display = ('paciente','codigoFactura', 'descripcion', 'lente', 'aro', 'precioVenta', 'total')
 admin.site.register(FacturaVenta,FacturaVentaAdmin)
 
 class CitaAdmin(admin.ModelAdmin):
 	list_display = ('fecha', 'horaI', 'horaF', 'estado', 'paciCita')
 admin.site.register(Cita,CitaAdmin)
+
+class FacturaLente(admin.ModelAdmin):
+	list_display = ('descripcion', 'precio', 'total', 'cantidad')
