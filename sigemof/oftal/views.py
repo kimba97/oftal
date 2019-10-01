@@ -346,3 +346,33 @@ def registrarFacturaLente(request):
 def verFacturaLente(request):
     fac = FacturaLente.objects.all()
     return render(request, 'verFacturaLente.html', {'fac' : fac, })
+
+
+def registrarFacturaVenta(request):
+    if request.method == 'POST':
+        factura = FacturaVenta()
+        factura.paciente = request.POST['paciente']
+        factura.codigoFactura = request.POST['codigo']
+        factura.descripcion = request.POST['descripcion']
+        factura.lente = request.POST['lente']
+        factura.aro = request.POST['aro']
+        factura.precioVenta = request.POST['precio']
+        factura.cantidad = request.POST['cantidad']
+        factura.total = request.POST['total']
+        factura.save()
+        return HttpResponseRedirect('/verFacturaVenta')
+    return render(request, 'registrarFacturaVenta.html',)
+
+def verFacturaVenta(request):
+    fac = FacturaVenta.objects.all()
+    return render(request, 'verFacturaLente.html', {'fac' : fac, })
+
+
+#def verFacturaVenta(request):
+    
+#    s = FacturaVenta.objects.all()
+#    return render(request, 'verFacturaVenta.html', {'s' : s, })
+
+#def verFacturaVenta(request):
+#    fact = FacturaVenta.objects.all()
+#    return render(request, 'verFacturaVenta.html', {'fact': fact, })

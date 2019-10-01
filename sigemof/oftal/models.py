@@ -45,7 +45,7 @@ class FacturaLente(models.Model):
 #		verbose_name='FacturaVenta'
 #		verbose_name_pural='FacturaVentas'
 	def __str__(self):
-		return '%s' %(self.id)		
+		return '%s' %(self.id)
 
 class Cristal(models.Model):
 	codigo = models.CharField(max_length=20)
@@ -105,6 +105,22 @@ class Paciente(Persona):
 	def __str__(self):
 		return '%s' %(self.nombrePersona)
 
+class FacturaVenta(models.Model):
+    paciente = models.ForeignKey(Paciente, on_delete=models.CASCADE, blank=True)
+    codigoFactura = models.IntegerField()
+    descripcion = models.CharField(max_length=100)
+    lente = models.ForeignKey(Cristal, on_delete=models.CASCADE, blank=True)
+    aro = models.ForeignKey(Lente, on_delete=models.CASCADE, blank=True)
+    precioVenta = models.FloatField()
+    cantidad = models.IntegerField()
+    total = models.FloatField()
+
+    class Meta:
+        verbose_name='FacturaVenta'
+        verbose_name_plural='FacturaVentas'
+    def __str__(self):
+        return '%s' %(self.id)
+
 class Expediente(models.Model):
 	NumExp=models.CharField(max_length=50, unique=True)
 	paciente=models.ForeignKey(Paciente, on_delete=models.CASCADE, null=True, blank=True)
@@ -137,20 +153,26 @@ class Cita(models.Model):
 		return '%s' %(self.id)
 
 
-class FacturaVenta(models.Model):
-	paciente=models.ForeignKey(Paciente, on_delete=models.CASCADE,null=True, blank=True)
-	codigoFactura = models.IntegerField(null=True)
-	descripcion = models.CharField(max_length=100,null=True)
-	lente = models.ForeignKey(Cristal, on_delete=models.CASCADE,null=True, blank=True)
-	aro = models.ForeignKey(Lente, on_delete=models.CASCADE,null=True, blank=True)
-	precioVenta = models.FloatField(null=True)
-	total = models.FloatField(null=True)
+
+
+
+
+
+#class FacturaVenta(models.Model):
+#	paciente=models.ForeignKey(Paciente, on_delete=models.CASCADE,null=True, blank=True)
+#	codigoFactura = models.IntegerField(null=True)
+#	descripcion = models.CharField(max_length=100,null=True)
+#	lente = models.ForeignKey(Cristal, on_delete=models.CASCADE,null=True, blank=True)
+#	aro = models.ForeignKey(Lente, on_delete=models.CASCADE,null=True, blank=True)
+#	precioVenta = models.FloatField(null=True)
+#	cantidad = models.IntegerField(null=True)
+#	total = models.FloatField(null=True)
 
 #	class Meta:
 #		verbose_name='FacturaVenta'
 #		verbose_name_pural='FacturaVentas'
-	def __str__(self):
-		return '%s' %(self.id)
+#	def __str__(self):
+#		return '%s' %(self.id)
 
 
 

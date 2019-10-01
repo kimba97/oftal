@@ -28,7 +28,9 @@ urlpatterns = [
     url(r'^registrarCristal/', registrarCristal, name='registrarCristal'),
     url(r'^verCita/', verCita, name='verCita'),
     url(r'^registrarFacturaLente/', registrarFacturaLente, name='registrarFacturaLente'),
+    url(r'^registrarFacturaVenta/', registrarFacturaVenta, name='registrarFacturaVenta'),
     url(r'^verFacturaLente/', verFacturaLente, name='verFacturaLente'),
+    url(r'^verFacturaVenta/', verFacturaVenta, name='verFacturaVenta'),
 
 #    path('ListaPaciente/', views.ListPaciente.as_view(), name='ListaPaciente'),
     url(r'^ListaPaciente/', ListPaciente, name='ListaPaciente'),
@@ -59,5 +61,5 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(template_name = 'index.html'), name = 'logout'),
     url(r'^', inicio, name='inicio'),
 
-    url(r'^FacturaVenta/', FacturaVenta, name='FacturaVenta'),
+ #
 ]

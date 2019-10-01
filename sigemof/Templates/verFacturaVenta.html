@@ -1,0 +1,51 @@
+{% extends "Base.html" %}
+
+
+{% block content %}
+<title>{% block Titulo %}Facturas venta{% endblock Titulo %}</title>
+
+	<title>Citas</title>
+	<h1 style="padding-left: 30px" >Factura de venta</h1>
+	<a class="btn btn-success" style="position: absolute; right: 5%; top: 20%" href="{%url 'registrarFacturaVenta'%}">Agregar Factura</a>
+	<table style= 'position: absolute; left: 2%' class= "table table-bordered table-striped table-hover">
+		<br>
+					<!--<form class="form-goup" method="GET">
+					<div style="padding-left: 30px" class="form-group">
+    					<label><b>Buscar por fecha: &nbsp; &nbsp;</b></label>
+    					<input style="width: 250px;"type="text" class="form-control" name="q" placeholder="AAAA-MM-DD" pattern="{0-9}" id="">-->
+			<thead style="text-align: center;">
+				<tr style="text-align: center;">
+					<th>Id</th>
+					<th>Paciente</th>
+					<th>Codigo Factura</th>
+					<th>Descripcion</th>
+					<th>Lente</th>
+					<th>Aro</th>
+					<th>Precio Venta</th>
+					<th>Cantidad</th>
+                    <th>Total</th>
+				</tr>
+			</thead>
+            <tbody>
+            		<tr>
+            			{% for f in fac %}
+            			{% csrf_token %}
+            			</a></label></td>
+            			<td><label> {{f.id}}</label></td>
+						<td><label> {{f.paciente}}</label></td>
+						<td><label> {{f.codigoFactura}}</label></td>
+            			<td><label> {{f.descripcion}}</label></td>
+						<td><label> {{f.lente}}</label></td>
+						<td><label> {{f.aro}}</label></td>
+						<td><label> {{f.precioVenta}}</label></td>
+            			<td> <label> {{f.cantidad}}</label></td>
+                        <td> <label> {{f.total}} </label></td>
+
+            		</tr>
+            		{%endfor%}
+
+
+
+            </tbody>
+	</table>
+{% endblock %}
