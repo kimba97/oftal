@@ -103,14 +103,14 @@ class Paciente(Persona):
 		verbose_name='Paciente'
 		verbose_name_plural='Pacientes'
 	def __str__(self):
-		return '%s' %(self.nombrePersona)
+		return '%s' %(self.id)
 
 class FacturaVenta(models.Model):
-    paciente = models.ForeignKey(Paciente, on_delete=models.CASCADE, blank=True)
+    paciente = models.ForeignKey(Paciente, on_delete=models.SET_NULL, blank=True, null=True)
     codigoFactura = models.IntegerField()
     descripcion = models.CharField(max_length=100)
-    lente = models.ForeignKey(Cristal, on_delete=models.CASCADE, blank=True)
-    aro = models.ForeignKey(Lente, on_delete=models.CASCADE, blank=True)
+    lente = models.ForeignKey(Cristal, on_delete=models.SET_NULL, blank=True, null=True)
+    aro = models.ForeignKey(Lente, on_delete=models.SET_NULL, blank=True, null=True)
     precioVenta = models.FloatField()
     cantidad = models.IntegerField()
     total = models.FloatField()

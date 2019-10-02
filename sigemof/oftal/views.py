@@ -351,11 +351,24 @@ def verFacturaLente(request):
 def registrarFacturaVenta(request):
     if request.method == 'POST':
         factura = FacturaVenta()
-        factura.paciente = request.POST['paciente']
+        pacient = int(request.POST['paciente'])
+        paci = Paciente.objects.get(id=pacient)
+#        paciente = Paciente.objects.all()
+        factura.paciente = paci
+#        factura.paciente = request.POST['paciente']
         factura.codigoFactura = request.POST['codigo']
         factura.descripcion = request.POST['descripcion']
-        factura.lente = request.POST['lente']
-        factura.aro = request.POST['aro']
+
+        lent = int(request.POST['lente'])
+        len = Cristal.objects.get(id = lent)
+        factura.lente = len
+#        factura.lente = request.POST['lente']
+
+        ar = int(request.POST['aro'])
+        aros = Lente.objects.get(id=ar)
+        factura.aro = aros
+
+#        factura.aro = request.POST['aro']
         factura.precioVenta = request.POST['precio']
         factura.cantidad = request.POST['cantidad']
         factura.total = request.POST['total']
@@ -365,7 +378,7 @@ def registrarFacturaVenta(request):
 
 def verFacturaVenta(request):
     fac = FacturaVenta.objects.all()
-    return render(request, 'verFacturaLente.html', {'fac' : fac, })
+    return render(request, 'verFacturaVenta.html', {'fac' : fac, })
 
 
 #def verFacturaVenta(request):
