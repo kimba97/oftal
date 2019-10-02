@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from .models import *
 from django.urls import *
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView, TemplateView
-from django.contrib.auth.decorators import permission_required
+from django.contrib.auth.decorators import permission_required, login_required
 from django.http.response import HttpResponseRedirect
 from oftal.forms import *
 from django.contrib.auth import authenticate, login
@@ -21,9 +21,11 @@ def Base(request):
 def inicio(request):
     return render(request, 'inicio.html')
 
+@login_required
 def calendario(request):
     return render(request, 'calendario.html')
-    
+
+@login_required
 def registrarPaciente(request):
     if request.method == 'POST':
         pacientes = Paciente()
@@ -46,6 +48,8 @@ def registrarPaciente(request):
         return HttpResponseRedirect('/ListaPaciente/')
     return render(request, 'RegistrarPaciente.html', )
 
+@login_required
+@permission_required('oftal.isDoctora')
 def registrarLente(request):
     if request.method == 'POST':
         lente = Lente()
@@ -59,7 +63,7 @@ def registrarLente(request):
         return HttpResponseRedirect('/ListaLente/')
     return render(request, 'registrarLente.html',)
 
-
+@login_required
 def ListLente(request):
     lentes = Lente.objects.all()
 #    for p in lentes:
@@ -77,6 +81,8 @@ def ListLente(request):
 #    template_name = 'RegistrarLente.html'
 #    success_url = '/ListaLente/'
 
+@login_required
+@permission_required('oftal.isDoctora')
 def UpdateLente(request, id):
     lente = Lente.objects.get(id=id)
     if request.method == 'GET':
@@ -88,6 +94,8 @@ def UpdateLente(request, id):
         return redirect('ListaLente')
     return render(request, 'EditarLente.html', {'form': form})
 
+@login_required
+@permission_required('oftal.isDoctora')
 def DeleteLente(request, id):
     lente = Lente.objects.get(id=id)
     if request.method == 'POST':
@@ -95,6 +103,7 @@ def DeleteLente(request, id):
         return redirect('ListaLente')
     return render(request, 'EliminarLente.html', {'Lente': lente})
 
+@login_required
 def ListPaciente(request):
     pacientes = Paciente.objects.all()
     expedientes = Expediente.objects.all()
@@ -116,6 +125,7 @@ def ListPaciente(request):
    # template_name = 'RegistrarPaciente.html'
     #success_url = '/ListaPaciente/'
 
+@login_required
 def UpdatePaciente(request, id):
     paciente = Paciente.objects.get(id=id)
     if request.method == 'GET':
@@ -127,7 +137,8 @@ def UpdatePaciente(request, id):
         return redirect('ListaPaciente')
     return render(request, 'EditarPaciente.html', {'form': form})
 
-
+@login_required
+@permission_required('oftal.isDoctora')
 def DeletePaciente(request, id):
     paciente = Paciente.objects.get(id=id)
     if request.method == 'POST':
@@ -135,7 +146,8 @@ def DeletePaciente(request, id):
         return redirect('ListaPaciente')
     return render(request, 'EliminarPaciente.html', {'Paciente': paciente})
 
-
+@login_required
+@permission_required('oftal.isDoctora')
 def VerConsulta(request, exp):
     consul = Consulta.objects.filter(expedientePac_id=exp)
 
@@ -146,7 +158,8 @@ def VerConsulta(request, exp):
             c = Consulta.objects.all()
     return render(request, 'VerConsulta.html', {'consul': consul, })
 
-
+@login_required
+@permission_required('oftal.isDoctora')
 def VerExpediente(request):
     exp = Expediente.objects.all()
     pac = Paciente.objects.all()
@@ -158,7 +171,8 @@ def VerExpediente(request):
             c = Expediente.objects.all()
     return render(request, 'VerExpediente.html', {'exp': exp, })
 
-
+@login_required
+@permission_required('oftal.isDoctora')
 def RegistrarExpediente(request, pac):
     expedientes = Expediente.objects.all()
     cont = False
@@ -191,7 +205,8 @@ def RegistrarExpediente(request, pac):
 
     return render(request, 'crearExpediente.html', {'cont': cont,})
 
-
+@login_required
+@permission_required('oftal.isDoctora')
 def RegistrarConsulta(request, exp):
     blank = False
     if request.method == 'POST':
@@ -211,6 +226,7 @@ def RegistrarConsulta(request, exp):
             return HttpResponseRedirect('/VerExpediente/')
 
     return render(request, 'RegistrarConsulta.html', )
+
 
 def registrarCristal(request):
     if request.method == 'POST':
@@ -241,8 +257,9 @@ def registrarCristal(request):
 #        cristal.precioCompra = request.POST['precioC']
         cristal.save()
         return HttpResponseRedirect('/ListaCristal/')
-    return render(request, 'registrarCristal.html',)
+    return render(request, 'RegistrarCristal.html',)
 
+@login_required
 def verCita(request):
     c = Cita.objects.all()
     if request.method == 'GET':
@@ -251,6 +268,7 @@ def verCita(request):
             c = Cita.objects.filter(fecha__icontains=q)
     return render(request, 'verCita.html', {'c' : c, })
 
+@login_required
 def ListCristal(request):
     cristals = Cristal.objects.all()
 #    for p in lentes:
@@ -268,6 +286,8 @@ def ListCristal(request):
 #    template_name = 'RegistrarLente.html'
 #    success_url = '/ListaLente/'
 
+@login_required
+@permission_required('oftal.isDoctora')
 def UpdateCristal(request, id):
     cristal = Cristal.objects.get(id=id)
     if request.method == 'GET':
@@ -279,6 +299,8 @@ def UpdateCristal(request, id):
         return redirect('ListaCristal')
     return render(request, 'EditarCristal.html', {'form': form})
 
+@login_required
+@permission_required('oftal.isDoctora')
 def DeleteCristal(request, id):
     cristal = Cristal.objects.get(id=id)
     if request.method == 'POST':
@@ -286,11 +308,13 @@ def DeleteCristal(request, id):
         return redirect('ListaCristal')
     return render(request, 'EliminarCristal.html', {'Cristal': cristal})
 
-
+@login_required
 def FacturaVenta(request):
     if request.method == 'POST':
         return render(request, 'FacturaVenta.html',{})
 
+@login_required
+@permission_required('oftal.isSecretaria')
 def registrarCita(request, pac):
     paciente = Paciente.objects.get(id=pac)
     cita = Cita()
@@ -311,12 +335,14 @@ def registrarCita(request, pac):
         return redirect('ListaPaciente')
     return render(request, 'registrarCita.html', {'Paciente': paciente, 'val': val})
 
-
+@login_required
 def verCitasP(request, pac):
     
     cits = Cita.objects.filter(paciCita=pac).order_by('fecha')
     return render(request, 'verCitasP.html', {'cits': cits, })
 
+@login_required
+@permission_required('oftal.isScretaria')
 def editarEstado(request,id):
     cita = Cita.objects.get(id=id)
     if request.method == 'GET':
@@ -331,7 +357,7 @@ def editarEstado(request,id):
 
     return render(request, 'editarEstado.html', {'form':form, })
 
-
+@login_required
 def registrarFacturaLente(request):
     if request.method == 'POST':
         facturaLente = FacturaLente()
@@ -343,11 +369,12 @@ def registrarFacturaLente(request):
         return HttpResponseRedirect('/verFacturaLente')
     return render(request, 'registrarFacturaLente.html',)
 
+@login_required
 def verFacturaLente(request):
     fac = FacturaLente.objects.all()
     return render(request, 'verFacturaLente.html', {'fac' : fac, })
 
-
+@login_required
 def registrarFacturaVenta(request):
     if request.method == 'POST':
         factura = FacturaVenta()
@@ -376,6 +403,7 @@ def registrarFacturaVenta(request):
         return HttpResponseRedirect('/verFacturaVenta')
     return render(request, 'registrarFacturaVenta.html',)
 
+@login_required
 def verFacturaVenta(request):
     fac = FacturaVenta.objects.all()
     return render(request, 'verFacturaVenta.html', {'fac' : fac, })

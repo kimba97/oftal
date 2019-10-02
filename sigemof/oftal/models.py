@@ -18,6 +18,11 @@ class Persona(models.Model):
 	class Meta:
 		verbose_name='Persona'
 		verbose_name_plural='Personas'
+
+		permissions = (
+			('isDoctora', ('Es Doctora')),
+			('isSecretaria', ('Es Secretaria'))
+		)
 	def __str__(self):
 		return '%s' %(self.nombrePersona)
 

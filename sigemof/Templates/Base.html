@@ -144,7 +144,9 @@ body {
       <a href="{%url 'ListaPaciente' %}">Gestor de pacientes</a>
       <a href="{%url 'ListaLente' %}">Gestor de Aros </a>
       <a href="{%url 'ListaCristal' %}">Gestor de Lentes </a>
+	  {% if perms.oftal.isDoctora %}
       <a href="{%url 'VerExpediente' %}">Ver Expedientes </a>
+	  {% endif %}
       <a href="{%url 'verCita' %}">Ver Citas </a>
       <a href="{%url 'calendario'%}"> Calendario de Google</a>
       <a href="{%url 'verFacturaLente' %}"> Facturas</a>

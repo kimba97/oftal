@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="62835047-9a0e-4b8e-a277-2f807356163b" name="Default Changelist" comment="" />
+    <list default="true" id="62835047-9a0e-4b8e-a277-2f807356163b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sigemof/Templates/Base.html" beforeDir="false" afterPath="$PROJECT_DIR$/sigemof/Templates/Base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sigemof/oftal/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/sigemof/oftal/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sigemof/oftal/migrations/0002_auto_20190929_1402.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sigemof/oftal/migrations/0002_auto_20191001_2346.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sigemof/oftal/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/sigemof/oftal/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sigemof/oftal/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/sigemof/oftal/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sigemof/sigemof/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/sigemof/sigemof/settings.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +31,61 @@
     <expand />
     <select />
   </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sigemof/sigemof/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="101">
+              <caret line="84" column="19" lean-forward="true" selection-start-line="84" selection-start-column="19" selection-end-line="84" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sigemof/oftal/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="115">
+              <caret line="23" column="47" lean-forward="true" selection-start-line="23" selection-start-column="47" selection-end-line="23" selection-end-column="47" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/sigemof/oftal/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="259" column="29" selection-start-line="259" selection-start-column="29" selection-end-line="259" selection-end-column="29" />
+              <folding>
+                <element signature="e#0#45#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sigemof/sigemof/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-300">
+              <caret line="19" column="23" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sigemof/Templates/Base.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="150" column="62" lean-forward="true" selection-start-line="150" selection-start-column="62" selection-end-line="150" selection-end-column="62" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -32,8 +96,67 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/sigemof/sigemof/settings.py" />
+        <option value="$PROJECT_DIR$/sigemof/oftal/models.py" />
+        <option value="$PROJECT_DIR$/sigemof/Templates/Base.html" />
+        <option value="$PROJECT_DIR$/sigemof/sigemof/urls.py" />
+        <option value="$PROJECT_DIR$/sigemof/oftal/views.py" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="10" />
+    <option name="y" value="20" />
+    <option name="width" value="780" />
+    <option name="height" value="524" />
+  </component>
   <component name="ProjectId" id="1RJlao1eyk7EzjmlmVyDlY9a5L1" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="oftal" type="b2602c69:ProjectViewProjectNode" />
+              <item name="oftal" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oftal" type="b2602c69:ProjectViewProjectNode" />
+              <item name="oftal" type="462c0819:PsiDirectoryNode" />
+              <item name="sigemof" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oftal" type="b2602c69:ProjectViewProjectNode" />
+              <item name="oftal" type="462c0819:PsiDirectoryNode" />
+              <item name="sigemof" type="462c0819:PsiDirectoryNode" />
+              <item name="oftal" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oftal" type="b2602c69:ProjectViewProjectNode" />
+              <item name="oftal" type="462c0819:PsiDirectoryNode" />
+              <item name="sigemof" type="462c0819:PsiDirectoryNode" />
+              <item name="sigemof" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oftal" type="b2602c69:ProjectViewProjectNode" />
+              <item name="oftal" type="462c0819:PsiDirectoryNode" />
+              <item name="sigemof" type="462c0819:PsiDirectoryNode" />
+              <item name="Templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -66,13 +189,87 @@
       <option name="presentableId" value="Default" />
       <updated>1561940343459</updated>
       <workItem from="1561940347955" duration="3333000" />
+      <workItem from="1570029616451" duration="3568000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3333000" />
+    <option name="totallyTimeSpent" value="6901000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-4" y="0" width="808" height="568" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Favorites" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24005306" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Python Console" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="SciView" />
+      <window_info anchor="right" id="Database" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/sigemof/sigemof/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="101">
+          <caret line="84" column="19" lean-forward="true" selection-start-line="84" selection-start-column="19" selection-end-line="84" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sigemof/oftal/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="23" column="47" lean-forward="true" selection-start-line="23" selection-start-column="47" selection-end-line="23" selection-end-column="47" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sigemof/Templates/inicio.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sigemof/Templates/Base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="150" column="62" lean-forward="true" selection-start-line="150" selection-start-column="62" selection-end-line="150" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sigemof/sigemof/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-300">
+          <caret line="19" column="23" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sigemof/oftal/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="259" column="29" selection-start-line="259" selection-start-column="29" selection-end-line="259" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#45#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
   </component>
 </project>
