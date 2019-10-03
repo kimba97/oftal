@@ -5,12 +5,54 @@
 {% block content %}
 <title>{% block Titulo %}Inicio{% endblock Titulo %}</title>
 
-<img style="position: absolute;top: 12%;left: 2%; height: 550px" src="../static/img/Logo(1).png">
+<img style="position: absolute;top: 12%;left: 2%; height: 550px" src="../static/img/Logo(1).png" class="img-fluid" alt="responsive">
 <font color=B40404>
 <h1  style="position: absolute; right: 20%; top: 45%">SISTEMA DE GESTION</h1>
-<h1 style="position: absolute;right: 15%; top: 55%"> MEDICO OFTALMOLOGICO</h1>
+<h1 style="position: absolute;right: 15%; top: 55%">MEDICO OFTALMOLOGICO</h1>
 
 </font>
+
+<style type="text/css">
+	
+	img{
+		max-width: 60%;
+	}
+
+	@media only screen and (max-width: 1000px){
+		h1{
+			font-size: 30px;
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+			margin-top: 40%;
+		}
+
+		img{
+			max-width: 70%;
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+			margin-top: 1%;
+		}
+	} 
+
+	@media only screen and (max-width: 500px){
+		h1{
+			font-size: 20px;
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+			margin-top: 15%;
+		}
+
+		img{
+			max-width: 70%;
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+		}
+	} 
+</style>
 
 {% endblock %}
 

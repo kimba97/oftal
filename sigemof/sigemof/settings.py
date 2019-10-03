@@ -79,8 +79,8 @@ DATABASES = {
     'default': {
     'ENGINE': 'django.db.backends.postgresql_psycopg2',
     'NAME': 'sigemof',
-    'USER': 'sigemof',
-    'PASSWORD': 'admin123',
+    'USER': 'postgres',
+    'PASSWORD': 'admin',
     'HOST': 'localhost',
     'ṔORT': '5432',
     }

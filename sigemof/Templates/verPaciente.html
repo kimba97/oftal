@@ -17,7 +17,7 @@
               <br>
         </div>
             
-      <table style= 'position: absolute; left: 2%' class= "table table-bordered table-striped table-hover table-responsive">
+      <table class= "table table-bordered table-striped table-hover table-responsive">
   <thead style="text-align: center;">
     <tr style="text-align: center;word-wrap: break-word;">
       <td style="width: 300px;" scope="col">Nombre Completo</td>
@@ -27,7 +27,8 @@
       <td scope="col">Sexo</td>
       <td scope="col">Telefono</td>
       <td scope="col">Correo</td> 
-      <td scope="col">Acciones</td>       
+      <td scope="col">Acciones</td>
+      <td scope="col">Funciones</td>    
     </tr>
   </thead>
   <tbody style="text-align:center;">
@@ -48,11 +49,15 @@
      <td>{{Paciente.telefono}}</td>
      <td>{{Paciente.correo}}</td>
 </div>
-     <td style="width: 400px">
-       <a class="btn btn-primary" href="{%url 'EditarPaciente' Paciente.id %}">Editar</a>
-       <a class="btn btn-danger" href="{%url 'EliminarPaciente' Paciente.id %}">Eliminar</a>
-       <a class="btn btn-danger" href="{%url 'registrarCita' Paciente.id %}">Registrar Cita</a>
-       <a class="btn btn-primary" href="{%url 'verCitasP' Paciente.id %}">Ver Citas</a>
+     <td style="width: 200px">
+       <a id="edi" class="btn btn-primary" href="{%url 'EditarPaciente' Paciente.id %}">Editar</a>
+       <a id="eli" class="btn btn-danger" href="{%url 'EliminarPaciente' Paciente.id %}">Eliminar</a>
+       
+     </td>
+
+     <td style="width: 450px">
+       <a id="reg" class="btn btn-primary" href="{%url 'registrarCita' Paciente.id %}">Registrar Cita</a>
+       <a id="ver"class="btn btn-primary" href="{%url 'verCitasP' Paciente.id %}">Ver Citas</a>
        {% for e in expedientes%}
        {% if e.paciente.id == Paciente.id %}
         <label style="text-align: center">Ya posee expediente</label>
@@ -60,7 +65,7 @@
        {% endfor %}
        {% for p in noexp %}
        {% if Paciente.id == p.id %}
-        <a class="btn btn-primary" href="{%url 'RegistrarExpediente' pac=Paciente.id %}">Registrar Expediente</a>
+        <a id="rex" class="btn btn-primary" href="{%url 'RegistrarExpediente' pac=Paciente.id %}">Registrar Expediente</a>
        {% endif %}
        {% endfor %}
      </td>
@@ -71,6 +76,9 @@
   </tbody>
 </table>
 
+<style type="text/css">
+
+</style>
   
     </body>
 {% endblock %}
