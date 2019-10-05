@@ -144,11 +144,11 @@ class CitaForm(forms.ModelForm):
 		}
 
 		widgets={
-		'fecha':forms.TextInput(attrs={'class': 'form-control','readonly':'True', 'disabled': 'True'}),
-			'horaI': forms.DateInput(attrs={'class': 'form-control','readonly':'True', 'disabled': 'True'}),
-			'horaF': forms.DateInput(attrs={'class': 'form-control','readonly':'True', 'disabled': 'True'}),
+		'fecha':forms.TextInput(attrs={'class': 'form-control','readonly':'True'}),
+			'horaI': forms.DateInput(attrs={'class': 'form-control','readonly':'True'}),
+			'horaF': forms.DateInput(attrs={'class': 'form-control','readonly':'True'}),
 			#STATUS_CHOICES = ((PROGRAMADA, "programada"), (REPROGRAMADA, "reprogramada"), (REALIZADA, "realizada"))
 			'estado': forms.Select(attrs={'class': 'form-control'}, choices=ESTADO_CHOICES),
-			'paciCita': forms.TextInput(attrs={'class': 'form-control', 'readonly': 'True', 'disabled': 'True'}),
+			'paciCita': forms.TextInput(attrs={'class': 'form-control', 'readonly': 'True'}),
 			}
 
