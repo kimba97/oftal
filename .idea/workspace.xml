@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="62835047-9a0e-4b8e-a277-2f807356163b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sigemof/Templates/Base.html" beforeDir="false" afterPath="$PROJECT_DIR$/sigemof/Templates/Base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sigemof/oftal/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/sigemof/oftal/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sigemof/oftal/migrations/0002_auto_20190929_1402.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sigemof/oftal/migrations/0002_auto_20191001_2346.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sigemof/oftal/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/sigemof/oftal/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sigemof/oftal/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/sigemof/oftal/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sigemof/sigemof/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/sigemof/sigemof/settings.py" afterDir="false" />
-    </list>
+    <list default="true" id="62835047-9a0e-4b8e-a277-2f807356163b" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
