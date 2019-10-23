@@ -41,10 +41,10 @@ class PacienteForm(forms.ModelForm):
 		}
 
 
-class LenteForm(forms.ModelForm):
+class AroForm(forms.ModelForm):
 
 	class Meta:
-		model = Lente
+		model = Aro
 		fields=['codigo', 'color', 'marca', 'tamano']
 
 		labels={
@@ -68,10 +68,10 @@ class LenteForm(forms.ModelForm):
 
 
 
-class CristalForm(forms.ModelForm):
+class LenteForm(forms.ModelForm):
 
 	class Meta:
-		model = Cristal
+		model = Lente
 		fields=['codigo', 'esfera', 'cilindro', 'eje', 'prisma', 'base', 'adicion', 'graduacion', 'color', 'codigod', 'esferad', 'cilindrod', 'ejed', 'prismad', 'based', 'adiciond', 'graduaciond', 'colord']
 
 		labels={
@@ -86,16 +86,16 @@ class CristalForm(forms.ModelForm):
 #		'material':'Material',
 		'color':'Color OI',
 
-		'codigod': 'Codigo OI',
-		'esferad': 'Esfera OI',
-		'cilindrod': 'Cilindro OI',
-		'ejed': 'Eje OI',
-		'prismad': 'Prisma OI',
-		'based': 'Base OI',
-		'adiciond': 'Adicion OI',
-		'graduaciond': 'Graduacion OI',
+		'codigod': 'Codigo OD',
+		'esferad': 'Esfera OD',
+		'cilindrod': 'Cilindro OD',
+		'ejed': 'Eje OD',
+		'prismad': 'Prisma OD',
+		'based': 'Base OD',
+		'adiciond': 'Adicion OD',
+		'graduaciond': 'Graduacion OD',
 #		'material':'Material',
-		'colord': 'Color OI',
+		'colord': 'Color OD',
 #		'Marca':'marca',
 #		'cantidad':'Cantidad',
 #		'precioCompra':'PrecioCompra'
@@ -103,7 +103,7 @@ class CristalForm(forms.ModelForm):
 
 		widgets={
 
-		'codigo':forms.TextInput(attrs={'class':'form-left'}),
+		'codigo':forms.TextInput(attrs={'class':'form-control'}),
 		'esfera': forms.TextInput(attrs={'class': 'form-control'}),
 		'cilindro': forms.TextInput(attrs={'class': 'form-control'}),
 		'eje': forms.TextInput(attrs={'class': 'form-control'}),

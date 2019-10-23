@@ -1,0 +1,47 @@
+{% extends "Base.html" %}
+
+{% block content %}
+
+<script>
+    function generar(){
+        prec= parseFloat(suma.precio.value);
+        cant1= parseInt(suma.cantidad.value);
+        suma.total.value = prec*cant1;
+    }
+    
+    setInterval('generar()', 1);
+
+</script>
+<title>{% block Titulo %}Registrar Factura Aro{% endblock Titulo %}</title>
+<h1 style=" text-align: center;">Registrar Factura de aros</h1>
+        <br>
+        <br>
+    
+        <div class="contact-form">
+            <form class="form-group" name="suma" id="form-group" role="form" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                <div style="position: absolute; left: 40%" class="form-group" align="center">
+                    <label>Descipcion</label><br>
+                    <input style="text-align: center" class="form-control" type="text" name="descripcion" id="descripcion"></input>
+                    <br>
+                    <label>Precio</label><br>
+                    <input style="text-align: center;" min="0.00" class="form-control" type="number" step="0.01" name="precio" id="precio"></input>
+                    <label> Cantidad</label>
+                    <input style="text-align: center;" min="0" class="form-control" type="numer" step="1" name="cantidad" id="cantidad"  ></input>
+                    <label>Total</label>
+                    <input class="form-control" type="number" name="total" placeholder="0" readonly>
+                    <br>
+
+                       <!-- <input type="button" id="boton" class="btn btn-primary" value="GENERAR FACTURA" onclick="generar()"> -->
+                        <button type="submit" id="boton" class="btn btn-success">Guardar</button>
+                        <input class="btn btn-danger" type="button" onclick="history.back()" name="cancelar" value="Cancelar">
+
+                </div>
+</div>
+            </form>
+        </div>
+    
+
+
+{% endblock %}

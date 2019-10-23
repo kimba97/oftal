@@ -1,29 +1,51 @@
 {% extends "Base.html" %}
 {% load static %}
-<title>{% block Titulo %}Eliminar lente{% endblock Titulo %}</title>
+<title>{% block Titulo %}Editar lente{% endblock Titulo %}</title>
 
 
 {% block content %}
 
     <body class="d-flex align-items-start">
-
-    <div  class="d-inline-flex pl-5">
-
+<h1 style="text-align: center;">¿Desea eliminar el registro de este Lente?</h1>
+ <!--   <div  class="d-inline-flex pl-5">  -->
+        <div style="position:absolute ;left: 15%; width:400px" class="contact-form">
+ 
     <form method="post">
       {%csrf_token%}
-      <h1 style="text-align: center;">¿Desea eliminar el registro de este Aro?</h1>
-      <h3 style="text-align: center;"> Codigo: {{Lente.codigo}} </h3>
-      <h3 style="text-align: center;"> Color: {{Lente.color}} </h3>
-      <h3 style="text-align: center;"> Marca: {{Lente.marca}} </h3>
-      <h3 style="text-align: center;"> Tamano: {{Lente.tamano}} </h3>
+      
+      <br>
+      <h2 style="text-align: center;">Lente Derecho</h2>
+      <h3 style="text-align: center;"> Codigo OI: {{Lente.codigo}} </h3>
+      <h3 style="text-align: center;"> Esfera OI: {{Lente.esfera}} </h3>
+      <h3 style="text-align: center;"> Cilindro OI: {{Lente.cilindro}} </h3>
+      <h3 style="text-align: center;"> Eje OI: {{Lente.eje}} </h3>
+      <h3 style="text-align: center;"> Prisma OI: {{Lente.prisma}} </h3>
+      <h3 style="text-align: center;"> Base OI: {{Lente.base}} </h3>
+      <h3 style="text-align: center;"> Adicion OI: {{Lente.adicion}} </h3>
+      <h3 style="text-align: center;"> Graduacion OI: {{Lente.graduacion}} </h3>
+      <h3 style="text-align: center;"> Color OI: {{Lente.color}} </h3>
+
+      <div style="position:absolute;right:-150%; top: -5%;width:400px">
+      <br>
+      <br>
+      <h2 style="text-align: center;"> Lente Izquierdo</h2>
+      <h3 style="text-align: center;"> Codigo OD: {{Lente.codigod}} </h3>
+      <h3 style="text-align: center;"> Esfera OD: {{Lente.esferad}} </h3>
+      <h3 style="text-align: center;"> Cilindro OD: {{Lente.cilindrod}} </h3>
+      <h3 style="text-align: center;"> Eje OD: {{Lente.ejed}} </h3>
+      <h3 style="text-align: center;"> Prisma OD: {{Lente.prismad}} </h3>
+      <h3 style="text-align: center;"> Base OD: {{Lente.based}} </h3>
+      <h3 style="text-align: center;"> Adicion OD: {{Lente.adiciond}} </h3>
+      <h3 style="text-align: center;"> Graduacion OD: {{Lente.graduaciond}} </h3>
+      <h3 style="text-align: center;"> Color Od: {{Lente.colord}} </h3>
 
 
 
-<div style="position: left"class="d-inline-flex pl-5 flex-column d-flex align-items-center">
+<div style="position: absolute;" id="botones" class="d-inline-flex pl-5 flex-column d-flex align-items-center">
   <br>
   <br>
-   <button style="text-align: center;position: absolute; right: 53%" type="submit" class="btn btn-danger">Sí, Eliminar</button>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-   <input style="text.align:center; position:absolute; left:53%" class="btn btn-success" type="button" onclick="history.back()" name="cancelar" value="Cancelar">
+   <button style="text-align: center;position: absolute; right: 53%; margin-right: 250%" type="submit" class="btn btn-danger">Sí, Eliminar</button>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+   <input style="text-align:center; position: absolute; left: 53%; margin-left: -200%" class="btn btn-success" type="button" onclick="history.back()" name="cancelar" value="Cancelar">
 
 
  </div>
@@ -32,5 +54,6 @@
 </div>
 
     </body>
+
 
 {% endblock %}

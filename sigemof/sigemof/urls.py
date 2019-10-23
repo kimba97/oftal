@@ -19,32 +19,32 @@ from oftal.views import *
 from django.urls import path, re_path
 from oftal import views
 from django.contrib.auth import views as auth_views 
-
+ 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^calendario', calendario, name='calendario'),
     url(r'^registrarPaciente/', registrarPaciente, name='registrarPaciente'),
+    url(r'^registrarAro/', registrarAro, name='registrarAro'),
     url(r'^registrarLente/', registrarLente, name='registrarLente'),
-    url(r'^registrarCristal/', registrarCristal, name='registrarCristal'),
     url(r'^verCita/', verCita, name='verCita'),
-    url(r'^registrarFacturaLente/', registrarFacturaLente, name='registrarFacturaLente'),
+    url(r'^registrarFacturaAro/', registrarFacturaAro, name='registrarFacturaAro'),
     url(r'^registrarFacturaVenta/', registrarFacturaVenta, name='registrarFacturaVenta'),
-    url(r'^verFacturaLente/', verFacturaLente, name='verFacturaLente'),
+    url(r'^verFacturaAro/', verFacturaAro, name='verFacturaAro'),
     url(r'^verFacturaVenta/', verFacturaVenta, name='verFacturaVenta'),
-
+ 
 #    path('ListaPaciente/', views.ListPaciente.as_view(), name='ListaPaciente'),
     url(r'^ListaPaciente/', ListPaciente, name='ListaPaciente'),
+    url(r'^ListaAro/', ListAro, name='ListaAro'),
     url(r'^ListaLente/', ListLente, name='ListaLente'),
-    url(r'^ListaCristal/', ListCristal, name='ListaCristal'),
 
 
     re_path(r'^Paciente/editar/(?P<id>\d+)', UpdatePaciente, name='EditarPaciente'),
+    re_path(r'^Aro/editar/(?P<id>\d+)', UpdateAro, name='EditarAro'),
     re_path(r'^Lente/editar/(?P<id>\d+)', UpdateLente, name='EditarLente'),
-    re_path(r'^Cristal/editar/(?P<id>\d+)', UpdateCristal, name='EditarCristal'),
 
     re_path(r'^Paciente/eliminar/(?P<id>\d+)', DeletePaciente, name='EliminarPaciente'),
+    re_path(r'^Aro/eliminar/(?P<id>\d+)', DeleteAro, name='EliminarAro'),
     re_path(r'^Lente/eliminar/(?P<id>\d+)', DeleteLente, name='EliminarLente'),
-    re_path(r'^Cristal/eliminar/(?P<id>\d+)', DeleteCristal, name='EliminarCristal'),
     re_path(r'^editarEstado/(?P<id>\d+)', editarEstado, name='editarEstado'),
     re_path(r"^verCitasP/(?P<pac>\d+)", verCitasP, name='verCitasP'), 
     #path('', views.index, name='index'),

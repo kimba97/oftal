@@ -12,6 +12,7 @@ import time
 
 # Create your views here.
 
+ 
 def index(request):
     return render(request, 'index.html')
 
@@ -50,30 +51,30 @@ def registrarPaciente(request):
 
 @login_required
 @permission_required('oftal.isDoctora')
-def registrarLente(request):
+def registrarAro(request):
     if request.method == 'POST':
-        lente = Lente()
-        lente.codigo = request.POST['codigo']
-        lente.color = request.POST['color']
-        lente.marca = request.POST['marca']
-        lente.tamano = request.POST['tamano']
+        aro = Aro()
+        aro.codigo = request.POST['codigo']
+        aro.color = request.POST['color']
+        aro.marca = request.POST['marca']
+        aro.tamano = request.POST['tamano']
 #        lente.cantidad = request.POST['cantidad']
 #        lente.precioCompra = request.POST['precioC']
-        lente.save()
-        return HttpResponseRedirect('/ListaLente/')
-    return render(request, 'registrarLente.html',)
+        aro.save()
+        return HttpResponseRedirect('/ListaAro/')
+    return render(request, 'registrarAro.html',)
 
 @login_required
-def ListLente(request):
-    lentes = Lente.objects.all()
+def ListAro(request):
+    aros = Aro.objects.all()
 #    for p in lentes:
     if request.method == 'GET':
         if "q" in request.GET:
             q = request.GET.get('q', '')
-            lentes = Lente.objects.filter(codigo__icontains=q)
+            aros = Aro.objects.filter(codigo__icontains=q)
             c = Consulta.objects.all()
 
-    return render(request, 'verLente.html', {'lentes': lentes, })
+    return render(request, 'verAro.html', {'aros': aros, })
 
 #class UpdateLente(UpdateView):
 #    model = Lente
@@ -83,25 +84,25 @@ def ListLente(request):
 
 @login_required
 @permission_required('oftal.isDoctora')
-def UpdateLente(request, id):
-    lente = Lente.objects.get(id=id)
+def UpdateAro(request, id):
+    aro = Aro.objects.get(id=id)
     if request.method == 'GET':
-        form = LenteForm(instance=lente)
+        form = AroForm(instance=aro)
     else:
-        form = LenteForm(request.POST, instance=lente)
+        form = AroForm(request.POST, instance=aro)
         if form.is_valid():
             form.save()
-        return redirect('ListaLente')
-    return render(request, 'EditarLente.html', {'form': form})
+        return redirect('ListaAro')
+    return render(request, 'EditarAro.html', {'form': form})
 
 @login_required
 @permission_required('oftal.isDoctora')
-def DeleteLente(request, id):
-    lente = Lente.objects.get(id=id)
+def DeleteAro(request, id):
+    aro = Aro.objects.get(id=id)
     if request.method == 'POST':
-        lente.delete()
-        return redirect('ListaLente')
-    return render(request, 'EliminarLente.html', {'Lente': lente})
+        aro.delete()
+        return redirect('ListaAro')
+    return render(request, 'EliminarAro.html', {'aro': aro})
 
 @login_required
 def ListPaciente(request):
@@ -228,36 +229,36 @@ def RegistrarConsulta(request, exp):
     return render(request, 'RegistrarConsulta.html', )
 
 
-def registrarCristal(request):
+def registrarLente(request):
     if request.method == 'POST':
-        cristal = Cristal()
-        cristal.codigo = request.POST['codigo']
-        cristal.esfera = request.POST['esfera']
-        cristal.cilindro = request.POST['cilindro']
-        cristal.eje = request.POST['eje']
-        cristal.prisma = request.POST['prisma']
-        cristal.base = request.POST['base']
-        cristal.adicion = request.POST['adicion']
-        cristal.graduacion = request.POST['graduacion']
+        lente = Lente()
+        lente.codigo = request.POST['codigo']
+        lente.esfera = request.POST['esfera']
+        lente.cilindro = request.POST['cilindro']
+        lente.eje = request.POST['eje']
+        lente.prisma = request.POST['prisma']
+        lente.base = request.POST['base']
+        lente.adicion = request.POST['adicion']
+        lente.graduacion = request.POST['graduacion']
 #        cristal.material = request.POST['material']
-        cristal.color = request.POST['color']
+        lente.color = request.POST['color']
 
-        cristal.codigod = request.POST['codigod']
-        cristal.esferad = request.POST['esferad']
-        cristal.cilindrod = request.POST['cilindrod']
-        cristal.ejed = request.POST['ejed']
-        cristal.prismad = request.POST['prismad']
-        cristal.based = request.POST['based']
-        cristal.adiciond = request.POST['adiciond']
-        cristal.graduaciond = request.POST['graduaciond']
+        lente.codigod = request.POST['codigod']
+        lente.esferad = request.POST['esferad']
+        lente.cilindrod = request.POST['cilindrod']
+        lente.ejed = request.POST['ejed']
+        lente.prismad = request.POST['prismad']
+        lente.based = request.POST['based']
+        lente.adiciond = request.POST['adiciond']
+        lente.graduaciond = request.POST['graduaciond']
         #        cristal.material = request.POST['material']
-        cristal.colord = request.POST['colord']
+        lente.colord = request.POST['colord']
 #        cristal.marca = request.POST['marca']
 #        cristal.cantidad = request.POST['cantidad']
 #        cristal.precioCompra = request.POST['precioC']
-        cristal.save()
-        return HttpResponseRedirect('/ListaCristal/')
-    return render(request, 'RegistrarCristal.html',)
+        lente.save()
+        return HttpResponseRedirect('/ListaLente/')
+    return render(request, 'RegistrarLente.html',)
 
 @login_required
 def verCita(request):
@@ -269,16 +270,16 @@ def verCita(request):
     return render(request, 'verCita.html', {'c' : c, })
 
 @login_required
-def ListCristal(request):
-    cristals = Cristal.objects.all()
+def ListLente(request):
+    lentes = Lente.objects.all()
 #    for p in lentes:
     if request.method == 'GET':
         if "q" in request.GET:
             q = request.GET.get('q', '')
-            cristals = Cristal.objects.filter(codigo__icontains=q)
+            lentes = Lente.objects.filter(codigo__icontains=q)
             c = Consulta.objects.all()
 
-    return render(request, 'verCristal.html', {'cristals': cristals, })
+    return render(request, 'verLente.html', {'lentes': lentes, })
 
 #class UpdateLente(UpdateView):
 #    model = Lente
@@ -288,25 +289,103 @@ def ListCristal(request):
 
 @login_required
 @permission_required('oftal.isDoctora')
-def UpdateCristal(request, id):
-    cristal = Cristal.objects.get(id=id)
-    if request.method == 'GET':
-        form = CristalForm(instance=cristal)
-    else:
-        form = CristalForm(request.POST, instance=cristal)
-        if form.is_valid():
-            form.save()
-        return redirect('ListaCristal')
-    return render(request, 'EditarCristal.html', {'form': form})
+def UpdateLente(request, id):
+    lent = Lente.objects.get(id=id)
+    if(lent != 0):
+        codigo = lent.codigo
+        esfera = lent.esfera
+        cilindro = lent.cilindro
+        eje = lent.eje
+        prisma = lent.prisma
+        base = lent.base
+        adicion = lent.adicion
+        graduacion = lent.graduacion
+        color = lent.color
+        codigod = lent.codigod
+        esferad = lent.esferad
+        cilindrod = lent.cilindrod
+        ejed = lent.ejed
+        prismad = lent.prismad
+        based = lent.based
+        adiciond = lent.adiciond
+        graduaciond = lent.graduaciond
+        colord = lent.colord
 
+        
+
+
+    context={
+        "lent": lent,
+        "codigo": codigo,
+        "esfera": esfera,
+        "cilindro": cilindro,
+        "eje": eje,
+        "prisma": prisma,
+        "base": base,
+        "adicion": adicion,
+        "graduacion": graduacion,
+        "color" : color,
+        "codigod": codigod,
+        "esferad": esferad,
+        "cilindrod": cilindrod,
+        "ejed": ejed,
+        "prismad": prismad,
+        "based": based,
+        "adiciond": adiciond,
+        "graduaciond": graduaciond,
+        "colord" : colord,
+        }
+
+
+    lent.codigo = request.POST['codigo']
+    lent.esfera = request.POST['esfera']
+    lent.cilindro = request.POST['cilindro']
+    lent.eje = request.POST['eje']
+    lent.prisma = request.POST['prisma']
+    lent.base = request.POST['base']
+    lent.adicion = request.POST['adicion']
+    lent.graduacion = request.POST['graduacion']
+#        cristal.material = request.POST['material']
+    lent.color = request.POST['color']
+
+    lent.codigod = request.POST['codigod']
+    lent.esferad = request.POST['esferad']
+    lent.cilindrod = request.POST['cilindrod']
+    lent.ejed = request.POST['ejed']
+    lent.prismad = request.POST['prismad']
+    lent.based = request.POST['based']
+    lent.adiciond = request.POST['adiciond']
+    lent.graduaciond = request.POST['graduaciond']
+    #        cristal.material = request.POST['material']
+    lent.colord = request.POST['colord']
+#        cristal.marca = request.POST['marca']
+#        cristal.cantidad = request.POST['cantidad']
+#        cristal.precioCompra = request.POST['precioC']
+    lent.save()
+    return HttpResponseRedirect('/ListaLente/')
+
+#    if (lent):
+#        lent.save()
+#        return redirect('ListaLente')
+
+
+#    if request.method == 'GET':
+#        form = LenteForm(instance=lente)
+#    else:
+#        form = LenteForm(request.POST, instance=lente)
+#        if form.is_valid():
+#            form.save()
+        
+    return render(request, 'EditarLente.html', context)
+ 
 @login_required
 @permission_required('oftal.isDoctora')
-def DeleteCristal(request, id):
-    cristal = Cristal.objects.get(id=id)
+def DeleteLente(request, id):
+    lente = Lente.objects.get(id=id)
     if request.method == 'POST':
-        cristal.delete()
-        return redirect('ListaCristal')
-    return render(request, 'EliminarCristal.html', {'Cristal': cristal})
+        lente.delete()
+        return redirect('ListaLente')
+    return render(request, 'EliminarLente.html', {'Lente': lente})
 
 @login_required
 def FacturaVenta(request):
@@ -358,21 +437,21 @@ def editarEstado(request,id):
     return render(request, 'editarEstado.html', {'form':form, })
 
 @login_required
-def registrarFacturaLente(request):
+def registrarFacturaAro(request):
     if request.method == 'POST':
-        facturaLente = FacturaLente()
-        facturaLente.descripcion = request.POST['descripcion']
-        facturaLente.precio = request.POST['precio']
-        facturaLente.cantidad = request.POST['cantidad']
-        facturaLente.total = request.POST['total']
-        facturaLente.save()
-        return HttpResponseRedirect('/verFacturaLente')
-    return render(request, 'registrarFacturaLente.html',)
+        facturaAro = FacturaAro()
+        facturaAro.descripcion = request.POST['descripcion']
+        facturaAro.precio = request.POST['precio']
+        facturaAro.cantidad = request.POST['cantidad']
+        facturaAro.total = request.POST['total']
+        facturaAro.save()
+        return HttpResponseRedirect('/verFacturaAro')
+    return render(request, 'registrarFacturaAro.html',)
 
 @login_required
-def verFacturaLente(request):
-    fac = FacturaLente.objects.all()
-    return render(request, 'verFacturaLente.html', {'fac' : fac, })
+def verFacturaAro(request):
+    fac = FacturaAro.objects.all()
+    return render(request, 'verFacturaAro.html', {'fac' : fac, })
 
 @login_required
 def registrarFacturaVenta(request):
@@ -386,13 +465,13 @@ def registrarFacturaVenta(request):
         factura.codigoFactura = request.POST['codigo']
         factura.descripcion = request.POST['descripcion']
 
-        lent = int(request.POST['lente'])
-        len = Cristal.objects.get(id = lent)
-        factura.lente = len
+        lent = int(request.POST['aro'])
+        len = Lente.objects.get(id = lent)
+        factura.aro = len
 #        factura.lente = request.POST['lente']
 
         ar = int(request.POST['aro'])
-        aros = Lente.objects.get(id=ar)
+        aros = Aro.objects.get(id=ar)
         factura.aro = aros
 
 #        factura.aro = request.POST['aro']

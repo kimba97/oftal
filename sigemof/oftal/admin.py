@@ -10,9 +10,9 @@ class PersonaAdmin(admin.ModelAdmin):
 	list_display = ('nombrePersona', 'apellidoPersona', 'dui', 'direccion', 'telefono', 'fechaNac', 'edad')
 admin.site.register(Persona,PersonaAdmin)
 
-class LenteAdmin(admin.ModelAdmin):
+class AroAdmin(admin.ModelAdmin):
 	list_display = ('codigo', 'color', 'marca', 'tamano')
-admin.site.register(Lente,LenteAdmin)
+admin.site.register(Aro,AroAdmin)
 
 class SecretariaAdmin(admin.ModelAdmin):
 	list_display = ('nombrePersona', 'dui', 'direccion', 'telefono', 'fechaNac', 'edad', 'isss', 'afp')
@@ -34,9 +34,9 @@ class PacienteAdmin(admin.ModelAdmin):
 	list_display = ('nombrePersona', 'dui', 'direccion', 'telefono', 'fechaNac', 'edad', 'remitente')
 admin.site.register(Paciente,PacienteAdmin)
 
-class CristalAdmin(admin.ModelAdmin):
+class LenteAdmin(admin.ModelAdmin):
 	list_display = ('codigo', 'esfera', 'cilindro', 'eje', 'prisma', 'base', 'adicion', 'graduacion', 'color', 'codigod', 'esferad', 'cilindrod', 'ejed', 'prismad', 'based', 'adiciond', 'graduaciond', 'colord')
-admin.site.register(Cristal,CristalAdmin)
+admin.site.register(Lente,LenteAdmin)
 
 class FacturaVentaAdmin(admin.ModelAdmin):
 	list_display = ('paciente', 'codigoFactura', 'descripcion', 'lente', 'aro', 'precioVenta', 'cantidad', 'total')
@@ -46,6 +46,6 @@ class CitaAdmin(admin.ModelAdmin):
 	list_display = ('fecha', 'horaI', 'horaF', 'estado', 'paciCita')
 admin.site.register(Cita,CitaAdmin)
 
-class FacturaLenteAdmin(admin.ModelAdmin):
+class FacturaAroAdmin(admin.ModelAdmin):
 	list_display = ('descripcion', 'precio', 'total', 'cantidad')
-admin.site.register(FacturaLente,FacturaLenteAdmin)
+admin.site.register(FacturaAro,FacturaAroAdmin)

@@ -1,35 +1,65 @@
 {% extends "Base.html" %}
 {% block content%}
-<title>{% block Titulo %}Registrar aro{% endblock Titulo %}</title>
-<div class="col-md-80 col-md-offset-2 tex">
-  <div class="col-md-80">
-</div>
-  <div class="col-md-7 col-sm-offset-0 col-sm-6 col-xs-offset-1 col-xs-10">
-    <h3>Registrar Aro</h3>
+    <title>{% block Titulo %}Registrar Lente{% endblock Titulo %}</title>
 
 
 
-    <div class="contact-form">
-
-      <form class="form-group" id="form-group" role="form" method="post" enctype="multipart/form-data">
+    <div style=" position: absolute;left:2%; width:400px; align-items: center;" class="contact-form">
+      <h3>Registrar Lente</h3>
+      <form class="form-group" id="form-group" role="form" method="post" enctype="multipart/form-data" style="align-items: center;">
           {% csrf_token %}
+ 
+                <br>
+                <br>
+                <h4> Lente Izquierdo</h4>
                 <label><b>Codigo</b></label>
                 <input type="text" class="form-control" name="codigo" placeholder="" required>
+                <label><b>Esfera</b></label>
+                <input type="text" class="form-control" name="esfera" placeholder="" required>
+                <label><b>Cilindro</b></label>
+                <input type="text" class="form-control" name="cilindro" placeholder="" required>
+                <label><b>Eje</b></label>
+                <input type="text" class="form-control" name="eje" placeholder="" required>
+                <label><b>Prisma</b></label>
+                <input type="text" class="form-control" name="prisma" placeholder="" required >
+                <label><b>Base</b></label>
+                <input type="textarea" class="form-control" name="base" placeholder="" required >
+                <label><b>Adicion</b></label>
+                <input type="textarea" class="form-control" name="adicion" placeholder="" required >
+                <label><b>Graduacion</b></label>
+                <input type="textarea" class="form-control" name="graduacion" placeholder="" required >
                 <label><b>Color</b></label>
-                <input type="text" class="form-control" name="color" placeholder="" required>
-                <label><b>Marca</b></label>
-                <input type="text" class="form-control" name="marca" placeholder="" required >
-                <label><b>tamaño</b></label>
-                <input type="textarea" class="form-control" name="tamano" placeholder="" required >
+                <input type="textarea" class="form-control" name="color" placeholder="" required >
 
-        <div class="col-md-12 text-center">
-          <br><button type="submit" id="boton" class="btn btn-primary">Guardar</button>
-          <input style="text.align:center; position:absolute; left:68%" class="btn btn-success" type="button" onclick="history.back()" name="cancelar" value="Cancelar">
-        </div>
-            </form>
-        </div>
-    </div>
-  </div>
+                <div style="position:absolute;right:-150%; top: 14%;width:400px">
+                <h4> Lente Derecho</h4>
+                <label><b>Codigo</b></label>
+                <input type="text" class="form-control" name="codigod" placeholder="" required>
+                <label><b>Esfera</b></label>
+                <input type="text" class="form-control" name="esferad" placeholder="" required>
+                <label><b>Cilindro</b></label>
+                <input type="text" class="form-control" name="cilindrod" placeholder="" required>
+                <label><b>Eje</b></label>
+                <input type="text" class="form-control" name="ejed" placeholder="" required>
+                <label><b>Prisma</b></label>
+                <input type="text" class="form-control" name="prismad" placeholder="" required >
+                <label><b>Base</b></label>
+                <input type="textarea" class="form-control" name="based" placeholder="" required >
+                <label><b>Adicion</b></label>
+                <input type="textarea" class="form-control" name="adiciond" placeholder="" required >
+                <label><b>Graduacion</b></label>
+                <input type="textarea" class="form-control" name="graduaciond" placeholder="" required >
+                <label><b>Color</b></label>
+                <input type="textarea" class="form-control" name="colord" placeholder="" required >
+
+                <br><button style="position: absolute; right: 150%; bottom: -15%" type="submit" id="boton" class="btn btn-primary">Guardar</button>
+                <input style="text-align: center; position: absolute; right: 100%; bottom:-15%" class="btn btn-success" type="button" onclick="history.back()" name="cancelar" value="Cancelar">
 </div>
+
+
+     
+           
+        </div>
+ </form>
 
 {% endblock content %}

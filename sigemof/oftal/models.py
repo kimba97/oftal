@@ -4,6 +4,7 @@ from django.db import models
 from oftal.choices import SEX_CHOICES
 
 # Create your models here.
+ 
 
 class Persona(models.Model):
 	nombrePersona=models.CharField(max_length=200)
@@ -26,21 +27,21 @@ class Persona(models.Model):
 	def __str__(self):
 		return '%s' %(self.nombrePersona)
 
-class Lente(models.Model):
+class Aro(models.Model):
 	codigo=models.CharField(max_length=20)
 	color=models.CharField(max_length=30)
 	marca=models.CharField(max_length=50)
-	tamano=models.FloatField(max_length=50)
+	tamano=models.CharField(max_length=50)
 #	cantidad=models.IntegerField()
 #	precioCompra=models.FloatField()
 
 	class Meta:
-		verbose_name='Lente'
-		verbose_name_plural='Lentes'
+		verbose_name='Aro'
+		verbose_name_plural='Aro'
 	def __str__(self):
 		return '%s' %(self.codigo)
 
-class FacturaLente(models.Model):
+class FacturaAro(models.Model):
 	descripcion= models.CharField(max_length=50)
 	precio = models.FloatField(null=True)
 	total = models.FloatField(null=True)
@@ -52,7 +53,7 @@ class FacturaLente(models.Model):
 	def __str__(self):
 		return '%s' %(self.id)
 
-class Cristal(models.Model):
+class Lente(models.Model):
 	codigo = models.CharField(max_length=20)
 	esfera = models.CharField(max_length=20)
 	cilindro = models.CharField(max_length=20)
@@ -73,11 +74,11 @@ class Cristal(models.Model):
 	adiciond = models.CharField(max_length=20)
 	graduaciond = models.CharField(max_length=20)
 	colord = models.CharField(max_length=30)
-	factura = models.ForeignKey(FacturaLente, on_delete=models.CASCADE,null=True, blank=True)
+	factura = models.ForeignKey(FacturaAro, on_delete=models.CASCADE,null=True, blank=True)
 
 	class Meta:
-		verbose_name='Cristal'
-		verbose_name_plural='Cristals'
+		verbose_name='Lente'
+		verbose_name_plural='Lentes'
 	def __str__(self):
 		return '%s' %(self.codigo)
 
@@ -114,8 +115,8 @@ class FacturaVenta(models.Model):
     paciente = models.ForeignKey(Paciente, on_delete=models.SET_NULL, blank=True, null=True)
     codigoFactura = models.IntegerField()
     descripcion = models.CharField(max_length=100)
-    lente = models.ForeignKey(Cristal, on_delete=models.SET_NULL, blank=True, null=True)
-    aro = models.ForeignKey(Lente, on_delete=models.SET_NULL, blank=True, null=True)
+    lente = models.ForeignKey(Lente, on_delete=models.SET_NULL, blank=True, null=True)
+    aro = models.ForeignKey(Aro, on_delete=models.SET_NULL, blank=True, null=True)
     precioVenta = models.FloatField()
     cantidad = models.IntegerField()
     total = models.FloatField()

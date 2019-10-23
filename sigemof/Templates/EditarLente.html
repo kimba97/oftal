@@ -1,18 +1,82 @@
 {% extends "Base.html" %}
 {% block content%}
-    
-    <title>{% block Titulo %}Editar aros{% endblock Titulo %}</title>
+
+<title>{% block Titulo %}Editar lente{% endblock Titulo %}</title>
 
      <body class="d-flex align-items-start">
-        <h1 style=" text-align: center;">Editar Aro</h1>
+        <h1 style=" text-align: center;">Editar Lente</h1>
         <br>
         <br>
     <div  class="d-inline-flex pl-5">
 
-    <form style="position: absolute;right:43%" method="post">
-      {%csrf_token%}
+    <form style="position: absolute;left:10%" method="POST">
+      <!--{%csrf_token%}
 
-      {{form.as_p}}
+      {{form.as_p}}-->
+      
+          {%if lent.codigo %}
+          {% csrf_token %}
+          <table>
+        
+        <tbody>
+          <thead>
+            <tr>
+              <th></th>
+              <th>IZQUIERDO</th>
+              <th>DERECHO</th>
+              </tr>
+          </thead>
+            <tr>
+              <td><b>CODIGO</b></td>
+              <td><input style="width: 300px;" type="text" id="codigo" name="codigo" value="{{lent.codigo}}"> </td>
+              <td><input style="width: 300px;" type="text" name="codigod" value="{{lent.codigod}}"></td>
+            </tr>
+            <tr>
+              <td><b>ESFERA</b></td>
+              <td><input style="width: 300px;" type="text" name="esfera" value="{{lent.esfera}}"> </td>
+              <td><input style="width: 300px;" type="text" name="esferad" value="{{lent.esferad}}"></td>
+            </tr>
+            <tr>
+              <td><b>CILINDRO</b></td>
+              <td><input style="width: 300px;" type="text" name="cilindro" value="{{lent.cilindro}}"> </td>
+              <td><input style="width: 300px;" type="text" name="cilindrod" value="{{lent.cilindrod}}"></td>
+            </tr>
+            <tr>
+              <td><b>EJE</b></td>
+              <td><input style="width: 300px;" type="text" name="eje" value="{{lent.eje}}"> </td>
+              <td><input style="width: 300px;" type="text" name="ejed" value="{{lent.ejed}}"></td>
+            </tr>
+            <tr>
+              <td><b>PRISMA</b></td>
+              <td><input style="width: 300px;" type="text" name="prisma" value="{{lent.prisma}}"> </td>
+              <td><input style="width: 300px;" type="text" name="prismad" value="{{lent.prismad}}"></td>
+            </tr>
+            <tr>
+              <td><b>BASE</b></td>
+              <td><input style="width: 300px;" type="text" name="base" value="{{lent.base}}"> </td>
+              <td><input style="width: 300px;" type="text" name="based" value="{{lent.based}}"></td>
+            </tr>
+            <tr>
+              <td><b>ADICION</b></td>
+              <td><input style="width: 300px;" type="text" name="adicion" value="{{lent.adicion}}"> </td>
+              <td><input style="width: 300px;" type="text" name="adiciond" value="{{lent.adiciond}}"></td>
+            </tr>
+            <tr>
+              <td><b>GRADUACION</b></td>
+              <td><input style="width: 300px;" type="text" name="graduacion" value="{{lent.graduacion}}"> </td>
+              <td><input style="width: 300px;" type="text" name="graduaciond" value="{{lent.graduaciond}}"></td>
+            </tr>
+            <tr>
+              <td><b>COLOR</b></td>
+              <td><input style="width: 300px;" type="text" name="color" value="{{lent.color}}"> </td>
+              <td><input style="width: 300px;" type="text" name="colord" value="{{lent.colord}}"></td>
+            </tr>
+          {%endif%}
+        </tbody>
+      </table>
+
+
+
 <br>
 <div class="input-group mb-3" style=" text-align: center;"class="d-inline-flex pl-5 flex-column d-flex align-items-center" >
   <br>
@@ -24,7 +88,7 @@
 <br>
 <br>
  </div>
-
+ 
 </form>
 
 </div>
