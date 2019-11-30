@@ -18,8 +18,8 @@ from django.conf.urls import url
 from oftal.views import *
 from django.urls import path, re_path
 from oftal import views
-from django.contrib.auth import views as auth_views 
- 
+from django.contrib.auth import views as auth_views
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^calendario', calendario, name='calendario'),
@@ -28,10 +28,10 @@ urlpatterns = [
     url(r'^registrarLente/', registrarLente, name='registrarLente'),
     url(r'^verCita/', verCita, name='verCita'),
     url(r'^registrarFacturaAro/', registrarFacturaAro, name='registrarFacturaAro'),
-    url(r'^registrarFacturaVenta/', registrarFacturaVenta, name='registrarFacturaVenta'),
+    url(r'^registrarFacturaVentaEntrada/', registrarFacturaVentaEntrada, name='registrarFacturaVentaEntrada'),
     url(r'^verFacturaAro/', verFacturaAro, name='verFacturaAro'),
-    url(r'^verFacturaVenta/', verFacturaVenta, name='verFacturaVenta'),
- 
+    url(r'^verFacturaVentaEntrada/', verFacturaVentaEntrada, name='verFacturaVentaEntrada'),
+
 #    path('ListaPaciente/', views.ListPaciente.as_view(), name='ListaPaciente'),
     url(r'^ListaPaciente/', ListPaciente, name='ListaPaciente'),
     url(r'^ListaAro/', ListAro, name='ListaAro'),
@@ -46,13 +46,13 @@ urlpatterns = [
     re_path(r'^Aro/eliminar/(?P<id>\d+)', DeleteAro, name='EliminarAro'),
     re_path(r'^Lente/eliminar/(?P<id>\d+)', DeleteLente, name='EliminarLente'),
     re_path(r'^editarEstado/(?P<id>\d+)', editarEstado, name='editarEstado'),
-    re_path(r"^verCitasP/(?P<pac>\d+)", verCitasP, name='verCitasP'), 
+    re_path(r"^verCitasP/(?P<pac>\d+)", verCitasP, name='verCitasP'),
     #path('', views.index, name='index'),
     url(r"^VerConsulta/(?P<exp>[^/]+)/$", VerConsulta, name='VerConsulta'),
 
     url(r'^VerExpediente/', VerExpediente, name='VerExpediente'),
     url(r"^RegistrarExpediente/(?P<pac>[^/]+)/$", RegistrarExpediente, name='RegistrarExpediente'),
-   
+
     url(r"^RegistrarConsulta/(?P<exp>[^/]+)/$", RegistrarConsulta, name='RegistrarConsulta'),
     url(r"^registrarCita/(?P<pac>[^/]+)/$", registrarCita, name='registrarCita'),
     #url(r'^login/$', 'django.contrib.auth.views.login'),

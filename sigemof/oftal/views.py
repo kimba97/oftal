@@ -12,7 +12,7 @@ import time
 
 # Create your views here.
 
- 
+
 def index(request):
     return render(request, 'index.html')
 
@@ -311,7 +311,7 @@ def UpdateLente(request, id):
         graduaciond = lent.graduaciond
         colord = lent.colord
 
-        
+
 
 
     context={
@@ -375,9 +375,9 @@ def UpdateLente(request, id):
 #        form = LenteForm(request.POST, instance=lente)
 #        if form.is_valid():
 #            form.save()
-        
+
     return render(request, 'EditarLente.html', context)
- 
+
 @login_required
 @permission_required('oftal.isDoctora')
 def DeleteLente(request, id):
@@ -416,7 +416,7 @@ def registrarCita(request, pac):
 
 @login_required
 def verCitasP(request, pac):
-    
+
     cits = Cita.objects.filter(paciCita=pac).order_by('fecha')
     return render(request, 'verCitasP.html', {'cits': cits, })
 
@@ -426,7 +426,7 @@ def editarEstado(request,id):
     cita = Cita.objects.get(id=id)
     if request.method == 'GET':
         form = CitaForm(instance=cita)
-    else: 
+    else:
         form = CitaForm(request.POST, instance=cita)
         if form.is_valid():
             form.save()
@@ -454,9 +454,10 @@ def verFacturaAro(request):
     return render(request, 'verFacturaAro.html', {'fac' : fac, })
 
 @login_required
-def registrarFacturaVenta(request):
+def registrarFacturaVentaEntrada(request):
+    per = Paciente.objects.all()
     if request.method == 'POST':
-        factura = FacturaVenta()
+        factura = FacturaVentaEntrada()
         pacient = int(request.POST['paciente'])
         paci = Paciente.objects.get(id=pacient)
 #        paciente = Paciente.objects.all()
@@ -479,17 +480,18 @@ def registrarFacturaVenta(request):
         factura.cantidad = request.POST['cantidad']
         factura.total = request.POST['total']
         factura.save()
-        return HttpResponseRedirect('/verFacturaVenta')
-    return render(request, 'registrarFacturaVenta.html',)
+        return HttpResponseRedirect('/verFacturaVentaEntrada')
+    return render(request, 'registrarFacturaVentaEntrada.html', {'per' : per, })
 
 @login_required
-def verFacturaVenta(request):
-    fac = FacturaVenta.objects.all()
-    return render(request, 'verFacturaVenta.html', {'fac' : fac, })
+def verFacturaVentaEntrada(request):
+
+    facEntrada = FacturaVentaEntrada.objects.all()
+    return render(request, 'verFacturaVentaEntrada.html', {'facEntrada' : facEntrada, })
 
 
 #def verFacturaVenta(request):
-    
+
 #    s = FacturaVenta.objects.all()
 #    return render(request, 'verFacturaVenta.html', {'s' : s, })
 

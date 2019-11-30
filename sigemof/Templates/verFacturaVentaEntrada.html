@@ -6,7 +6,7 @@
 
 	<title>Citas</title>
 	<h1 style="padding-left: 30px" >Factura de venta</h1>
-	<a class="btn btn-success" style="position: absolute; right: 5%; top: 20%" href="{%url 'registrarFacturaVenta'%}">Agregar Factura</a>
+	<a class="btn btn-success" style="position: absolute; right: 5%; top: 20%" href="{%url 'registrarFacturaVentaEntrada'%}">Agregar Factura</a>
 	<table style= 'position: absolute; left: 2%' class= "table table-bordered table-striped table-hover">
 		<br>
 					<!--<form class="form-goup" method="GET">
@@ -28,7 +28,7 @@
 			</thead>
             <tbody>
             		<tr>
-            			{% for f in fac %}
+            			{% for f in facEntrada %}
             			{% csrf_token %}
             			</a></label></td>
             			<td><label> {{f.id}}</label></td>

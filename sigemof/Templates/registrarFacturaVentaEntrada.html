@@ -8,7 +8,7 @@
         cant1= parseInt(suma.cantidad.value);
         suma.total.value = prec*cant1;
     }
-    
+
     setInterval('generar()', 1);
 
 </script>
@@ -16,13 +16,16 @@
 <h1 style=" text-align: center;">Registrar Factura de lentes</h1>
         <br>
         <br>
-    
+
         <div class="contact-form">
             <form class="form-group" name="suma" id="form-group" role="form" method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
 
                 <div style="position: absolute; left: 40%" class="form-group" align="center">
                     <label>Paciente</label><br>
+                    <select>
+                        <option></option>
+                    </select>
                     <input style="text-align: center" class="form-control" type="text" name="paciente" id="paciente"></input>
                     <label>Codigo Factura</label><br>
                     <input style="text-align: center" class="form-control" type="text" name="codigo" id="codigo"></input>
@@ -49,7 +52,7 @@
 </div>
             </form>
         </div>
-    
+
 
 
 {% endblock %}

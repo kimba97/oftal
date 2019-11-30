@@ -4,7 +4,7 @@ from django.db import models
 from oftal.choices import SEX_CHOICES
 
 # Create your models here.
- 
+
 
 class Persona(models.Model):
 	nombrePersona=models.CharField(max_length=200)
@@ -46,7 +46,7 @@ class FacturaAro(models.Model):
 	precio = models.FloatField(null=True)
 	total = models.FloatField(null=True)
 	cantidad = models.IntegerField(null=True)
-	
+
 #	class Meta:
 #		verbose_name='FacturaVenta'
 #		verbose_name_pural='FacturaVentas'
@@ -100,7 +100,7 @@ class Doctora(Secretaria):
 		return '%s' %(self.nombrePersona)
 
 class Paciente(Persona):
-	
+
 	correo=models.EmailField(null=True, blank=True)
 	nombrePadre=models.CharField(max_length=20,null=True, blank=True)
 	nombreMadre=models.CharField(max_length=200,null=True, blank=True)
@@ -121,9 +121,9 @@ class FacturaVenta(models.Model):
     cantidad = models.IntegerField()
     total = models.FloatField()
 
-    class Meta:
-        verbose_name='FacturaVenta'
-        verbose_name_plural='FacturaVentas'
+#    class Meta:
+#        verbose_name='FacturaVenta'
+#        verbose_name_plural='FacturaVentas'
     def __str__(self):
         return '%s' %(self.id)
 
@@ -158,27 +158,20 @@ class Cita(models.Model):
 	def __str__(self):
 		return '%s' %(self.id)
 
-
-
-
-
-
-
-#class FacturaVenta(models.Model):
-#	paciente=models.ForeignKey(Paciente, on_delete=models.CASCADE,null=True, blank=True)
-#	codigoFactura = models.IntegerField(null=True)
-#	descripcion = models.CharField(max_length=100,null=True)
-#	lente = models.ForeignKey(Cristal, on_delete=models.CASCADE,null=True, blank=True)
-#	aro = models.ForeignKey(Lente, on_delete=models.CASCADE,null=True, blank=True)
-#	precioVenta = models.FloatField(null=True)
-#	cantidad = models.IntegerField(null=True)
-#	total = models.FloatField(null=True)
-
-#	class Meta:
-#		verbose_name='FacturaVenta'
-#		verbose_name_pural='FacturaVentas'
-#	def __str__(self):
-#		return '%s' %(self.id)
+class FacturaVentaEntrada(models.Model):
+	paciente=models.ForeignKey(Paciente, on_delete=models.CASCADE,null=True, blank=True)
+	codigoFactura = models.IntegerField(null=True)
+	descripcion = models.CharField(max_length=100,null=True)
+	lente = models.ForeignKey(Lente, on_delete=models.CASCADE, null=True, blank=True)
+	aro = models.ForeignKey(Aro, on_delete=models.CASCADE, null=True, blank=True)
+	precioVenta = models.FloatField(null=True)
+	cantidad = models.IntegerField(null=True)
+	total = models.FloatField(null=True)
+	class Meta:
+		verbose_name='FacturaVentaEntrada'
+		verbose_name_plural='FacturaVentaEntradas'
+	def __str__(self):
+		return '%s' %(self.id)
 
 
 
