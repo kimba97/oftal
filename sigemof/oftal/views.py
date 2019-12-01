@@ -502,7 +502,7 @@ class ReportePersonasPDF(View):
         pdf = canvas.Canvas(buffer)
         pdf.setPageSize((11*inch, 8.5*inch))
         self.cabecera(pdf)
-        y=400
+        y=250
         self.tabla(pdf, y)
         pdf.showPage()
         pdf.save()
@@ -514,10 +514,13 @@ class ReportePersonasPDF(View):
 
     def tabla(self,pdf,y):
         encabezados = ('Ojo', 'Paciente', 'Codigo', 'Estado', 'Esfera', 'Cilindro', 'Eje', 'Prisma', 'Base', 'Adicion', 'Graduacion', 'Color')
+        detallesIzquierdo=[]
+        detallesDerecho = []
         for lente in Lente.objects.all():
-            detallesIzquierdo = [('Izquierdo', lente.paciente.nombrePersona + lente.paciente.apellidoPersona, lente.codigo, lente.estado, lente.esfera, lente.cilindro, lente.eje, lente.prisma, lente.base, lente.adicion, lente.graduacion, lente.color)]
-            detallesDerecho = [('Derecho', lente.paciente.nombrePersona + lente.paciente.apellidoPersona, '', lente.estado, lente.esferad, lente.cilindrod, lente.ejed, lente.prismad, lente.based, lente.adiciond, lente.graduaciond, lente.colord)]
-        detalleOrden = Table([encabezados] + detallesIzquierdo + detallesDerecho, colWidths=[0.7*inch, 2*inch, 0.8*inch, 0.8*inch, 0.8*inch, 0.8*inch, 0.8*inch, 0.7*inch, 0.7*inch, 0.7*inch, 0.9*inch, 0.9*inch])
+            detallesIzquierdo.append(('Izquierdo', lente.paciente.nombrePersona + lente.paciente.apellidoPersona, lente.codigo, lente.estado, lente.esfera, lente.cilindro, lente.eje, lente.prisma, lente.base, lente.adicion, lente.graduacion, lente.color))
+            detallesIzquierdo.append(('Derecho', lente.paciente.nombrePersona + lente.paciente.apellidoPersona, '', lente.estado, lente.esferad, lente.cilindrod, lente.ejed, lente.prismad, lente.based, lente.adiciond, lente.graduaciond, lente.colord))
+            detallesIzquierdo.append(('','','','','','','','','','','',''))
+        detalleOrden = Table([encabezados] + detallesIzquierdo, colWidths=[0.7*inch, 2*inch, 0.8*inch, 0.8*inch, 0.8*inch, 0.8*inch, 0.8*inch, 0.7*inch, 0.7*inch, 0.7*inch, 0.9*inch, 0.9*inch])
         detalleOrden.setStyle(TableStyle([
             ('ALIGN',(0,0),(3,0),'CENTER'),
             ('GRID', (0, 0), (-1, -1), 1, colors.black),
@@ -525,3 +528,40 @@ class ReportePersonasPDF(View):
             ]))
         detalleOrden.wrapOn(pdf, 800, 600)
         detalleOrden.drawOn(pdf, 11, y)
+
+class ReportePacientesPDF(View):
+    def cabecera(self,pdf):
+        pdf.setFont("Helvetica", 16)
+        #Dibujamos una cadena en la ubicación X,Y especificada
+        pdf.drawString(100, 700, u"Consultorio Mèdico Oftalmològico: Dra. Lily de Chicas")
+        pdf.setFont("Helvetica", 14)
+        pdf.drawString(200, 650, u"REPORTE DE PACIENTES")
+        #Definimos el tamaño de la imagen a cargar y las coordenadas correspondientes
+
+    def get(self, request, *args, **kwargs):
+        response = HttpResponse(content_type='application/pdf')
+        buffer = BytesIO()
+        pdf = canvas.Canvas(buffer)
+        pdf.setPageSize((8.5*inch, 11*inch))
+        self.cabecera(pdf)
+        y=500
+        self.tabla(pdf, y)
+        pdf.showPage()
+        pdf.save()
+        pdf =buffer.getvalue()
+        buffer.close()
+        response.write(pdf)
+        return response
+
+
+    def tabla(self,pdf,y):
+        encabezados = ('Nombres', 'Apellidos', 'DUI', 'Edad', 'Sexo', 'Telefono', 'Correo')
+        detalles = [(paciente.nombrePersona, paciente.apellidoPersona, paciente.dui, paciente.edad, paciente.sexo, paciente.telefono, paciente.correo) for paciente in Paciente.objects.all()]
+        detalleOrden = Table([encabezados] + detalles, colWidths=[0.7*inch, 0.8*inch, 0.8*inch, 0.8*inch, 0.8*inch, 0.8*inch, 1.5*inch])
+        detalleOrden.setStyle(TableStyle([
+            ('ALIGN',(0,0),(3,0),'CENTER'),
+            ('GRID', (0, 0), (-1, -1), 1, colors.black),
+            ('FONTSIZE', (0, 0), (-1, -1), 10),
+            ]))
+        detalleOrden.wrapOn(pdf, 800, 500)
+        detalleOrden.drawOn(pdf, 100, y)

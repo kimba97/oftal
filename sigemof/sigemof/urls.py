@@ -23,6 +23,7 @@ from django.contrib.auth import views as auth_views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^reporte_personas_pdf/$',login_required(ReportePersonasPDF.as_view()), name="reporte_personas_pdf"),
+    url(r'^reporte_pacientes_pdf/$',login_required(ReportePacientesPDF.as_view()), name="reporte_pacientes_pdf"),
     #url(r'^', include('django_private_chat.urls')),
     url(r'^calendario', calendario, name='calendario'),
     url(r'^registrarPaciente/', registrarPaciente, name='registrarPaciente'),

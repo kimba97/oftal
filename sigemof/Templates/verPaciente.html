@@ -8,6 +8,12 @@
         <h1 style="padding-left: 30px">Pacientes registrados</h1>
         <br>
         <br>
+        <div style="padding-left: 30px" class="col-lg-1">
+          <a href="{% url 'reporte_pacientes_pdf' %}" class="btn btn-info">
+              <span>Imprimir</span>
+          </a>
+      </div>
+      <br>
         <a class="btn btn-success" style="position: absolute; right: 5%" href="{%url 'registrarPaciente'%}">Agregar Paciente</a>
         <div>
           <form class="form-goup" method="GET">
