@@ -8,29 +8,44 @@
         cant1= parseInt(suma.cantidad.value);
         suma.total.value = prec*cant1;
     }
-    
+
     setInterval('generar()', 1);
 
 </script>
 <title>{% block Titulo %}Registrar Factura Aro{% endblock Titulo %}</title>
-<h1 style=" text-align: center;">Registrar Factura de aros</h1>
+<h1 style=" text-align: center;">Registrar salida de aros</h1>
         <br>
         <br>
-    
+
         <div class="contact-form">
             <form class="form-group" name="suma" id="form-group" role="form" method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
 
                 <div style="position: absolute; left: 40%" class="form-group" align="center">
+                    <label>Paciente</label>
+                    <select style="text-align: center;" class="form-control" type="text" name="paciente" id="paciente">
+                        {% for pac in pac %}
+                        <option value="{{pac.id}}">{{pac.id}}- {{pac.nombrePersona}} {{pac.apellidoPersona}}</option>
+
+                        {% endfor %}
+
+                    </select>
+                    <label>Aro</label>
+                    <select style="text-align: center;" class="form-control" type="text" name="aro" id="aro">
+                        {% for aro in aro %}
+                        <option value="{{aro.id}}">{{aro.id}}- {{aro.marca}}</option>
+                        {% endfor %}
+
+                    </select>
                     <label>Descipcion</label><br>
                     <input style="text-align: center" class="form-control" type="text" name="descripcion" id="descripcion"></input>
                     <br>
-                    <label>Precio</label><br>
-                    <input style="text-align: center;" min="0.00" class="form-control" type="number" step="0.01" name="precio" id="precio"></input>
-                    <label> Cantidad</label>
-                    <input style="text-align: center;" min="0" class="form-control" type="numer" step="1" name="cantidad" id="cantidad"  ></input>
-                    <label>Total</label>
-                    <input class="form-control" type="number" name="total" placeholder="0" readonly>
+                    <label hidden="">Precio</label><br>
+                    <input value="0" style="text-align: center;" min="0.00" class="form-control" type="hidden" step="0.01" name="precio" id="precio"></input>
+                    <label hidden=""> Cantidad</label>
+                    <input value="0" style="text-align: center;" min="0" class="form-control" type="hidden" step="1" name="cantidad" id="cantidad"  ></input>
+                    <label hidden="">Total</label>
+                    <input value="0"  class="form-control" type="hidden" name="total" placeholder="0" readonly>
                     <br>
 
                        <!-- <input type="button" id="boton" class="btn btn-primary" value="GENERAR FACTURA" onclick="generar()"> -->
@@ -41,7 +56,7 @@
 </div>
             </form>
         </div>
-    
+
 
 
 {% endblock %}

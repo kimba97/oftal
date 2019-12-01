@@ -4,22 +4,24 @@
 <title>{% block Titulo %}Editar lente{% endblock Titulo %}</title>
 
      <body class="d-flex align-items-start">
-        <h1 style=" text-align: center;">Editar Lente</h1>
+        <h1 style=" text-align: center;"><b>Editar Lente</b></h1>
         <br>
-        <br>
+
     <div  class="d-inline-flex pl-5">
 
     <form style="position: absolute;left:10%" method="POST">
       <!--{%csrf_token%}
 
       {{form.as_p}}-->
-      
+
           {%if lent.codigo %}
           {% csrf_token %}
           <table>
-        
+
         <tbody>
           <thead>
+            <tr><h2><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Paciente: {{lent.paciente.nombrePersona}} {{lent.paciente.apellidoPersona}}</b></h2></tr>
+            <tr>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h3><b>Estado:</b>{{lent.estado}}</h3></tr><br>
             <tr>
               <th></th>
               <th>IZQUIERDO</th>
@@ -29,7 +31,7 @@
             <tr>
               <td><b>CODIGO</b></td>
               <td><input style="width: 300px;" type="text" id="codigo" name="codigo" value="{{lent.codigo}}"> </td>
-              <td><input style="width: 300px;" type="text" name="codigod" value="{{lent.codigod}}"></td>
+              <td></td>
             </tr>
             <tr>
               <td><b>ESFERA</b></td>
@@ -88,7 +90,7 @@
 <br>
 <br>
  </div>
- 
+
 </form>
 
 </div>

@@ -1,4 +1,4 @@
-{% extends "Base.html" %} 
+{% extends "Base.html" %}
 
 {% block content %}
 <title>{% block Titulo %}Aros{% endblock Titulo %}</title>
@@ -21,9 +21,11 @@
   <thead style="text-align: center;">
     <tr style="text-align: center;word-wrap: break-word;">
       <td style="width: 300px;" scope="col">Codigo</td>
+      <td scope="col">Estado</td>
       <td scope="col">Color</td>
       <td scope="col">Marca</td>
       <td scope="col">Tamaño</td>
+      <td scope="col">Acciones</td>
     </tr>
   </thead>
   <tbody>
@@ -31,6 +33,7 @@
     {% for Aro in aros%}
     <tr>
      <td>{{Aro.codigo}}</td>
+     <td>{{Aro.estado}}</td>
      <td>{{Aro.color}}</td>
      <td>{{Aro.marca}}</td>
      <td>{{Aro.tamano}}</td>

@@ -35,7 +35,7 @@ class PacienteAdmin(admin.ModelAdmin):
 admin.site.register(Paciente,PacienteAdmin)
 
 class LenteAdmin(admin.ModelAdmin):
-	list_display = ('codigo', 'esfera', 'cilindro', 'eje', 'prisma', 'base', 'adicion', 'graduacion', 'color', 'codigod', 'esferad', 'cilindrod', 'ejed', 'prismad', 'based', 'adiciond', 'graduaciond', 'colord')
+	list_display = ('paciente', 'codigo', 'esfera', 'cilindro', 'eje', 'prisma', 'base', 'adicion', 'graduacion', 'color', 'esferad', 'cilindrod', 'ejed', 'prismad', 'based', 'adiciond', 'graduaciond', 'colord')
 admin.site.register(Lente,LenteAdmin)
 
 class FacturaVentaAdmin(admin.ModelAdmin):
@@ -47,9 +47,9 @@ class CitaAdmin(admin.ModelAdmin):
 admin.site.register(Cita,CitaAdmin)
 
 class FacturaAroAdmin(admin.ModelAdmin):
-	list_display = ('descripcion', 'precio', 'total', 'cantidad')
+	list_display = ('paciente', 'aro', 'descripcion', 'precio', 'total', 'cantidad')
 admin.site.register(FacturaAro,FacturaAroAdmin)
 
 class FacturaVentaEntradaAdmin(admin.ModelAdmin):
-	list_display = ('paciente', 'codigoFactura', 'descripcion', 'lente', 'aro', 'precioVenta', 'cantidad', 'total')
+	list_display = ('codigoFactura', 'descripcion', 'lente', 'precioVenta', 'cantidad', 'total')
 admin.site.register(FacturaVentaEntrada,FacturaVentaEntradaAdmin)

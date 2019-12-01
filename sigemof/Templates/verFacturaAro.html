@@ -2,10 +2,10 @@
 
 
 {% block content %}
-<title>{% block Titulo %}Facturas venta{% endblock Titulo %}</title>
+<title>{% block Titulo %}Salidas de Aros{% endblock Titulo %}</title>
 
 	<title>Citas</title>
-	<h1 style="padding-left: 30px" >Factura de venta</h1>
+	<h1 style="padding-left: 30px" ><b>Salidas de Aros</b></h1>
 	<a class="btn btn-success" style="position: absolute; right: 5%; top: 20%" href="{%url 'registrarFacturaAro'%}">Agregar Factura</a>
 	<table style= 'position: absolute; left: 2%' class= "table table-bordered table-striped table-hover">
 		<br>
@@ -14,39 +14,28 @@
     					<label><b>Buscar por fecha: &nbsp; &nbsp;</b></label>
     					<input style="width: 250px;"type="text" class="form-control" name="q" placeholder="AAAA-MM-DD" pattern="{0-9}" id="">-->
 			<thead style="text-align: center;">
-			
-				<tr style="text-align: center;">
-					<th>Id</th>
-					<th>Descripcion</th>
-					<th>Cantidad</th>
-					<th>Precio</th>
-                    <th>Total</th>
 
-					
-					
+				<tr style="text-align: center;">
+
+                    <th>Nombre Paciente</th>
+					<th>Codigo Aro</th>
+					<th>Descripcion</th>
+					<!--<th>Precio</th>
+                    <th>Total</th>-->
 				</tr>
 			</thead>
-
             <tbody>
             		<tr>
-
             			{% for f in fac %}
             			{% csrf_token %}
             			</a></label></td>
-            			<td><label> {{f.id}}</label></td>
-            			<td><label> {{f.descripcion}}</label></td>
-            			<td> <label> {{f.cantidad}}</label></td>
-            			<td> <label> {{f.precio}}</label></td>
-                        <td> <label> {{f.total}} </label></td>
-
-            			
-            			
-            			
+                        <td><label>{{f.paciente.nombrePersona}} {{f.paciente.apellidoPersona}}</label></td>
+            			<td><label> {{f.aro}}</label></td>
+            			<td> <label> {{f.descripcion}}</label></td>
+            			<!--<td> <label> {{f.precio}}</label></td>
+                        <td> <label> {{f.total}} </label></td>-->
             		</tr>
             		{%endfor%}
-            		
-            		
-            		
             </tbody>
 	</table>
 {% endblock %}
