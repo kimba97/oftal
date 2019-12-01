@@ -14,7 +14,7 @@
 
 
 
-    <div style=" position: absolute;left:2%; width:400px; align-items: center;" class="contact-form">
+    <div >
       <h3><b>Registrar Lente</b></h3>
       <form name="formulario" class="form-group" id="form-group" role="form" method="post" enctype="multipart/form-data" style="align-items: center;">
           {% csrf_token %}
@@ -30,6 +30,9 @@
                         }
                     </select>
                     <br>
+                    <div style="float: left; width: 40%;">
+                        <br><br>
+                        <br><br>
                 <h4><b> Lente Izquierdo</b></h4>
                 <label><b>Codigo</b></label>
                 <input type="number" class="form-control" name="codigo" placeholder="" required>
@@ -49,8 +52,8 @@
                 <input type="textarea" class="form-control" name="graduacion" placeholder="" required >
                 <label><b>Color</b></label>
                 <input type="textarea" class="form-control" name="color" placeholder="" required >
-
-                <div style="position:absolute;right:-150%; top: 14%;width:400px">
+                </div>
+                <div style="float: right; width: 40%;" >
                     <br><br><br><br>
                 <h4> <b>Lente Derecho</b></h4>
                 <br><br><br>
@@ -71,15 +74,17 @@
                 <input type="textarea" class="form-control" name="graduaciond" placeholder="" required >
                 <label><b>Color</b></label>
                 <input type="textarea" class="form-control" name="colord" placeholder="" required >
-
-                <br><button style="position: absolute; right: 150%; bottom: -15%" type="submit" id="boton" class="btn btn-primary">Guardar</button>
-                <input style="text-align: center; position: absolute; right: 100%; bottom:-15%" class="btn btn-success" type="button" onclick="history.back()" name="cancelar" value="Cancelar">
+                    <br>
+                    <br>
+                <br><button style="margin: 20px;" type="submit" id="boton" class="btn btn-primary">Guardar</button>
+                <input class="btn btn-success" type="button" onclick="history.back()" name="cancelar" value="Cancelar">
+</form>
 </div>
 
 
 
 
         </div>
- </form>
+ 
 
 {% endblock content %}

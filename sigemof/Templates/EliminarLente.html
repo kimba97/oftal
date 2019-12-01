@@ -5,17 +5,16 @@
 
 {% block content %}
 
-    <body class="d-flex align-items-start">
 <h1 style="text-align: center;">¿Desea eliminar el registro de este Lente?</h1>
  <!--   <div  class="d-inline-flex pl-5">  -->
-        <div style="position:absolute ;left: 15%; width:400px" class="contact-form">
-
+        <div  class="contact-form">
+        <h3 style="text-align: center;"> Codigo Lentes: {{Lente.codigo}} </h3>
     <form method="post">
       {%csrf_token%}
-
+      <div style="float: left; width: 40%;">
       <br>
       <h2 style="text-align: center;">Lente Derecho</h2>
-      <h3 style="text-align: center;"> Codigo OI: {{Lente.codigo}} </h3>
+      <br>
       <h3 style="text-align: center;"> Esfera OI: {{Lente.esfera}} </h3>
       <h3 style="text-align: center;"> Cilindro OI: {{Lente.cilindro}} </h3>
       <h3 style="text-align: center;"> Eje OI: {{Lente.eje}} </h3>
@@ -24,10 +23,10 @@
       <h3 style="text-align: center;"> Adicion OI: {{Lente.adicion}} </h3>
       <h3 style="text-align: center;"> Graduacion OI: {{Lente.graduacion}} </h3>
       <h3 style="text-align: center;"> Color OI: {{Lente.color}} </h3>
-
-      <div style="position:absolute;right:-150%; top: -5%;width:400px">
+      </div>
+      <div style="float: right; width: 40%;">
       <br>
-      <br>
+    
       <h2 style="text-align: center;"> Lente Izquierdo</h2>
       <br>
 
@@ -38,23 +37,17 @@
       <h3 style="text-align: center;"> Base OD: {{Lente.based}} </h3>
       <h3 style="text-align: center;"> Adicion OD: {{Lente.adiciond}} </h3>
       <h3 style="text-align: center;"> Graduacion OD: {{Lente.graduaciond}} </h3>
-      <h3 style="text-align: center;"> Color Od: {{Lente.colord}} </h3>
+      <h3 style="text-align: center;"> Color OD: {{Lente.colord}} </h3>
+<br>
+<br>
 
-
-
-<div style="position: absolute;" id="botones" class="d-inline-flex pl-5 flex-column d-flex align-items-center">
-  <br>
-  <br>
-   <button style="text-align: center;position: absolute; right: 53%; margin-right: 250%" type="submit" class="btn btn-danger">Sí, Eliminar</button>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-   <input style="text-align:center; position: absolute; left: 53%; margin-left: -200%" class="btn btn-success" type="button" onclick="history.back()" name="cancelar" value="Cancelar">
+ <button  type="submit" class="btn btn-danger">Sí, Eliminar</button>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+ <input s class="btn btn-success" type="button" onclick="history.back()" name="cancelar" value="Cancelar">
 
 
  </div>
+
 </form>
-
-</div>
-
-    </body>
 
 
 {% endblock %}
