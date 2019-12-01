@@ -34,7 +34,9 @@
                             <td><select style="text-align: center; float:right;" class="form-control" type="text" name="paciente" id="paciente">
 
                         {% for lente in per %}
+                        {% if lente.estado == "enviado a laboratorio" %}
                         <option value="{{lente.codigo}}">Codigo:{{lente.codigo}}-Paciente:{{lente.paciente.nombrePersona}} {{lente.paciente.apellidoPersona}}</option>
+                        {% endif %}
                         {% endfor %}
                     </select></td>
                         </tr>
