@@ -8,12 +8,10 @@
 
 	<title>Expediente</title>
 	<h1 style="padding-left: 30px" >Expediente</h1>
-	<table style= 'position: absolute; left: 2%' class= "table table-bordered table-striped table-hover">
-		<br>
-					<form class="form-goup" method="GET">
-					<div style="padding-left: 30px" class="form-group">
-    					<label><b>Buscar numero de expediente: &nbsp; &nbsp;</b></label>
-    					<input style="width: 250px;"type="text" class="form-control" name="q" placeholder="Escriba el numero de expediente " id="">
+
+<div style="width: 90%; margin: 20px; margin-left: auto; margin-right: auto;" class="table-responsive">
+	<table id="table_id" class= "table table-bordered table-striped table-hover">
+		
 			<thead style="text-align: center;">
 			
 				<tr style="text-align: center;">
@@ -32,21 +30,21 @@
             		<tr>
             			{%for e in exp%}
             			{% csrf_token %}
-            			</a></label></td>
-            			<td><label> {{e.NumExp}}</label></td>
-            			<td><label> {{e.paciente.nombrePersona}}</label></td>
-            			<td> <label> {{e.paciente.telefono}}</label></td>
-            			<td> <label> {{e.paciente.correo}}</label></td>
-            			<td> <a class="btn btn-primary" href="{%url 'VerConsulta' exp=e.id %}">Detalles</a>
+            			<td>{{e.NumExp}}</td>
+            			<td> {{e.paciente.nombrePersona}}</td>
+            			<td>{{e.paciente.telefono}}</td>
+            			<td> {{e.paciente.correo}}</td>
+            			<td> <a class="btn btn-primary" href="{%url 'VerConsulta' exp=e.id %}">Detalles</a>&nbsp;&nbsp;&nbsp;
             			<a class="btn btn-success" href="{%url 'RegistrarConsulta' exp=e.id %}">Nueva consulta</a></td>
             			
-            			
+            			{%endfor%}
             			
             		</tr>
-            		{%endfor%}
+            		
             		
             		
             		
             </tbody>
 	</table>
+</div>
 	{% endblock %}

@@ -12,23 +12,22 @@
         <div>
           <form class="form-goup" method="GET">
           <div style="padding-left: 30px" class="form-group">
-              <label ><b>Buscar por nombre: &nbsp; &nbsp;</b></label>
-              <input style='width: 250px;'type="text" class="form-control" name="q" placeholder="Escriba el nombre y presione enter" id="">
+              <br><br>
               <br>
         </div>
-            
-      <table class= "table table-bordered table-striped table-hover table-responsive">
+        <div class="table-responsive" style="width: 90%; margin: 20px; margin-left: auto; margin-right: auto;">
+      <table id="table_id"  class= "table table-bordered table-striped table-hover">
   <thead style="text-align: center;">
     <tr style="text-align: center;word-wrap: break-word;">
-      <td style="width: 300px;" scope="col">Nombre Completo</td>
-      <td  scope="col">Apellidos</td>
-      <td scope="col">DUI</td>
-      <td scope="col">Edad</td> 
-      <td scope="col">Sexo</td>
-      <td scope="col">Telefono</td>
-      <td scope="col">Correo</td> 
-      <td scope="col">Acciones</td>
-      <td scope="col">Funciones</td>    
+      <th style="width: 300px;" scope="col">Nombre Completo</td>
+      <th  scope="col">Apellidos</td>
+      <th scope="col">DUI</td>
+      <th scope="col">Edad</td> 
+      <th scope="col">Sexo</td>
+      <th scope="col">Telefono</td>
+      <th scope="col">Correo</td> 
+      <th scope="col">Acciones</td>
+      <th scope="col">Funciones</td>    
     </tr>
   </thead>
   <tbody style="text-align:center;">
@@ -48,12 +47,12 @@
         <td> {{Paciente.sexo}}</td>
      <td>{{Paciente.telefono}}</td>
      <td>{{Paciente.correo}}</td>
-</div>
+
      <td style="width: 200px">
        <a id="edi" class="btn btn-primary" href="{%url 'EditarPaciente' Paciente.id %}">Editar</a>
        <a id="eli" class="btn btn-danger" href="{%url 'EliminarPaciente' Paciente.id %}">Eliminar</a>
        
-     </td>
+
 
      <td style="width: 450px">
        <a id="reg" class="btn btn-primary" href="{%url 'registrarCita' Paciente.id %}">Registrar Cita</a>
@@ -75,6 +74,7 @@
 
   </tbody>
 </table>
+</div>
 
 <style type="text/css">
 
