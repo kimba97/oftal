@@ -575,7 +575,7 @@ class ReporteExpedientesPDF(View):
         pdf = canvas.Canvas(buffer)
         pdf.setPageSize((8.5*inch, 11*inch))
         self.cabecera(pdf)
-        y=400
+        y=570
         self.tabla(pdf, y)
         pdf.showPage()
         pdf.save()
@@ -595,4 +595,4 @@ class ReporteExpedientesPDF(View):
             ('FONTSIZE', (0, 0), (-1, -1), 10),
             ]))
         detalleOrden.wrapOn(pdf, 800, 500)
-        detalleOrden.drawOn(pdf, 100, y)
+        detalleOrden.drawOn(pdf, 11, y)
