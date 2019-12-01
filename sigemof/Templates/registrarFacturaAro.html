@@ -25,15 +25,20 @@
                     <label>Paciente</label>
                     <select style="text-align: center;" class="form-control" type="text" name="paciente" id="paciente">
                         {% for pac in pac %}
+
                         <option value="{{pac.id}}">{{pac.id}}- {{pac.nombrePersona}} {{pac.apellidoPersona}}</option>
+
 
                         {% endfor %}
 
                     </select>
                     <label>Aro</label>
                     <select style="text-align: center;" class="form-control" type="text" name="aro" id="aro">
+
                         {% for aro in aro %}
+                        {% if aro.estado == "En Inventario" %}
                         <option value="{{aro.id}}">{{aro.id}}- {{aro.marca}}</option>
+                        {% endif %}
                         {% endfor %}
 
                     </select>
