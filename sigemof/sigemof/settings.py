@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'oftal',
-    'crispy_forms'
+    'crispy_forms',
+    'django_private_chat'
 ]
 
 MIDDLEWARE = [
@@ -82,9 +83,9 @@ WSGI_APPLICATION = 'sigemof.wsgi.application'
 DATABASES = {
     'default': {
     'ENGINE': 'django.db.backends.postgresql_psycopg2',
-    'NAME': 'SIGEMOF',
-    'USER': 'postgres',
-    'PASSWORD': 'admin',
+    'NAME': 'oftal',
+    'USER': 'admin',
+    'PASSWORD': 'admin123',
     'HOST': 'localhost',
     'ṔORT': '5432',
     }

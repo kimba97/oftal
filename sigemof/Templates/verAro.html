@@ -3,11 +3,9 @@
 {% block content %}
 <title>{% block Titulo %}Aros{% endblock Titulo %}</title>
 <div class="col-lg ">
-<title>Aros</title>
-    <body >
+
         <h1 style="padding-left: 30px">Aros registrados</h1>
         <a class="btn btn-success" style="position: absolute; right: 5%" href="{%url 'registrarAro'%}">Agregar Aro</a>
-        <br>
         <br>
         <div style="padding-left: 30px" class="col-lg-1">
             <a href="{% url 'reporte_aros_pdf' %}" class="btn btn-info">
@@ -55,5 +53,5 @@
 </div>
 
 
-    </body>
+
 {% endblock %}

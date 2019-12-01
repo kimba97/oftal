@@ -19,6 +19,7 @@ from oftal.views import *
 from django.urls import path, re_path,include
 from oftal import views
 from django.contrib.auth import views as auth_views
+from django_private_chat import urls as django_private_chat_urls
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -29,7 +30,7 @@ urlpatterns = [
     url(r'^reporte_salidalentes_pdf/$',login_required(ReporteSalidaLentesPDF.as_view()), name="reporte_salidalentes_pdf"),
     #url(r'^reporte_aros_pdf/$',login_required(ReporteArosPDF.as_view()), name="reporte_aros_pdf"),
     url(r'^reporte_expedientes_pdf/$',login_required(ReporteExpedientesPDF.as_view()), name="reporte_expedientes_pdf"),
-    #url(r'^', include('django_private_chat.urls')),
+    url(r'^', include('django_private_chat.urls')),
     url(r'^calendario', calendario, name='calendario'),
     url(r'^registrarPaciente/', registrarPaciente, name='registrarPaciente'),
     url(r'^registrarAro/', registrarAro, name='registrarAro'),
@@ -70,5 +71,4 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(template_name = 'index.html'), name = 'logout'),
     url(r'^', inicio, name='inicio'),
 
- #
 ]
