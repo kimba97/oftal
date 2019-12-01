@@ -15,7 +15,7 @@
     					<input style="width: 250px;"type="text" class="form-control" name="q" placeholder="AAAA-MM-DD" pattern="{0-9}" id="">-->
 			<thead style="text-align: center;">
 				<tr style="text-align: center;">
-					<th>Id</th>
+
 					<th>Paciente</th>
 					<th>Codigo Factura</th>
 					<th>Descripcion</th>
@@ -31,8 +31,8 @@
             			{% for f in facEntrada %}
             			{% csrf_token %}
             			</a></label></td>
-            			<td><label> {{f.id}}</label></td>
-						<td><label> {{f.paciente}}</label></td>
+
+						<td><label>{{f.id}} {{f.paciente.nombrePersona}}</label></td>
 						<td><label> {{f.codigoFactura}}</label></td>
             			<td><label> {{f.descripcion}}</label></td>
 						<td><label> {{f.lente}}</label></td>

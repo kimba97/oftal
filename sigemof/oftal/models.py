@@ -167,7 +167,7 @@ class Cita(models.Model):
 		return '%s' %(self.id)
 
 class FacturaVentaEntrada(models.Model):
-
+	paciente = models.ForeignKey(Paciente, on_delete=models.CASCADE, null=True, blank=True)
 	codigoFactura = models.IntegerField(null=True)
 	descripcion = models.CharField(max_length=100,null=True)
 	lente = models.ForeignKey(Lente, on_delete=models.CASCADE, null=True, blank=True)

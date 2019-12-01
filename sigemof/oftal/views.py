@@ -430,7 +430,6 @@ def verFacturaAro(request):
 @login_required
 def registrarFacturaVentaEntrada(request):
     per = Lente.objects.all()
-    aro = Aro.objects.all()
     if request.method == 'POST':
         factura = FacturaVentaEntrada()
         #pacient = int(request.POST['paciente'])
@@ -441,9 +440,14 @@ def registrarFacturaVentaEntrada(request):
         factura.codigoFactura = request.POST['codigo']
         factura.descripcion = request.POST['descripcion']
 
-        lent = int(request.POST['lentenombre'])
-        len = Lente.objects.get(id=lent)
+        lent = int(request.POST['paciente'])
+        len = Lente.objects.get(codigo=lent)
         factura.lente = len
+        print(5)
+        print(factura.lente.paciente.nombrePersona)
+        print(factura.lente.paciente.id)
+        print(factura.lente.paciente)
+        factura.paciente = factura.lente.paciente
         len.estado = "cancelado"
 
 #        factura.lente = request.POST['lente']
@@ -459,7 +463,7 @@ def registrarFacturaVentaEntrada(request):
         factura.save()
         len.save()
         return HttpResponseRedirect('/verFacturaVentaEntrada')
-    return render(request, 'registrarFacturaVentaEntrada.html', {'per' : per, 'aro' : aro, })
+    return render(request, 'registrarFacturaVentaEntrada.html', {'per' : per, })
 
 @login_required
 def verFacturaVentaEntrada(request):

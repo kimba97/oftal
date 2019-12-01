@@ -51,5 +51,5 @@ class FacturaAroAdmin(admin.ModelAdmin):
 admin.site.register(FacturaAro,FacturaAroAdmin)
 
 class FacturaVentaEntradaAdmin(admin.ModelAdmin):
-	list_display = ('codigoFactura', 'descripcion', 'lente', 'precioVenta', 'cantidad', 'total')
+	list_display = ('paciente', 'codigoFactura', 'descripcion', 'lente', 'precioVenta', 'cantidad', 'total')
 admin.site.register(FacturaVentaEntrada,FacturaVentaEntradaAdmin)

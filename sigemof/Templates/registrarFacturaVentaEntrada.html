@@ -26,15 +26,15 @@
                 <div style="position: absolute; left: 40%" class="form-group" align="center">
                     <table>
                         <tr>
-                            <td><label>Codigo Lente</label></td>
+
                             <td><label>Nombre paciente</label></td>
                         </tr>
                         <tr>
-                            <td><input value="" style="text-align: center; float:left;" class="form-control" type="text" name="lentenombre" id="lentenombre"></input></td>
+
                             <td><select style="text-align: center; float:right;" class="form-control" type="text" name="paciente" id="paciente">
 
                         {% for lente in per %}
-                        <option value="{{lente.codigo}}">{{lente.paciente.nombrePersona}} {{lente.paciente.apellidoPersona}}</option>
+                        <option value="{{lente.codigo}}">Codigo:{{lente.codigo}}-Paciente:{{lente.paciente.nombrePersona}} {{lente.paciente.apellidoPersona}}</option>
                         {% endfor %}
                     </select></td>
                         </tr>
