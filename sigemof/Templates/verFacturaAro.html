@@ -7,7 +7,8 @@
 	<title>Citas</title>
 	<h1 style="padding-left: 30px" ><b>Salidas de Aros</b></h1>
 	<a class="btn btn-success" style="position: absolute; right: 5%; top: 20%" href="{%url 'registrarFacturaAro'%}">Agregar Factura</a>
-	<table style= 'position: absolute; left: 2%' class= "table table-bordered table-striped table-hover">
+	<div style="width: 90%; margin: 20px; margin-left: auto; margin-right: auto;" class="table-responsive">
+	<table id="table_id" class= "table table-bordered table-striped table-hover">
 		<br>
 					<!--<form class="form-goup" method="GET">
 					<div style="padding-left: 30px" class="form-group">
@@ -28,7 +29,6 @@
             		<tr>
             			{% for f in fac %}
             			{% csrf_token %}
-            			</a></label></td>
                         <td><label>{{f.paciente.nombrePersona}} {{f.paciente.apellidoPersona}}</label></td>
             			<td><label> {{f.aro}}</label></td>
             			<td> <label> {{f.descripcion}}</label></td>
@@ -38,4 +38,5 @@
             		{%endfor%}
             </tbody>
 	</table>
+</div>
 {% endblock %}

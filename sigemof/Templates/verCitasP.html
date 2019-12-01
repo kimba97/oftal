@@ -10,8 +10,8 @@
         <br>
         
         <br>
-        
-      <table style= 'position: absolute; left: 2%' class= "table table-bordered table-striped table-hover table-responsive">
+        <div style="width: 90%; margin: 20px; margin-left: auto; margin-right: auto;" class="table-responsive" >
+      <table id="table_id" class= "table table-bordered table-striped table-hover table-responsive">
   <thead style="text-align: center;">
     <tr style="text-align: center;word-wrap: break-word;">
       <td scope="col">Fecha</td>
@@ -29,7 +29,7 @@
      <td>{{c.horaI}}</td>
      <td>{{c.horaF}}</td>
      <td>{{c.estado}}</td>
-    <td><a class="btn btn-primary" href="{%url 'editarEstado' c.id %}">Editar</a></td>  
+    <td style="text-align: center;"><a  class="btn btn-primary" href="{%url 'editarEstado' c.id %}">Editar</a></td>  
 
      </td>
     </tr>
@@ -38,7 +38,7 @@
 
   </tbody>
 </table>
-
+</div>
 
     </body>
 {% endblock %}
