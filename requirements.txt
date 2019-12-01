@@ -17,3 +17,5 @@ pytz~=2019.1
 requests~=2.22.0
 six~=1.12.0
 urllib3~=1.25.3
+django-private-chat~=0.2.2
+reportlab~=3.5.32
