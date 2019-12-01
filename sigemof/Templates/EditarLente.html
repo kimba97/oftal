@@ -9,69 +9,69 @@
 
     <div  class="d-inline-flex pl-5">
 
-    <form style="position: absolute;left:10%" method="POST">
+    <form  method="POST">
       <!--{%csrf_token%}
 
       {{form.as_p}}-->
 
           {%if lent.codigo %}
           {% csrf_token %}
-          <table>
+          <table style="border-collapse: separate; border-spacing: 20px;" >
 
         <tbody>
           <thead>
             <tr><h2><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Paciente: {{lent.paciente.nombrePersona}} {{lent.paciente.apellidoPersona}}</b></h2></tr>
-            <tr>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h3><b>Estado:</b>{{lent.estado}}</h3></tr><br>
+            <tr>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h3><b>Estado:&nbsp;&nbsp;</b>&nbsp;&nbsp;{{lent.estado}}</h3></tr><br>
             <tr>
               <th></th>
-              <th>IZQUIERDO</th>
-              <th>DERECHO</th>
+              <th>Izquierdo</th>
+              <th>Derecho</th>
               </tr>
           </thead>
             <tr>
-              <td><b>CODIGO</b></td>
-              <td><input style="width: 300px;" type="text" id="codigo" name="codigo" value="{{lent.codigo}}"> </td>
+              <td><b>Código</b></td>
+              <td><input class="form-control" style="width: 300px;" type="text" id="codigo" name="codigo" value="{{lent.codigo}}"> </td>
               <td></td>
             </tr>
             <tr>
-              <td><b>ESFERA</b></td>
-              <td><input style="width: 300px;" type="text" name="esfera" value="{{lent.esfera}}"> </td>
-              <td><input style="width: 300px;" type="text" name="esferad" value="{{lent.esferad}}"></td>
+              <td><b>Esfera</b></td>
+              <td><input class="form-control" style="width: 300px;" type="text" name="esfera" value="{{lent.esfera}}"> </td>
+              <td><input class="form-control" style="width: 300px;" type="text" name="esferad" value="{{lent.esferad}}"></td>
             </tr>
             <tr>
-              <td><b>CILINDRO</b></td>
-              <td><input style="width: 300px;" type="text" name="cilindro" value="{{lent.cilindro}}"> </td>
-              <td><input style="width: 300px;" type="text" name="cilindrod" value="{{lent.cilindrod}}"></td>
+              <td><b>Cilindro</b></td>
+              <td><input class="form-control" style="width: 300px;" type="text" name="cilindro" value="{{lent.cilindro}}"> </td>
+              <td><input class="form-control" style="width: 300px;" type="text" name="cilindrod" value="{{lent.cilindrod}}"></td>
             </tr>
             <tr>
-              <td><b>EJE</b></td>
-              <td><input style="width: 300px;" type="text" name="eje" value="{{lent.eje}}"> </td>
-              <td><input style="width: 300px;" type="text" name="ejed" value="{{lent.ejed}}"></td>
+              <td><b>Eje</b></td>
+              <td><input class="form-control" style="width: 300px;" type="text" name="eje" value="{{lent.eje}}"> </td>
+              <td><input class="form-control" style="width: 300px;" type="text" name="ejed" value="{{lent.ejed}}"></td>
             </tr>
             <tr>
-              <td><b>PRISMA</b></td>
-              <td><input style="width: 300px;" type="text" name="prisma" value="{{lent.prisma}}"> </td>
-              <td><input style="width: 300px;" type="text" name="prismad" value="{{lent.prismad}}"></td>
+              <td><b>Prisma</b></td>
+              <td><input class="form-control" style="width: 300px;" type="text" name="prisma" value="{{lent.prisma}}"> </td>
+              <td><input class="form-control" style="width: 300px;" type="text" name="prismad" value="{{lent.prismad}}"></td>
             </tr>
             <tr>
-              <td><b>BASE</b></td>
-              <td><input style="width: 300px;" type="text" name="base" value="{{lent.base}}"> </td>
-              <td><input style="width: 300px;" type="text" name="based" value="{{lent.based}}"></td>
+              <td><b>Base</b></td>
+              <td><input class="form-control" style="width: 300px;" type="text" name="base" value="{{lent.base}}"> </td>
+              <td><input class="form-control" style="width: 300px;" type="text" name="based" value="{{lent.based}}"></td>
             </tr>
             <tr>
-              <td><b>ADICION</b></td>
-              <td><input style="width: 300px;" type="text" name="adicion" value="{{lent.adicion}}"> </td>
-              <td><input style="width: 300px;" type="text" name="adiciond" value="{{lent.adiciond}}"></td>
+              <td><b>Adición</b></td>
+              <td><input class="form-control" style="width: 300px;" type="text" name="adicion" value="{{lent.adicion}}"> </td>
+              <td><input class="form-control" style="width: 300px;" type="text" name="adiciond" value="{{lent.adiciond}}"></td>
             </tr>
             <tr>
-              <td><b>GRADUACION</b></td>
-              <td><input style="width: 300px;" type="text" name="graduacion" value="{{lent.graduacion}}"> </td>
-              <td><input style="width: 300px;" type="text" name="graduaciond" value="{{lent.graduaciond}}"></td>
+              <td><b>Graduación</b></td>
+              <td><input class="form-control" style="width: 300px;" type="text" name="graduacion" value="{{lent.graduacion}}"> </td>
+              <td><input class="form-control" style="width: 300px;" type="text" name="graduaciond" value="{{lent.graduaciond}}"></td>
             </tr>
             <tr>
-              <td><b>COLOR</b></td>
-              <td><input style="width: 300px;" type="text" name="color" value="{{lent.color}}"> </td>
-              <td><input style="width: 300px;" type="text" name="colord" value="{{lent.colord}}"></td>
+              <td><b>Color</b></td>
+              <td><input class="form-control" style="width: 300px;" type="text" name="color" value="{{lent.color}}"> </td>
+              <td><input class="form-control" style="width: 300px;" type="text" name="colord" value="{{lent.colord}}"></td>
             </tr>
           {%endif%}
         </tbody>
@@ -80,15 +80,11 @@
 
 
 <br>
-<div class="input-group mb-3" style=" text-align: center;"class="d-inline-flex pl-5 flex-column d-flex align-items-center" >
+<div class="input-group mb-3" style=" text-align: center; left: 40%;"class="d-inline-flex pl-5 flex-column d-flex align-items-center" >
   <br>
    <button style=" text-align: center;" type="submit" class="btn btn-primary">Modificar</button>
  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-<a style="width:90px;"class="btn btn-danger" href="{%url 'ListaLente'%}">Salir</a>
-<br>
-<br>
-<br>
-<br>
+<a style="width:90px;"class="btn btn-danger" href="{%url 'ListaLente'%}">Salir</a>  
  </div>
 
 </form>

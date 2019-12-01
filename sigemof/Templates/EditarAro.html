@@ -3,31 +3,28 @@
     
     <title>{% block Titulo %}Editar aros{% endblock Titulo %}</title>
 
-     <body class="d-flex align-items-start">
+     
         <h1 style=" text-align: center;">Editar Aro</h1>
         <br>
         <br>
-    <div  class="d-inline-flex pl-5">
+    <div  >
 
-    <form style="position: absolute;right:43%" method="post">
+    <form method="post">
       {%csrf_token%}
 
       {{form.as_p}}
 <br>
-<div class="input-group mb-3" style=" text-align: center;"class="d-inline-flex pl-5 flex-column d-flex align-items-center" >
+<div class="input-group mb-3" style=" text-align: center; left: 40%;"class="d-inline-flex pl-5 flex-column d-flex align-items-center" >
   <br>
    <button style=" text-align: center;" type="submit" class="btn btn-primary">Modificar</button>
  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 <a style="width:90px;"class="btn btn-danger" href="{%url 'ListaLente'%}">Salir</a>
-<br>
-<br>
-<br>
-<br>
+
  </div>
 
 </form>
 
 </div>
 
-    </body>
+
 {% endblock content %}

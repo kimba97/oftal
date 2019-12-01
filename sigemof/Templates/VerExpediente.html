@@ -8,12 +8,17 @@
 
 	<title>Expediente</title>
 	<h1 style="padding-left: 30px" >Expediente</h1>
+	<div style="padding-left: 30px" class="col-lg-1">
+            <a href="{% url 'reporte_expedientes_pdf' %}" class="btn btn-info">
+                <span>Imprimir</span>
+            </a>
+        </div>
 
 <div style="width: 90%; margin: 20px; margin-left: auto; margin-right: auto;" class="table-responsive">
 	<table id="table_id" class= "table table-bordered table-striped table-hover">
-		
+
 			<thead style="text-align: center;">
-			
+
 				<tr style="text-align: center;">
 					<th>Numero de Expediente</th>
 					<th>Nombre </th>
@@ -21,8 +26,8 @@
 					<th>Correo</th>
 
 					<th style="text-align: center;">Acciones</th>
-					
-					
+
+
 				</tr>
 			</thead>
 
@@ -36,14 +41,14 @@
             			<td> {{e.paciente.correo}}</td>
             			<td style="text-align: center;"> <a class="btn btn-primary" href="{%url 'VerConsulta' exp=e.id %}">Detalles</a>&nbsp;&nbsp;&nbsp;
             			<a class="btn btn-success" href="{%url 'RegistrarConsulta' exp=e.id %}">Nueva consulta</a></td>
-            			
-            			{%endfor%}
-            			
+
+
+
             		</tr>
-            		
-            		
-            		
-            		
+
+            		{%endfor%}
+
+
             </tbody>
 	</table>
 </div>
