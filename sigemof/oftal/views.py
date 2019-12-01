@@ -701,9 +701,9 @@ class ReporteSalidaLentesPDF(View):
         return response
 
     def tabla(self,pdf,y):
-        encabezados = ('Paciente', 'Codigo de Factura', 'Descripcion', 'Lente', 'Precio Venta', 'Cantidad', 'Total')
-        detallesIzquierdo = [(f.paciente.nombrePersona, f.codigoFactura + f.descripcion, f.precioVenta, f.cantidad, f.total) for f in FacturaVentaEntrada.objects.all()]
-        detalleOrden = Table([encabezados] + detallesIzquierdo, colWidths=[1.6*inch, 2.5*inch, 1.8*inch, 2*inch])
+        encabezados = ('Paciente', 'Cod. Factura', 'Descripcion', 'lente', 'Precio Venta', 'Cantidad', 'Total')
+        detallesIzquierdo = [(f.paciente.nombrePersona + f.paciente.apellidoPersona, f.codigoFactura, f.descripcion, f.lente, f.precioVenta, f.cantidad, f.total) for f in FacturaVentaEntrada.objects.all()]
+        detalleOrden = Table([encabezados] + detallesIzquierdo, colWidths=[2.1*inch, 0.9*inch, 1.8*inch, 0.7*inch, 1*inch, 0.65*inch, 1.1*inch])
         detalleOrden.setStyle(TableStyle([
             ('ALIGN',(0,0),(3,0),'CENTER'),
             ('GRID', (0, 0), (-1, -1), 1, colors.black),
