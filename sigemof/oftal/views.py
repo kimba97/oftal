@@ -418,7 +418,7 @@ def registrarFacturaAro(request):
         facturaAro.total = request.POST['total']
         facturaAro.save()
         ar.save()
-        return HttpResponseRedirect('/verFacturaAro')
+        return HttpResponseRedirect('/verFacturaAro/')
     return render(request, 'registrarFacturaAro.html',{'aro': aro, 'pac': pac, })
 
 @login_required
@@ -462,7 +462,7 @@ def registrarFacturaVentaEntrada(request):
         factura.total = request.POST['total']
         factura.save()
         len.save()
-        return HttpResponseRedirect('/verFacturaVentaEntrada')
+        return HttpResponseRedirect('/verFacturaVentaEntrada/')
     return render(request, 'registrarFacturaVentaEntrada.html', {'per' : per, })
 
 @login_required
