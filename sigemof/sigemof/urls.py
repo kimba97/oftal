@@ -16,12 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.conf.urls import url
 from oftal.views import *
-from django.urls import path, re_path
+from django.urls import path, re_path,include
 from oftal import views
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^', include('django_private_chat.urls')),
     url(r'^calendario', calendario, name='calendario'),
     url(r'^registrarPaciente/', registrarPaciente, name='registrarPaciente'),
     url(r'^registrarAro/', registrarAro, name='registrarAro'),

@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'oftal',
     'crispy_forms',
+    'django_private_chat'
 ]
 
 MIDDLEWARE = [
@@ -52,6 +53,10 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'sigemof.urls'
+
+CHAT_WS_SERVER_HOST = 'localhost'
+CHAT_WS_SERVER_PORT = 5002
+CHAT_WS_SERVER_PROTOCOL = 'ws'
 
 TEMPLATES = [
     {
@@ -80,7 +85,7 @@ DATABASES = {
     'ENGINE': 'django.db.backends.postgresql_psycopg2',
     'NAME': 'SIGEMOF',
     'USER': 'postgres',
-    'PASSWORD': 'admin123',
+    'PASSWORD': 'admin',
     'HOST': 'localhost',
     'ṔORT': '5432',
     }
