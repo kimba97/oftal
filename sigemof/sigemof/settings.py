@@ -82,9 +82,9 @@ WSGI_APPLICATION = 'sigemof.wsgi.application'
 DATABASES = {
     'default': {
     'ENGINE': 'django.db.backends.postgresql_psycopg2',
-    'NAME': 'oftal',
-    'USER': 'admin',
-    'PASSWORD': 'admin123',
+    'NAME': 'SIGEMOF',
+    'USER': 'postgres',
+    'PASSWORD': 'admin',
     'HOST': 'localhost',
     'ṔORT': '5432',
     }
