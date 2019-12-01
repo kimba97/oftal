@@ -22,6 +22,7 @@ from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^reporte_personas_pdf/$',login_required(ReportePersonasPDF.as_view()), name="reporte_personas_pdf"),
     #url(r'^', include('django_private_chat.urls')),
     url(r'^calendario', calendario, name='calendario'),
     url(r'^registrarPaciente/', registrarPaciente, name='registrarPaciente'),
@@ -50,6 +51,7 @@ urlpatterns = [
     re_path(r"^verCitasP/(?P<pac>\d+)", verCitasP, name='verCitasP'),
     #path('', views.index, name='index'),
     url(r"^VerConsulta/(?P<exp>[^/]+)/$", VerConsulta, name='VerConsulta'),
+
 
     url(r'^VerExpediente/', VerExpediente, name='VerExpediente'),
     url(r"^RegistrarExpediente/(?P<pac>[^/]+)/$", RegistrarExpediente, name='RegistrarExpediente'),
