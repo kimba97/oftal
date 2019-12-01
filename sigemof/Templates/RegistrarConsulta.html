@@ -11,12 +11,12 @@
 			<form class="form-group" id="form-group" role="form" method="POST" nctype="multipart/form-data">
 				{% csrf_token %}
 
-				<div style="position: absolute; left: 31%" class="form-group" align="center">
+				<div class="form-group" align="center">
                 	<label>Fecha</label><br>
                 	<input style="text-align: center" class="form-control" type="date" name="fecha" id="fecha"></input>
                 	<br>
                 	<label>Diagnostico</label><br>
-                	<input style="height: 200px;width: 500px" class="form-control" type="text" name="diag" id="diag"></input>
+                	<input style="height: 200px;" class="form-control" type="text" name="diag" id="diag"></input>
                 	<br>
 
                 	{% if blank == True %}

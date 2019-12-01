@@ -19,28 +19,24 @@
         <br>
         <br>
 
-        <div class="contact-form">
+        <div>
             <form class="form-group" name="suma" id="form-group" role="form" method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
 
-                <div style="position: absolute; left: 40%" class="form-group" align="center">
-                    <table>
-                        <tr>
+                <div   class="form-group" align="center">
 
-                            <td><label>Nombre paciente</label></td>
-                        </tr>
-                        <tr>
+                            <label>Nombre paciente</label>
 
-                            <td><select style="text-align: center; float:right;" class="form-control" type="text" name="paciente" id="paciente">
+
+                            <select class="form-control" type="text" name="paciente" id="paciente">
 
                         {% for lente in per %}
                         {% if lente.estado == "laboratorio" %}
-                        <option value="{{lente.codigo}}">Codigo:{{lente.codigo}}-Paciente:{{lente.paciente.nombrePersona}} {{lente.paciente.apellidoPersona}}</option>
+                        <option  style="width: 90%;" value="{{lente.codigo}}">Codigo:&nbsp;{{lente.codigo}}&nbsp;&nbsp;&nbsp;&nbsp;Paciente:&nbsp;{{lente.paciente.nombrePersona}} {{lente.paciente.apellidoPersona}}</option>
                         {% endif %}
                         {% endfor %}
-                    </select></td>
-                        </tr>
-                    </table>
+                    </select>
+
 
                     <label>Codigo Factura</label><br>
                     <input style="text-align: center" class="form-control" type="text" name="codigo" id="codigo"></input>
