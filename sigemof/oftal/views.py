@@ -9,6 +9,13 @@ from oftal.forms import *
 from django.contrib.auth import authenticate, login
 from datetime import datetime
 import time
+from django.conf import settings
+from io import BytesIO
+from reportlab.lib import colors
+from reportlab.lib.pagesizes import letter, inch
+from reportlab.pdfgen import canvas
+from reportlab.platypus import Table, TableStyle
+from django.views.generic import View
 
 # Create your views here.
 
@@ -239,7 +246,7 @@ def registrarLente(request):
         lente = Lente()
         ff=request.POST['paciente']
         lente.paciente = Paciente.objects.get(nombrePersona=ff)
-        lente.estado = "enviado a laboratorio"
+        lente.estado = "laboratorio"
         lente.codigo = request.POST['codigo']
         lente.esfera = request.POST['esfera']
         lente.cilindro = request.POST['cilindro']
@@ -418,7 +425,7 @@ def registrarFacturaAro(request):
         facturaAro.total = request.POST['total']
         facturaAro.save()
         ar.save()
-        return HttpResponseRedirect('/verFacturaAro')
+        return HttpResponseRedirect('/verFacturaAro/')
     return render(request, 'registrarFacturaAro.html',{'aro': aro, 'pac': pac, })
 
 @login_required
@@ -462,7 +469,7 @@ def registrarFacturaVentaEntrada(request):
         factura.total = request.POST['total']
         factura.save()
         len.save()
-        return HttpResponseRedirect('/verFacturaVentaEntrada')
+        return HttpResponseRedirect('/verFacturaVentaEntrada/')
     return render(request, 'registrarFacturaVentaEntrada.html', {'per' : per, })
 
 @login_required
@@ -480,3 +487,41 @@ def verFacturaVentaEntrada(request):
 #def verFacturaVenta(request):
 #    fact = FacturaVenta.objects.all()
 #    return render(request, 'verFacturaVenta.html', {'fact': fact, })
+class ReportePersonasPDF(View):
+    def cabecera(self,pdf):
+        pdf.setFont("Helvetica", 16)
+        #Dibujamos una cadena en la ubicación X,Y especificada
+        pdf.drawString(200, 550, u"Consultorio Mèdico Oftalmològico: Dra. Lily de Chicas")
+        pdf.setFont("Helvetica", 14)
+        pdf.drawString(300, 500, u"REPORTE DE LENTES")
+        #Definimos el tamaño de la imagen a cargar y las coordenadas correspondientes
+
+    def get(self, request, *args, **kwargs):
+        response = HttpResponse(content_type='application/pdf')
+        buffer = BytesIO()
+        pdf = canvas.Canvas(buffer)
+        pdf.setPageSize((11*inch, 8.5*inch))
+        self.cabecera(pdf)
+        y=400
+        self.tabla(pdf, y)
+        pdf.showPage()
+        pdf.save()
+        pdf =buffer.getvalue()
+        buffer.close()
+        response.write(pdf)
+        return response
+
+
+    def tabla(self,pdf,y):
+        encabezados = ('Ojo', 'Paciente', 'Codigo', 'Estado', 'Esfera', 'Cilindro', 'Eje', 'Prisma', 'Base', 'Adicion', 'Graduacion', 'Color')
+        for lente in Lente.objects.all():
+            detallesIzquierdo = [('Izquierdo', lente.paciente.nombrePersona + lente.paciente.apellidoPersona, lente.codigo, lente.estado, lente.esfera, lente.cilindro, lente.eje, lente.prisma, lente.base, lente.adicion, lente.graduacion, lente.color)]
+            detallesDerecho = [('Derecho', lente.paciente.nombrePersona + lente.paciente.apellidoPersona, '', lente.estado, lente.esferad, lente.cilindrod, lente.ejed, lente.prismad, lente.based, lente.adiciond, lente.graduaciond, lente.colord)]
+        detalleOrden = Table([encabezados] + detallesIzquierdo + detallesDerecho, colWidths=[0.7*inch, 2*inch, 0.8*inch, 0.8*inch, 0.8*inch, 0.8*inch, 0.8*inch, 0.7*inch, 0.7*inch, 0.7*inch, 0.9*inch, 0.9*inch])
+        detalleOrden.setStyle(TableStyle([
+            ('ALIGN',(0,0),(3,0),'CENTER'),
+            ('GRID', (0, 0), (-1, -1), 1, colors.black),
+            ('FONTSIZE', (0, 0), (-1, -1), 10),
+            ]))
+        detalleOrden.wrapOn(pdf, 800, 600)
+        detalleOrden.drawOn(pdf, 11, y)
