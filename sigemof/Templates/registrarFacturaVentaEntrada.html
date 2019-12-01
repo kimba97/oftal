@@ -4,9 +4,11 @@
 
 <script>
     function generar(){
-        prec= parseFloat(suma.precio.value);
-        cant1= parseInt(suma.cantidad.value);
-        suma.total.value = prec*cant1;
+        prec= parseInt(suma.precio.value);
+        t= parseInt(suma.cantidad.value);
+        suma.total.value = prec*t;
+        tt=parseInt(suma.paciente.value);
+        suma.lentenombre.value=tt;
     }
 
     setInterval('generar()', 1);
@@ -22,19 +24,35 @@
                 {% csrf_token %}
 
                 <div style="position: absolute; left: 40%" class="form-group" align="center">
-                    <label>Paciente</label><br>
-                    <select>
-                        <option></option>
-                    </select>
-                    <input style="text-align: center" class="form-control" type="text" name="paciente" id="paciente"></input>
+                    <table>
+                        <tr>
+
+                            <td><label>Nombre paciente</label></td>
+                        </tr>
+                        <tr>
+
+                            <td><select style="text-align: center; float:right;" class="form-control" type="text" name="paciente" id="paciente">
+
+                        {% for lente in per %}
+                        {% if lente.estado == "enviado a laboratorio" %}
+                        <option value="{{lente.codigo}}">Codigo:{{lente.codigo}}-Paciente:{{lente.paciente.nombrePersona}} {{lente.paciente.apellidoPersona}}</option>
+                        {% endif %}
+                        {% endfor %}
+                    </select></td>
+                        </tr>
+                    </table>
+
                     <label>Codigo Factura</label><br>
                     <input style="text-align: center" class="form-control" type="text" name="codigo" id="codigo"></input>
                     <label>Descipcion</label><br>
                     <input style="text-align: center" class="form-control" type="text" name="descripcion" id="descripcion"></input>
-                    <label>Lente</label><br>
-                    <input style="text-align: center" class="form-control" type="text" name="lente" id="lente"></input>
-                    <label>Aro</label><br>
-                    <input style="text-align: center" class="form-control" type="text" name="aro" id="aro"></input>
+
+                    <!--<label>Aro</label><br>
+                    <td><select style="text-align: center; float:right;" class="form-control" type="text" name="aro" id="aro">
+                    {% for aros in aro %}
+                        <option value="{{aros.id}}">Codigo:{{aros.codigo}}        -Marca:{{aros.marca}}      -Color:{{aros.color}}</option>
+                        {% endfor %}
+                        </select>-->
                     <br>
                     <label>Precio</label><br>
                     <input style="text-align: center;" class="form-control"  step="0.10" type="number" name="precio" id="precio"></input>

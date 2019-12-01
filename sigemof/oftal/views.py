@@ -55,6 +55,7 @@ def registrarAro(request):
     if request.method == 'POST':
         aro = Aro()
         aro.codigo = request.POST['codigo']
+        aro.estado = "En Inventario"
         aro.color = request.POST['color']
         aro.marca = request.POST['marca']
         aro.tamano = request.POST['tamano']
@@ -230,8 +231,15 @@ def RegistrarConsulta(request, exp):
 
 
 def registrarLente(request):
+
+    paci = Paciente.objects.all()
+#        paciente = Paciente.objects.all()
+
     if request.method == 'POST':
         lente = Lente()
+        ff=request.POST['paciente']
+        lente.paciente = Paciente.objects.get(nombrePersona=ff)
+        lente.estado = "enviado a laboratorio"
         lente.codigo = request.POST['codigo']
         lente.esfera = request.POST['esfera']
         lente.cilindro = request.POST['cilindro']
@@ -243,7 +251,7 @@ def registrarLente(request):
 #        cristal.material = request.POST['material']
         lente.color = request.POST['color']
 
-        lente.codigod = request.POST['codigod']
+
         lente.esferad = request.POST['esferad']
         lente.cilindrod = request.POST['cilindrod']
         lente.ejed = request.POST['ejed']
@@ -258,7 +266,7 @@ def registrarLente(request):
 #        cristal.precioCompra = request.POST['precioC']
         lente.save()
         return HttpResponseRedirect('/ListaLente/')
-    return render(request, 'RegistrarLente.html',)
+    return render(request, 'RegistrarLente.html',{'paci' : paci, })
 
 @login_required
 def verCita(request):
@@ -290,79 +298,31 @@ def ListLente(request):
 @login_required
 @permission_required('oftal.isDoctora')
 def UpdateLente(request, id):
+
     lent = Lente.objects.get(id=id)
-    if(lent != 0):
-        codigo = lent.codigo
-        esfera = lent.esfera
-        cilindro = lent.cilindro
-        eje = lent.eje
-        prisma = lent.prisma
-        base = lent.base
-        adicion = lent.adicion
-        graduacion = lent.graduacion
-        color = lent.color
-        codigod = lent.codigod
-        esferad = lent.esferad
-        cilindrod = lent.cilindrod
-        ejed = lent.ejed
-        prismad = lent.prismad
-        based = lent.based
-        adiciond = lent.adiciond
-        graduaciond = lent.graduaciond
-        colord = lent.colord
+    if request.method == 'POST':
+        lent.codigo = request.POST['codigo']
+        lent.esfera = request.POST['esfera']
+        lent.cilindro = request.POST['cilindro']
+        lent.eje = request.POST['eje']
+        lent.prisma = request.POST['prisma']
+        lent.base = request.POST['base']
+        lent.adicion = request.POST['adicion']
+        lent.graduacion = request.POST['graduacion']
+        lent.color = request.POST['color']
 
-
-
-
-    context={
-        "lent": lent,
-        "codigo": codigo,
-        "esfera": esfera,
-        "cilindro": cilindro,
-        "eje": eje,
-        "prisma": prisma,
-        "base": base,
-        "adicion": adicion,
-        "graduacion": graduacion,
-        "color" : color,
-        "codigod": codigod,
-        "esferad": esferad,
-        "cilindrod": cilindrod,
-        "ejed": ejed,
-        "prismad": prismad,
-        "based": based,
-        "adiciond": adiciond,
-        "graduaciond": graduaciond,
-        "colord" : colord,
-        }
-
-
-    lent.codigo = request.POST['codigo']
-    lent.esfera = request.POST['esfera']
-    lent.cilindro = request.POST['cilindro']
-    lent.eje = request.POST['eje']
-    lent.prisma = request.POST['prisma']
-    lent.base = request.POST['base']
-    lent.adicion = request.POST['adicion']
-    lent.graduacion = request.POST['graduacion']
-#        cristal.material = request.POST['material']
-    lent.color = request.POST['color']
-
-    lent.codigod = request.POST['codigod']
-    lent.esferad = request.POST['esferad']
-    lent.cilindrod = request.POST['cilindrod']
-    lent.ejed = request.POST['ejed']
-    lent.prismad = request.POST['prismad']
-    lent.based = request.POST['based']
-    lent.adiciond = request.POST['adiciond']
-    lent.graduaciond = request.POST['graduaciond']
-    #        cristal.material = request.POST['material']
-    lent.colord = request.POST['colord']
-#        cristal.marca = request.POST['marca']
-#        cristal.cantidad = request.POST['cantidad']
-#        cristal.precioCompra = request.POST['precioC']
-    lent.save()
-    return HttpResponseRedirect('/ListaLente/')
+        lent.esferad = request.POST['esferad']
+        lent.cilindrod = request.POST['cilindrod']
+        lent.ejed = request.POST['ejed']
+        lent.prismad = request.POST['prismad']
+        lent.based = request.POST['based']
+        lent.adiciond = request.POST['adiciond']
+        lent.graduaciond = request.POST['graduaciond']
+        #        cristal.material = request.POST['material']
+        lent.colord = request.POST['colord']
+        lent.save()
+        return HttpResponseRedirect('/ListaLente/')
+    return render(request, 'EditarLente.html', {'lent': lent, })
 
 #    if (lent):
 #        lent.save()
@@ -438,49 +398,71 @@ def editarEstado(request,id):
 
 @login_required
 def registrarFacturaAro(request):
+    aro =Aro.objects.all()
+    pac =Paciente.objects.all()
     if request.method == 'POST':
         facturaAro = FacturaAro()
+
+        aro = int(request.POST['aro'])
+        ar = Aro.objects.get(id=aro)
+        facturaAro.aro = ar
+
+        p = int(request.POST['paciente'])
+        facturaAro.paciente = Paciente.objects.get(id=p)
+
+        ar.estado = "cancelado"
+
         facturaAro.descripcion = request.POST['descripcion']
         facturaAro.precio = request.POST['precio']
         facturaAro.cantidad = request.POST['cantidad']
         facturaAro.total = request.POST['total']
         facturaAro.save()
-        return HttpResponseRedirect('/verFacturaAro')
-    return render(request, 'registrarFacturaAro.html',)
+        ar.save()
+        return HttpResponseRedirect('/verFacturaAro/')
+    return render(request, 'registrarFacturaAro.html',{'aro': aro, 'pac': pac, })
 
 @login_required
 def verFacturaAro(request):
     fac = FacturaAro.objects.all()
+
     return render(request, 'verFacturaAro.html', {'fac' : fac, })
 
 @login_required
 def registrarFacturaVentaEntrada(request):
-    per = Paciente.objects.all()
+    per = Lente.objects.all()
     if request.method == 'POST':
         factura = FacturaVentaEntrada()
-        pacient = int(request.POST['paciente'])
-        paci = Paciente.objects.get(id=pacient)
+        #pacient = int(request.POST['paciente'])
+        #paci = Paciente.objects.get(id=pacient)
 #        paciente = Paciente.objects.all()
-        factura.paciente = paci
+        #factura.paciente = paci
 #        factura.paciente = request.POST['paciente']
         factura.codigoFactura = request.POST['codigo']
         factura.descripcion = request.POST['descripcion']
 
-        lent = int(request.POST['aro'])
-        len = Lente.objects.get(id = lent)
-        factura.aro = len
+        lent = int(request.POST['paciente'])
+        len = Lente.objects.get(codigo=lent)
+        factura.lente = len
+        print(5)
+        print(factura.lente.paciente.nombrePersona)
+        print(factura.lente.paciente.id)
+        print(factura.lente.paciente)
+        factura.paciente = factura.lente.paciente
+        len.estado = "cancelado"
+
 #        factura.lente = request.POST['lente']
 
-        ar = int(request.POST['aro'])
-        aros = Aro.objects.get(id=ar)
-        factura.aro = aros
+        #ar = int(request.POST['aro'])
+        #aros = Aro.objects.get(id=ar)
+        #factura.aro = aros
 
 #        factura.aro = request.POST['aro']
         factura.precioVenta = request.POST['precio']
         factura.cantidad = request.POST['cantidad']
         factura.total = request.POST['total']
         factura.save()
-        return HttpResponseRedirect('/verFacturaVentaEntrada')
+        len.save()
+        return HttpResponseRedirect('/verFacturaVentaEntrada/')
     return render(request, 'registrarFacturaVentaEntrada.html', {'per' : per, })
 
 @login_required

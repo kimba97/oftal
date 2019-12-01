@@ -9,10 +9,10 @@
 <h1 style="text-align: center;">¿Desea eliminar el registro de este Lente?</h1>
  <!--   <div  class="d-inline-flex pl-5">  -->
         <div style="position:absolute ;left: 15%; width:400px" class="contact-form">
- 
+
     <form method="post">
       {%csrf_token%}
-      
+
       <br>
       <h2 style="text-align: center;">Lente Derecho</h2>
       <h3 style="text-align: center;"> Codigo OI: {{Lente.codigo}} </h3>
@@ -29,7 +29,8 @@
       <br>
       <br>
       <h2 style="text-align: center;"> Lente Izquierdo</h2>
-      <h3 style="text-align: center;"> Codigo OD: {{Lente.codigod}} </h3>
+      <br>
+
       <h3 style="text-align: center;"> Esfera OD: {{Lente.esferad}} </h3>
       <h3 style="text-align: center;"> Cilindro OD: {{Lente.cilindrod}} </h3>
       <h3 style="text-align: center;"> Eje OD: {{Lente.ejed}} </h3>

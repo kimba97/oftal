@@ -21,7 +21,9 @@
   <thead class="thead-dark" style="text-align: center;">
     <tr style="text-align: center;word-wrap: break-word;">
       <td></td>
-      <td style="width: 300px;" scope="col">Codigo</td>
+      <td scope="col">Paciente</td>
+      <td style="width: 100px;" scope="col">Codigo</td>
+      <td scope="col">Estado</td>
 
       <td scope="col">Esfera</td>
         <td scope="col">Cilindro</td>
@@ -49,7 +51,9 @@
     {% for Lente in lentes%}
     <tr>
      <th> Ojo Izquierdo</th>
+     <td>{{Lente.paciente.nombrePersona}} {{Lente.paciente.apellidoPersona}}</td>
      <td>{{Lente.codigo}}</td>
+     <td>{{Lente.estado}}</td>
      <td>{{Lente.esfera}}</td>
      <td>{{Lente.cilindro}}</td>
      <td>{{Lente.eje}}</td>
@@ -58,11 +62,17 @@
      <td>{{Lente.adicion}}</td>
      <td>{{Lente.graduacion}}</td>
      <td>{{Lente.color}}</td>
+     <td rowspan="2" style="width: 200px">
+       <a class="btn btn-primary" href="{%url 'EditarLente' Lente.id %}">Editar</a>
+       <a class="btn btn-danger" href="{%url 'EliminarLente' Lente.id %}">Eliminar</a>
+       </td>
 
     </tr>
     <tr>
      <th> Ojo Derecho</th>
-     <td>{{Lente.codigod}}</td>
+     <td>{{Lente.paciente.nombrePersona}} {{Lente.paciente.apellidoPersona}}</td>
+     <td></td>
+     <td>{{Lente.estado}}</td>
      <td>{{Lente.esferad}}</td>
      <td>{{Lente.cilindrod}}</td>
      <td>{{Lente.ejed}}</td>
@@ -73,11 +83,7 @@
      <td>{{Lente.colord}}</td>
 
 </div>
-        <td rowspan="2" style="width: 400px">
-       <a class="btn btn-primary" href="{%url 'EditarLente' Lente.id %}">Editar</a>
-       <a class="btn btn-danger" href="{%url 'EliminarLente' Lente.id %}">Eliminar</a>
 
-     </td>
 
     </tr>
 
@@ -87,6 +93,6 @@
 </table>
 </div>
 
-  
+
     </body>
 {% endblock %}

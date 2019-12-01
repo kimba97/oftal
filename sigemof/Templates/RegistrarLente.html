@@ -1,19 +1,38 @@
 {% extends "Base.html" %}
 {% block content%}
+
+<!--<script>
+    function generar(){
+        prec= parseInt(formulario.codigo.value);
+        formulario.codigod.value = prec+1;
+    }
+
+    setInterval('generar()', 1);
+
+</script>-->
     <title>{% block Titulo %}Registrar Lente{% endblock Titulo %}</title>
 
 
 
     <div style=" position: absolute;left:2%; width:400px; align-items: center;" class="contact-form">
-      <h3>Registrar Lente</h3>
-      <form class="form-group" id="form-group" role="form" method="post" enctype="multipart/form-data" style="align-items: center;">
+      <h3><b>Registrar Lente</b></h3>
+      <form name="formulario" class="form-group" id="form-group" role="form" method="post" enctype="multipart/form-data" style="align-items: center;">
           {% csrf_token %}
- 
+
                 <br>
                 <br>
-                <h4> Lente Izquierdo</h4>
+
+                <label><b>Paciente</b></label>
+                <select style="text-align: center" class="form-control" type="text" name="paciente" id="paciente">
+                        {% for paciente in paci %}
+                        <option value="{{paciente.nombrePersona}}">{{paciente.id}}- {{paciente.nombrePersona}} {{paciente.apellidoPersona}}</option>
+                        {% endfor %}
+                        }
+                    </select>
+                    <br>
+                <h4><b> Lente Izquierdo</b></h4>
                 <label><b>Codigo</b></label>
-                <input type="text" class="form-control" name="codigo" placeholder="" required>
+                <input type="number" class="form-control" name="codigo" placeholder="" required>
                 <label><b>Esfera</b></label>
                 <input type="text" class="form-control" name="esfera" placeholder="" required>
                 <label><b>Cilindro</b></label>
@@ -32,9 +51,10 @@
                 <input type="textarea" class="form-control" name="color" placeholder="" required >
 
                 <div style="position:absolute;right:-150%; top: 14%;width:400px">
-                <h4> Lente Derecho</h4>
-                <label><b>Codigo</b></label>
-                <input type="text" class="form-control" name="codigod" placeholder="" required>
+                    <br><br><br><br>
+                <h4> <b>Lente Derecho</b></h4>
+                <br><br><br>
+
                 <label><b>Esfera</b></label>
                 <input type="text" class="form-control" name="esferad" placeholder="" required>
                 <label><b>Cilindro</b></label>
@@ -57,8 +77,8 @@
 </div>
 
 
-     
-           
+
+
         </div>
  </form>
 

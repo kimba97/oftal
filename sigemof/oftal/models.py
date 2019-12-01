@@ -29,6 +29,7 @@ class Persona(models.Model):
 
 class Aro(models.Model):
 	codigo=models.CharField(max_length=20)
+	estado=models.CharField(max_length=25)
 	color=models.CharField(max_length=30)
 	marca=models.CharField(max_length=50)
 	tamano=models.CharField(max_length=50)
@@ -41,7 +42,23 @@ class Aro(models.Model):
 	def __str__(self):
 		return '%s' %(self.codigo)
 
+
+
+class Paciente(Persona):
+
+	correo=models.EmailField(null=True, blank=True)
+	nombrePadre=models.CharField(max_length=20,null=True, blank=True)
+	nombreMadre=models.CharField(max_length=200,null=True, blank=True)
+	remitente=models.CharField(max_length=50)
+	class Meta:
+		verbose_name='Paciente'
+		verbose_name_plural='Pacientes'
+	def __str__(self):
+		return '%s' %(self.id)
+
 class FacturaAro(models.Model):
+	paciente = models.ForeignKey(Paciente, on_delete=models.CASCADE,null=True, blank=True)
+	aro = models.ForeignKey(Aro, on_delete=models.CASCADE,null=True, blank=True)
 	descripcion= models.CharField(max_length=50)
 	precio = models.FloatField(null=True)
 	total = models.FloatField(null=True)
@@ -54,6 +71,8 @@ class FacturaAro(models.Model):
 		return '%s' %(self.id)
 
 class Lente(models.Model):
+	paciente=models.ForeignKey(Paciente, on_delete=models.CASCADE,null=True, blank=True)
+	estado=models.CharField(max_length=30)
 	codigo = models.CharField(max_length=20)
 	esfera = models.CharField(max_length=20)
 	cilindro = models.CharField(max_length=20)
@@ -65,7 +84,6 @@ class Lente(models.Model):
 #	material=models.CharField(max_length=30)
 	color = models.CharField(max_length=30)
 
-	codigod = models.CharField(max_length=20)
 	esferad = models.CharField(max_length=20)
 	cilindrod = models.CharField(max_length=20)
 	ejed = models.CharField(max_length=20)
@@ -99,17 +117,7 @@ class Doctora(Secretaria):
 	def __str__(self):
 		return '%s' %(self.nombrePersona)
 
-class Paciente(Persona):
 
-	correo=models.EmailField(null=True, blank=True)
-	nombrePadre=models.CharField(max_length=20,null=True, blank=True)
-	nombreMadre=models.CharField(max_length=200,null=True, blank=True)
-	remitente=models.CharField(max_length=50)
-	class Meta:
-		verbose_name='Paciente'
-		verbose_name_plural='Pacientes'
-	def __str__(self):
-		return '%s' %(self.id)
 
 class FacturaVenta(models.Model):
     paciente = models.ForeignKey(Paciente, on_delete=models.SET_NULL, blank=True, null=True)
@@ -159,7 +167,7 @@ class Cita(models.Model):
 		return '%s' %(self.id)
 
 class FacturaVentaEntrada(models.Model):
-	paciente=models.ForeignKey(Paciente, on_delete=models.CASCADE,null=True, blank=True)
+	paciente = models.ForeignKey(Paciente, on_delete=models.CASCADE, null=True, blank=True)
 	codigoFactura = models.IntegerField(null=True)
 	descripcion = models.CharField(max_length=100,null=True)
 	lente = models.ForeignKey(Lente, on_delete=models.CASCADE, null=True, blank=True)

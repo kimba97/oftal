@@ -7,7 +7,7 @@ class PacienteForm(forms.ModelForm):
 
 	class Meta:
 		model = Paciente
-		fields=['nombrePersona', 'apellidoPersona', 'dui', 'direccion', 'telefono', 'fechaNac', 'edad', 
+		fields=['nombrePersona', 'apellidoPersona', 'dui', 'direccion', 'telefono', 'fechaNac', 'edad',
 		'sexo', 'correo', 'nombrePadre', 'nombreMadre', 'remitente']
 
 		labels={
@@ -72,7 +72,7 @@ class LenteForm(forms.ModelForm):
 
 	class Meta:
 		model = Lente
-		fields=['codigo', 'esfera', 'cilindro', 'eje', 'prisma', 'base', 'adicion', 'graduacion', 'color', 'codigod', 'esferad', 'cilindrod', 'ejed', 'prismad', 'based', 'adiciond', 'graduaciond', 'colord']
+		fields=['codigo', 'esfera', 'cilindro', 'eje', 'prisma', 'base', 'adicion', 'graduacion', 'color', 'esferad', 'cilindrod', 'ejed', 'prismad', 'based', 'adiciond', 'graduaciond', 'colord']
 
 		labels={
 		'codigo':'Codigo OI',
@@ -86,7 +86,6 @@ class LenteForm(forms.ModelForm):
 #		'material':'Material',
 		'color':'Color OI',
 
-		'codigod': 'Codigo OD',
 		'esferad': 'Esfera OD',
 		'cilindrod': 'Cilindro OD',
 		'ejed': 'Eje OD',
@@ -114,7 +113,6 @@ class LenteForm(forms.ModelForm):
 #		'material': forms.TextInput(attrs={'class': 'form-control'}),
 		'color':forms.TextInput(attrs={'class':'form-control'}),
 
-		'codigod': forms.TextInput(attrs={'class': 'form-control'}),
 		'esferad': forms.TextInput(attrs={'class': 'form-control'}),
 		'cilindrod': forms.TextInput(attrs={'class': 'form-control'}),
 		'ejed': forms.TextInput(attrs={'class': 'form-control'}),

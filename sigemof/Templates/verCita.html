@@ -8,12 +8,12 @@
 
 	<title>Citas</title>
 	<h1 style="padding-left: 30px" >Citas</h1>
-	<table style= 'position: absolute; left: 2%' class= "table table-bordered table-striped table-hover">
+	
 		<br>
-					<form class="form-goup" method="GET">
-					<div style="padding-left: 30px" class="form-group">
-    					<label><b>Buscar por fecha: &nbsp; &nbsp;</b></label>
-    					<input style="width: 250px;"type="text" class="form-control" name="q" placeholder="AAAA-MM-DD" pattern="{0-9}" id="">
+					
+			<div class="table-responsive" style="width: 90%; margin: 20px; margin-left: auto; margin-right: auto;">
+
+			<table id="table_id" class= "table table-bordered table-striped table-hover">
 			<thead style="text-align: center;">
 			
 				<tr style="text-align: center;">
@@ -21,10 +21,7 @@
 					<th>Hora de Inicio </th>
 					<th>Hora de Finalizacion</th>
 					<th>Estado</th>
-                              <th>Nombre</th>
-
-					
-					
+                    <th>Nombre</th>	
 				</tr>
 			</thead>
 
@@ -32,12 +29,11 @@
             		<tr>
             			{% for e in c %}
             			{% csrf_token %}
-            			</a></label></td>
-            			<td><label> {{e.fecha}}</label></td>
-            			<td><label> {{e.horaI}}</label></td>
-            			<td> <label> {{e.horaF}}</label></td>
-            			<td> <label> {{e.estado}}</label></td>
-                              <td> <label> {{e.paciCita.nombrePersona}} &nbsp; {{e.paciCita.apellidoPersona}}</label></td>
+            			<td> {{e.fecha}}</td>
+            			<td> {{e.horaI}}</td>
+            			<td>  {{e.horaF}}</td>
+            			<td>  {{e.estado}}</td>
+                    	<td>  {{e.paciCita.nombrePersona}} &nbsp; {{e.paciCita.apellidoPersona}}</td>
 
             			
             			
@@ -49,4 +45,6 @@
             		
             </tbody>
 	</table>
+</div>
+
 {% endblock %}
