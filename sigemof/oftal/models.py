@@ -64,9 +64,9 @@ class FacturaAro(models.Model):
 	total = models.FloatField(null=True)
 	cantidad = models.IntegerField(null=True)
 
-#	class Meta:
-#		verbose_name='FacturaVenta'
-#		verbose_name_pural='FacturaVentas'
+	class Meta:
+		verbose_name='FacturaVenta'
+		verbose_name_plural='FacturaVentas'
 	def __str__(self):
 		return '%s' %(self.id)
 

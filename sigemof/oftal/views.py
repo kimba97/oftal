@@ -711,3 +711,39 @@ class ReporteSalidaLentesPDF(View):
             ]))
         detalleOrden.wrapOn(pdf, 800, 600)
         detalleOrden.drawOn(pdf, 11, 570)
+
+class ReporteSArosPDF(View):
+    def cabecera(self,pdf):
+        pdf.setFont("Helvetica", 16)
+        #Dibujamos una cadena en la ubicación X,Y especificada
+        pdf.drawString(110, 700, u"Consultorio Mèdico Oftalmològico: Dra. Lily de Chicas")
+        pdf.setFont("Helvetica", 14)
+        pdf.drawString(210, 650, u"REPORTE SALIDE AROS")
+        #Definimos el tamaño de la imagen a cargar y las coordenadas correspondientes
+
+    def get(self, request, *args, **kwargs):
+        response = HttpResponse(content_type='application/pdf')
+        buffer = BytesIO()
+        pdf = canvas.Canvas(buffer)
+        pdf.setPageSize((8.5*inch, 11*inch))
+        self.cabecera(pdf)
+        y=400
+        self.tablaaro(pdf, 400)
+        pdf.showPage()
+        pdf.save()
+        pdf =buffer.getvalue()
+        buffer.close()
+        response.write(pdf)
+        return response
+
+    def tablaaro(self,pdf,y):
+        encabezados = ('Nombre Paciente', 'Cod. Aro', 'Descripcion')
+        detallesIzquierdo = [(f.paciente.nombrePersona + f.paciente.apellidoPersona, f.aro, f.descripcion) for f in FacturaAro.objects.all()]
+        detalleOrden = Table([encabezados] + detallesIzquierdo, colWidths=[2.1*inch, 0.9*inch, 1.8*inch])
+        detalleOrden.setStyle(TableStyle([
+            ('ALIGN',(0,0),(3,0),'CENTER'),
+            ('GRID', (0, 0), (-1, -1), 1, colors.black),
+            ('FONTSIZE', (0, 0), (-1, -1), 10),
+            ]))
+        detalleOrden.wrapOn(pdf, 800, 600)
+        detalleOrden.drawOn(pdf, 11, 570)
