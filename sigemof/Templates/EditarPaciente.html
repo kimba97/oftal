@@ -3,11 +3,9 @@
 {% block content%}
 <title>{% block Titulo %}Editar paciente{% endblock Titulo %}</title>
 
-     <body class="d-flex align-items-start">
         <h1 style=" text-align: center;">Editar Paciente</h1>
         <br>
         <br>
-    <div  class="d-inline-flex pl-5">
 
     <form style="position: absolute;right:43%" method="post">
       {%csrf_token%}
@@ -27,7 +25,4 @@
 
 </form>
 
-</div>
-
-    </body>
 {% endblock content %}

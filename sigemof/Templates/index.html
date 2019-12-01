@@ -11,12 +11,11 @@
 	<!--<link rel="stylesheet" href="../static/css/estilos.css">-->
 </head>
 <body>
-		<form method = 'post' action=>
+		<form  method = 'post' action=>
 			{% csrf_token %}
 			<br>
 			<br>
-		<div class="login-box">
-			<h1>Iniciar Sesion</h1>
+		<div style="width: 300px; height: 350px; margin-right: auto; margin-left: auto;" class="login-box">
 			<form>
 				<!-- Username                 -->
 				<label for="username">Usuario</label>
@@ -34,8 +33,7 @@
                         Please try again.
                     </p>
                 {% endif %}-->
-                <br>
-				<button style="position: absolute; bottom: 15%; right: 28%; width: 150px" class="btn btn-primary" type="submit"> Iniciar </button>
+				<button style="text-align:center" class="btn btn-primary" type="submit"> Iniciar </button>
 
 			</form>
 

@@ -6,8 +6,9 @@
             
 
 
-    <div style="align-items: center; position:absolute;left:2%; width:400px" class="contact-form">
-    <h3>Registrar Cita</h3><br>
+    <div style="text-align: center;width:100%" class="contact-form">
+    <h3 style="text-align: center;">Registrar Cita</h3><br>
+    <div style="margin:0 auto; margin-left: auto; margin-right: auto;">
       <form class="form-group" id="form-group" role="form" method="post" enctype="multipart/form-data">
           {% csrf_token %}
                 <label><b>Fecha</b></label>
@@ -22,28 +23,24 @@
                 <input type="time" placeholder=""  type="time" value="09:00" min="08:30" max="15:00"  class="form-control" name="horaF"  required>
 
                 <label><b>Estado</b></label><br>
-                <select style="width: 400px; height: 30px; border-width: 0.5px" name="estado">
+                <select style="width: 100%; height: 30px; border-width: 0.5px" name="estado">
                 <!-- Opciones de la lista -->
                 <option value="Realizada"  selected>Realizada</option>
                 <option value="Reprogramada" selected>Reprogramada</option> 
                 <option value="Programada" selected>Programada</option>
                 </select><br>
+                <br>
              
-                
-
-
-                
-               
-
-        <div class="col-md-12 text-center">
-        
+             
         </div>
-           
-        </div>
-  <br>
-  <button style="position: absolute; bottom: 10%; right:20%" type="submit" id="boton" class="btn btn-primary">Guardar</button> 
-     <input style="position: absolute; bottom: 10%; right:12%; width:80px" class="btn btn-danger" type="button" onclick="history.back()" name="cancelar" value="Cancelar">
+  <br><div style="align-content: center;" class="btn-group" >
+                <button  type="submit" id="boton" class="btn btn-primary">Guardar</button>
+            
+                <input  class="btn btn-danger" type="button" onclick="history.back()" name="cancelar" value="Cancelar">
+                </div>
+  
  </form>
+</div>
 </div>
 <style type="text/css">
     .btn{

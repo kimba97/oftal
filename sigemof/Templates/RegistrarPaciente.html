@@ -7,7 +7,7 @@
             
 
 
-    <div style="position:absolute;left:2%; width:400px" class="contact-form">
+    <div style="float: left; width: 40%;"  class="contact-form">
     <h3>Registrar paciente</h3><br>
       <form class="form-group" id="form-group" role="form" method="post" enctype="multipart/form-data">
           {% csrf_token %}
@@ -24,7 +24,8 @@
                 <label><b>Fecha de nacimiento</b></label>
                 <input type="date" class="form-control" name="naci" placeholder="" required>
                </div>
-               <div style="position:absolute;left:52%; top:26%; width:400px" class="contact-form">
+               <br><br><br>
+               <div  style="float: right; width: 40%;" class="contact-form">
                 <label><b>Sexo</b></label><br>
                 <select style="width: 400px; height: 30px; border-width: 0.5px" name="sexo">
                 <!-- Opciones de la lista -->
@@ -39,19 +40,19 @@
                 <input type="text" class="form-control" name="nameM" placeholder="" required>
                 <label><b>Nombre de remitente</b></label>
                 <input type="text" class="form-control" name="nameR" placeholder="" required>
-
+                <br>
+                <br>
+                <button  type="submit" id="boton" class="btn btn-primary">Guardar</button> 
+                <input class="btn btn-danger" type="button" onclick="history.back()" name="cancelar" value="Cancelar">
 
                 
                
 
-        <div class="col-md-12 text-center">
-        
-        </div>
+
            
         </div>
   <br>
-  <button style="position: absolute; bottom: 10%; right:20%" type="submit" id="boton" class="btn btn-primary">Guardar</button> 
-     <input style="position: absolute; bottom: 10%; right:12%; width:80px" class="btn btn-danger" type="button" onclick="history.back()" name="cancelar" value="Cancelar">
+  
  </form>
 </div>
 
