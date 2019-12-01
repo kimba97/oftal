@@ -558,7 +558,7 @@ class ReportePacientesPDF(View):
         encabezados = ('Nombres', 'Apellidos', 'DUI', 'Edad', 'Sexo', 'Telefono', 'Correo')
         detalles = [(paciente.nombrePersona, paciente.apellidoPersona, paciente.dui, paciente.edad, paciente.sexo, paciente.telefono, paciente.correo) for paciente in Paciente.objects.all()]
         detalleOrden = Table([encabezados] + detalles, colWidths=[0.7*inch, 0.8*inch, 0.8*inch, 0.8*inch, 0.8*inch, 0.8*inch, 1.5*inch])
-    
+
 
 class ReporteExpedientesPDF(View):
     def cabecera(self,pdf):
@@ -596,3 +596,111 @@ class ReporteExpedientesPDF(View):
             ]))
         detalleOrden.wrapOn(pdf, 800, 500)
         detalleOrden.drawOn(pdf, 11, y)
+
+class ReporteArosPDF(View):
+    def cabecera(self,pdf):
+        pdf.setFont("Helvetica", 16)
+        #Dibujamos una cadena en la ubicación X,Y especificada
+        pdf.drawString(110, 700, u"Consultorio Mèdico Oftalmològico: Dra. Lily de Chicas")
+        pdf.setFont("Helvetica", 14)
+        pdf.drawString(210, 650, u"REPORTE DE AROS")
+        #Definimos el tamaño de la imagen a cargar y las coordenadas correspondientes
+
+    def get(self, request, *args, **kwargs):
+        response = HttpResponse(content_type='application/pdf')
+        buffer = BytesIO()
+        pdf = canvas.Canvas(buffer)
+        pdf.setPageSize((8.5*inch, 11*inch))
+        self.cabecera(pdf)
+        y=400
+        self.tabla(pdf, y)
+        pdf.showPage()
+        pdf.save()
+        pdf =buffer.getvalue()
+        buffer.close()
+        response.write(pdf)
+        return response
+
+    def tabla(self,pdf,y):
+        encabezados = ('Codigo', 'Estado', 'Color', 'Marca', 'Tamaño')
+        detallesIzquierdo = [(aro.codigo, aro.estado, aro.color, aro.marca, aro.tamano) for aro in Aro.objects.all()]
+        detalleOrden = Table([encabezados] + detallesIzquierdo, colWidths=[1.4*inch, 2*inch, 1.5*inch, 1.5*inch, 1.5*inch])
+        detalleOrden.setStyle(TableStyle([
+            ('ALIGN',(0,0),(3,0),'CENTER'),
+            ('GRID', (0, 0), (-1, -1), 1, colors.black),
+            ('FONTSIZE', (0, 0), (-1, -1), 10),
+            ]))
+        detalleOrden.wrapOn(pdf, 800, 600)
+        detalleOrden.drawOn(pdf, 11, 570)
+
+class ReporteExpedientesPDF(View):
+    def cabecera(self,pdf):
+        pdf.setFont("Helvetica", 16)
+        #Dibujamos una cadena en la ubicación X,Y especificada
+        pdf.drawString(110, 700, u"Consultorio Mèdico Oftalmològico: Dra. Lily de Chicas")
+        pdf.setFont("Helvetica", 14)
+        pdf.drawString(210, 650, u"REPORTE DE EXPEDIENTES")
+        #Definimos el tamaño de la imagen a cargar y las coordenadas correspondientes
+
+    def get(self, request, *args, **kwargs):
+        response = HttpResponse(content_type='application/pdf')
+        buffer = BytesIO()
+        pdf = canvas.Canvas(buffer)
+        pdf.setPageSize((8.5*inch, 11*inch))
+        self.cabecera(pdf)
+        y=400
+        self.tabla(pdf, y)
+        pdf.showPage()
+        pdf.save()
+        pdf =buffer.getvalue()
+        buffer.close()
+        response.write(pdf)
+        return response
+
+    def tabla(self,pdf,y):
+        encabezados = ('Numero de Expediente', 'Nombre', 'telefono', 'Correo')
+        detallesIzquierdo = [(exp.NumExp, exp.paciente.nombrePersona + exp.paciente.apellidoPersona, exp.paciente.telefono, exp.paciente.correo) for exp in Expediente.objects.all()]
+        detalleOrden = Table([encabezados] + detallesIzquierdo, colWidths=[1.6*inch, 2.5*inch, 1.8*inch, 2*inch])
+        detalleOrden.setStyle(TableStyle([
+            ('ALIGN',(0,0),(3,0),'CENTER'),
+            ('GRID', (0, 0), (-1, -1), 1, colors.black),
+            ('FONTSIZE', (0, 0), (-1, -1), 10),
+            ]))
+        detalleOrden.wrapOn(pdf, 800, 600)
+        detalleOrden.drawOn(pdf, 11, 570)
+
+class ReporteSalidaLentesPDF(View):
+    def cabecera(self,pdf):
+        pdf.setFont("Helvetica", 16)
+        #Dibujamos una cadena en la ubicación X,Y especificada
+        pdf.drawString(110, 700, u"Consultorio Mèdico Oftalmològico: Dra. Lily de Chicas")
+        pdf.setFont("Helvetica", 14)
+        pdf.drawString(210, 650, u"REPORTE SALIDAS DE LENTES")
+        #Definimos el tamaño de la imagen a cargar y las coordenadas correspondientes
+
+    def get(self, request, *args, **kwargs):
+        response = HttpResponse(content_type='application/pdf')
+        buffer = BytesIO()
+        pdf = canvas.Canvas(buffer)
+        pdf.setPageSize((8.5*inch, 11*inch))
+        self.cabecera(pdf)
+        y=400
+        self.tabla(pdf, y)
+        pdf.showPage()
+        pdf.save()
+        pdf =buffer.getvalue()
+        buffer.close()
+        response.write(pdf)
+        return response
+
+    def tabla(self,pdf,y):
+        encabezados = ('Paciente', 'Codigo de Factura', 'Descripcion', 'Lente', 'Precio Venta', 'Cantidad', 'Total')
+        detallesIzquierdo = [(f.paciente.nombrePersona, f.codigoFactura + f.descripcion, f.precioVenta, f.cantidad, f.total) for f in FacturaVentaEntrada.objects.all()]
+        detalleOrden = Table([encabezados] + detallesIzquierdo, colWidths=[1.6*inch, 2.5*inch, 1.8*inch, 2*inch])
+        detalleOrden.setStyle(TableStyle([
+            ('ALIGN',(0,0),(3,0),'CENTER'),
+            ('GRID', (0, 0), (-1, -1), 1, colors.black),
+            ('FONTSIZE', (0, 0), (-1, -1), 10),
+            ]))
+        detalleOrden.wrapOn(pdf, 800, 600)
+        detalleOrden.drawOn(pdf, 11, 570)
