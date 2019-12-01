@@ -558,6 +558,13 @@ class ReportePacientesPDF(View):
         encabezados = ('Nombres', 'Apellidos', 'DUI', 'Edad', 'Sexo', 'Telefono', 'Correo')
         detalles = [(paciente.nombrePersona, paciente.apellidoPersona, paciente.dui, paciente.edad, paciente.sexo, paciente.telefono, paciente.correo) for paciente in Paciente.objects.all()]
         detalleOrden = Table([encabezados] + detalles, colWidths=[0.7*inch, 0.8*inch, 0.8*inch, 0.8*inch, 0.8*inch, 0.8*inch, 1.5*inch])
+        detalleOrden.setStyle(TableStyle([
+            ('ALIGN',(0,0),(3,0),'CENTER'),
+            ('GRID', (0, 0), (-1, -1), 1, colors.black),
+            ('FONTSIZE', (0, 0), (-1, -1), 10),
+            ]))
+        detalleOrden.wrapOn(pdf, 800, 500)
+        detalleOrden.drawOn(pdf, 100, y)
 
 
 class ReporteExpedientesPDF(View):
