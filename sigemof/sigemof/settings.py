@@ -38,8 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'oftal',
-    'crispy_forms',
-    'django_private_chat'
+    'crispy_forms'
 ]
 
 MIDDLEWARE = [
@@ -85,7 +84,7 @@ DATABASES = {
     'ENGINE': 'django.db.backends.postgresql_psycopg2',
     'NAME': 'SIGEMOF',
     'USER': 'postgres',
-    'PASSWORD': 'admin',
+    'PASSWORD': 'admin123',
     'HOST': 'localhost',
     'ṔORT': '5432',
     }
