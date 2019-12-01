@@ -6,6 +6,11 @@
 
 	<title>Citas</title>
 	<h1 style="padding-left: 30px" >Factura de venta</h1>
+	<div style="padding-left: 30px" class="col-lg-1">
+            <a href="{% url 'reporte_salidalentes_pdf' %}" class="btn btn-info">
+                <span>Imprimir</span>
+            </a>
+        </div>
 	<a class="btn btn-success" style="position: absolute; right: 5%; top: 20%" href="{%url 'registrarFacturaLente'%}">Agregar Factura</a>
 	<table id="table_id" class="display">
 		<thead>
@@ -31,7 +36,7 @@
     					<label><b>Buscar por fecha: &nbsp; &nbsp;</b></label>
     					<input style="width: 250px;"type="text" class="form-control" name="q" placeholder="AAAA-MM-DD" pattern="{0-9}" id="">-->
 			<thead style="text-align: center;">
-			
+
 				<tr style="text-align: center;">
 					<th>Id</th>
 					<th>Descripcion</th>
@@ -39,8 +44,8 @@
 					<th>Precio</th>
                     <th>Total</th>
 
-					
-					
+
+
 				</tr>
 			</thead>
 
@@ -55,14 +60,14 @@
             			<td> <label> {{f.precio}}</label></td>
                         <td> <label> {{f.total}} </label></td>
 
-            			
-            			
-            			
+
+
+
             		</tr>
             		{%endfor%}
-            		
-            		
-            		
+
+
+
             </tbody>
 	</table>
 {% endblock %}
