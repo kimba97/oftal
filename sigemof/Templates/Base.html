@@ -123,14 +123,14 @@ body {
 
 	{% block EstilosCSS %}
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="{% static "css/django_private_chat.css" %}">  
+    <link rel="stylesheet" type="text/css" href="{% static "css/django_private_chat.css" %}">
 	{% endblock EstilosCSS %}
 
 	{% block JavaScript %}
 		<script src="{% static "js/jquery.js" %}"></script>
     <script src="{% static "js/bootstrap.js" %}"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
-  
+
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
 
     <script>
@@ -161,7 +161,7 @@ body {
     </script>
 
   {% endblock JavaScript %}
-  
+
   <style>
 
 @import 'https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700';
@@ -393,7 +393,7 @@ a.article, a.article:hover {
     section {
         padding: 60px 0;
     }
-    
+
     section .section-title {
         text-align: center;
         color: #254967;
@@ -454,7 +454,7 @@ a.article, a.article:hover {
     #footer ul.quick-links li:hover a i {
         font-weight: 700;
     }
-    
+
     @media (max-width:767px){
       #footer h5 {
         padding-left: 0;
@@ -469,8 +469,8 @@ a.article, a.article:hover {
         table tr {
               text-align: center;
           }
-    
-        header 
+
+        header
         {
           width: 100%;
         }
@@ -481,16 +481,16 @@ a.article, a.article:hover {
         background-color: #fff;
         margin-bottom: 5px;
     }
-    
-    
+
+
     @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
       </style>
 </head>
 
@@ -579,12 +579,10 @@ function closeNav() {
             <li>
                 <a href="{%url 'calendario'%}">Google calendar</a>
             </li>
-            <li>
+            <!--<li>
                 <a href="{%url 'verFacturaAro' %}">Factura de salida</a>
-            </li>
-           <li>
-                <a href="{%url 'dialogs' %}">Chat</a>
-            </li>
+            </li>-->
+
             <li>
                 <a href="{%url 'logout' %}">Cerrar sesión</a>
             </li>
@@ -616,7 +614,7 @@ function closeNav() {
                     <ul class="nav navbar-nav ml-auto">
                         {% if request.user.is_authenticated %}
                         <li class="nav-item active">
-                            
+
                         </li>
                         {% else %}
                         <li class="nav-item active">
@@ -630,11 +628,11 @@ function closeNav() {
         {% block content %}
 
         {% endblock content %}
-        
-        
+
+
     </div>
 
-    
+
 </div>
 
 
@@ -660,7 +658,7 @@ function closeNav() {
 
 
 
-  
+
   {% block extra_js %}{%endblock extra_js%}
 
 

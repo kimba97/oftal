@@ -63,6 +63,7 @@ def registrarAro(request):
         aro = Aro()
         aro.codigo = request.POST['codigo']
         aro.estado = "En Inventario"
+        aro.paciente = "Ninguno"
         aro.color = request.POST['color']
         aro.marca = request.POST['marca']
         aro.tamano = request.POST['tamano']
@@ -437,6 +438,7 @@ def verFacturaAro(request):
 @login_required
 def registrarFacturaVentaEntrada(request):
     per = Lente.objects.all()
+    aro= Aro.objects.all()
     if request.method == 'POST':
         factura = FacturaVentaEntrada()
         #pacient = int(request.POST['paciente'])
@@ -449,6 +451,10 @@ def registrarFacturaVentaEntrada(request):
 
         lent = int(request.POST['paciente'])
         len = Lente.objects.get(codigo=lent)
+
+        arro = int(request.POST['aro'])
+        arro1 = Aro.objects.get(codigo=arro)
+
         factura.lente = len
         print(5)
         print(factura.lente.paciente.nombrePersona)
@@ -456,6 +462,8 @@ def registrarFacturaVentaEntrada(request):
         print(factura.lente.paciente)
         factura.paciente = factura.lente.paciente
         len.estado = "cancelado"
+        arro1.estado = "cancelado"
+        arro1.paciente = factura.lente.paciente.nombrePersona
 
 #        factura.lente = request.POST['lente']
 
@@ -468,9 +476,10 @@ def registrarFacturaVentaEntrada(request):
         factura.cantidad = request.POST['cantidad']
         factura.total = request.POST['total']
         factura.save()
+        arro1.save()
         len.save()
         return HttpResponseRedirect('/verFacturaVentaEntrada/')
-    return render(request, 'registrarFacturaVentaEntrada.html', {'per' : per, })
+    return render(request, 'registrarFacturaVentaEntrada.html', {'per' : per, 'aro':aro, })
 
 @login_required
 def verFacturaVentaEntrada(request):

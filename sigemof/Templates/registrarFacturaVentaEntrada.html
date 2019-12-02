@@ -37,6 +37,18 @@
                         {% endfor %}
                     </select>
 
+                    <label>Aro</label>
+
+
+                            <select class="form-control" type="text" name="aro" id="aro">
+
+                        {% for aros in aro %}
+                        {% if aros.estado == "En Inventario" %}
+                        <option  style="width: 90%;" value="{{aros.codigo}}">Codigo:&nbsp;{{aros.codigo}}&nbsp;&nbsp;&nbsp;&nbsp;Color:&nbsp;{{aros.color}} {{aros.marca}}</option>
+                        {% endif %}
+                        {% endfor %}
+                    </select>
+
 
                     <label>Codigo Factura</label><br>
                     <input style="text-align: center" class="form-control" type="text" name="codigo" id="codigo"></input>

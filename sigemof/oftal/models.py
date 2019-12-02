@@ -27,20 +27,7 @@ class Persona(models.Model):
 	def __str__(self):
 		return '%s' %(self.nombrePersona)
 
-class Aro(models.Model):
-	codigo=models.CharField(max_length=20)
-	estado=models.CharField(max_length=25)
-	color=models.CharField(max_length=30)
-	marca=models.CharField(max_length=50)
-	tamano=models.CharField(max_length=50)
-#	cantidad=models.IntegerField()
-#	precioCompra=models.FloatField()
 
-	class Meta:
-		verbose_name='Aro'
-		verbose_name_plural='Aro'
-	def __str__(self):
-		return '%s' %(self.codigo)
 
 
 
@@ -55,6 +42,22 @@ class Paciente(Persona):
 		verbose_name_plural='Pacientes'
 	def __str__(self):
 		return '%s' %(self.id)
+
+class Aro(models.Model):
+	paciente= models.CharField( max_length=40,null=True, blank=True)
+	codigo=models.CharField(max_length=20)
+	estado=models.CharField(max_length=25)
+	color=models.CharField(max_length=30)
+	marca=models.CharField(max_length=50)
+	tamano=models.CharField(max_length=50)
+#	cantidad=models.IntegerField()
+#	precioCompra=models.FloatField()
+
+	class Meta:
+		verbose_name='Aro'
+		verbose_name_plural='Aro'
+	def __str__(self):
+		return '%s' %(self.codigo)
 
 class FacturaAro(models.Model):
 	paciente = models.ForeignKey(Paciente, on_delete=models.CASCADE,null=True, blank=True)
