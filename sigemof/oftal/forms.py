@@ -1,6 +1,8 @@
 from django import forms
 from .models import *
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.models import Group
+from django.contrib.auth.models import User
 from .choices import *
 
 class PacienteForm(forms.ModelForm):
@@ -150,3 +152,31 @@ class CitaForm(forms.ModelForm):
 			'paciCita': forms.TextInput(attrs={'class': 'form-control', 'readonly': 'True'}),
 			}
 
+class UpdateForm(UserCreationForm):
+
+	class Meta(UserCreationForm.Meta):
+		model = User
+		fields = [
+		'username',
+		'first_name',
+		'last_name',
+		'email',
+		]
+		labels = {
+		'username' : 'Nombre de Usuario',
+		'first_name': 'Nombre',
+		'last_name': 'Apellidos',
+		'email': 'Correo',
+		}
+
+		def save(self, commit = True):
+			user = super().save(commit = False)
+			user.isSecretaria=True
+			user.save()
+
+			group=Group.objects.get(name='Secretaria')
+			user.groups.add(group)
+
+			if commit:
+				user.save()
+			return user

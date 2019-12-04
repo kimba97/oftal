@@ -23,6 +23,7 @@ from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^Rusuario', registroUser, name='Rusuario'),
     url(r'^reporte_personas_pdf/$',login_required(ReportePersonasPDF.as_view()), name="reporte_personas_pdf"),
     url(r'^reporte_pacientes_pdf/$',login_required(ReportePacientesPDF.as_view()), name="reporte_pacientes_pdf"),
     url(r'^reporte_aros_pdf/$',login_required(ReporteArosPDF.as_view()), name="reporte_aros_pdf"),

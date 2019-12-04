@@ -16,6 +16,10 @@ from reportlab.lib.pagesizes import letter, inch
 from reportlab.pdfgen import canvas
 from reportlab.platypus import Table, TableStyle
 from django.views.generic import View
+from django.contrib.auth.models import User, Permission
+from django.contrib.auth.forms import UserCreationForm
+from django.views.generic import CreateView
+from django.urls import reverse_lazy
 
 # Create your views here.
 
@@ -756,3 +760,31 @@ class ReporteSArosPDF(View):
             ]))
         detalleOrden.wrapOn(pdf, 800, 600)
         detalleOrden.drawOn(pdf, 11, 570)
+
+def registroUser(request):
+    if request.method == 'POST':
+        user = request.POST['username']
+        password = request.POST['password1']
+
+        email = request.POST['email']
+        nombre = request.POST['first_name']
+        apellido = request.POST['last_name']
+        permiso = request.POST['permiso']
+        useri = User()
+        useri.username = user
+        useri.email = email
+        useri.first_name = nombre
+        useri.last_name = apellido
+        useri.set_password(password)
+
+        if permiso == 'Secretaria':
+            permission = Permission.objects.get(name='Es Secretaria')
+        if permiso == 'Doctora':
+            permission = Permission.objects.get(name='Es Doctora')
+        useri.save()
+        u = User.objects.get(username=user)
+        u.user_permissions.add(permission)
+        u.save()
+        return redirect('ListaPaciente')
+    return render(request, 'usuario/Rusuario.html',{})
+

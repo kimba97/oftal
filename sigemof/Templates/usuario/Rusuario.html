@@ -1,0 +1,137 @@
+{% extends "Base.html" %}
+
+{% block content %}
+<DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script>
+$(document).ready(function(event) {
+
+
+	var pass1 = $('[name=password1]');
+	var pass2 = $('[name=password2]');
+	var confirmacion = "Las contraseñas si coinciden";
+	var negacion = "No coinciden las contraseñas";
+	var vacio = "La contraseña no puede estar vacía";
+
+	var span = $('<span></span>').insertAfter(pass2);
+	span.hide();
+
+	function coincidePassword(){
+	$('input[type="submit"]').attr('disabled','disabled');
+	var valor1 = pass1.val();
+	var valor2 = pass2.val();
+
+	span.show().removeClass();
+
+	if(valor1 != valor2){
+	span.text(negacion).addClass('negacion');
+
+	return false;
+	}
+	if(valor1.length==0 || valor1==""){
+	span.text(vacio).addClass('negacion');
+
+	return false;
+	}
+	if(valor1.length!=0 && valor1==valor2){
+	$('input[type="submit"]').removeAttr('disabled');
+	span.text(confirmacion).removeClass("negacion").addClass('confirmacion');
+	return true;
+
+	}
+	}
+
+	pass2.keyup(function(){
+	coincidePassword();
+	});
+});
+</script>
+</head>
+<title>Registrar Usuarios</title>
+
+<h1 style=" text-align: center;">Registrar nuevo usuario</h1>
+
+<form method="post" id="paswordForm">
+	{% csrf_token %}
+
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<div class="form-group">
+				<label>Nombre</label>
+				<input class="form-control" type="text" name="first_name" id="name" required >
+			</div>
+		</div>
+	</div>
+		<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<div class="form-group">
+				<label>Apellidos</label>
+				<input class="form-control" type="text" name="last_name" id ="apellido" required>
+			</div>
+		</div>
+	</div>
+		<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<div class="form-group">
+				<label>Nombre de usuario</label>
+				<input class="form-control" type="text" name="username" id ="user" required>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<div class="form-group">
+				<label>Correo</label>
+				<input class="form-control" type="email" name="email" id="ema" placeholder="ejemplo@aaa.com">
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<div>
+				<label><b>Seleccionar permisos</b></label><br>
+                <select style="width: 400px; height: 30px; border-width: 0.5px" name="permiso">
+                <!-- Opciones de la lista -->
+                <option value="Doctora"  selected>Doctora</option>
+                <option value="Secretaria" selected>Secretaria</option>
+
+                </select><br>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<div class="form-group">
+				<label>Contraseña</label>
+				<input class="form-control" type="password" placeholder="Minimo 8 caracteres, no debe ser completamente numerica" name="password1" maxlength="16" minlength="8" id="pass1" required>
+
+			</div>
+		</div>
+	</div>
+		<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<div class="form-group">
+				<label>Confirmar contraseña</label>
+				<input class="form-control" type="password"  placeholder="Minimo 8 caracteres, no debe ser completamente numerica" name="password2"  id="pass2" maxlength="16" minlength="8" required>
+
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<div class="form-group">
+				<input type="submit" class="btn btn-primary"  name="enviar" value="Guardar">
+			</div>
+		</div>
+	</div>
+
+
+
+
+</form>
+</html>
+{% endblock %}
