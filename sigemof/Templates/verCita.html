@@ -4,24 +4,29 @@
 {% block content %}
 <title>{% block Titulo %}Citas{% endblock Titulo %}</title>
 <div class="col-lg">
-	</div> 
+	</div>
 
 	<title>Citas</title>
 	<h1 style="padding-left: 30px" >Citas</h1>
-	
+    <div style="padding-left: 30px" class="col-lg-1">
+            <a href="{% url 'reporte_cita_pdf' %}" class="btn btn-info">
+                <span>Imprimir</span>
+            </a>
+        </div>
+
 		<br>
-					
+
 			<div class="table-responsive" style="width: 90%; margin: 20px; margin-left: auto; margin-right: auto;">
 
 			<table id="table_id" class= "table table-bordered table-striped table-hover">
 			<thead style="text-align: center;">
-			
+
 				<tr style="text-align: center;">
 					<th>Fecha de Cita</th>
 					<th>Hora de Inicio </th>
 					<th>Hora de Finalizacion</th>
 					<th>Estado</th>
-                    <th>Nombre</th>	
+                    <th>Nombre</th>
 				</tr>
 			</thead>
 
@@ -35,14 +40,14 @@
             			<td>  {{e.estado}}</td>
                     	<td>  {{e.paciCita.nombrePersona}} &nbsp; {{e.paciCita.apellidoPersona}}</td>
 
-            			
-            			
-            			
+
+
+
             		</tr>
             		{%endfor%}
-            		
-            		
-            		
+
+
+
             </tbody>
 	</table>
 </div>

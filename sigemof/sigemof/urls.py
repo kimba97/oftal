@@ -30,7 +30,7 @@ urlpatterns = [
     url(r'^reporte_expedientes_pdf/$',login_required(ReporteExpedientesPDF.as_view()), name="reporte_expedientes_pdf"),
     url(r'^reporte_salidalentes_pdf/$',login_required(ReporteSalidaLentesPDF.as_view()), name="reporte_salidalentes_pdf"),
     url(r'^reporte_saros_pdf/$',login_required(ReporteSArosPDF.as_view()), name="reporte_saros_pdf"),
-    #url(r'^reporte_aros_pdf/$',login_required(ReporteArosPDF.as_view()), name="reporte_aros_pdf"),
+    url(r'^reporte_cita_pdf/$',login_required(ReporteCitaPDF.as_view()), name="reporte_cita_pdf"),
     url(r'^reporte_expedientes_pdf/$',login_required(ReporteExpedientesPDF.as_view()), name="reporte_expedientes_pdf"),
     #url(r'^', include('django_private_chat.urls')),
     url(r'^calendario', calendario, name='calendario'),
@@ -72,5 +72,7 @@ urlpatterns = [
     path('login/', auth_views.LoginView.as_view(template_name = 'index.html'), name = 'login'),
     path('logout/', auth_views.LogoutView.as_view(template_name = 'index.html'), name = 'logout'),
     url(r'^', inicio, name='inicio'),
+
+
 
 ]

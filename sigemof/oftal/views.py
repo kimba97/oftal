@@ -761,6 +761,42 @@ class ReporteSArosPDF(View):
         detalleOrden.wrapOn(pdf, 800, 600)
         detalleOrden.drawOn(pdf, 11, 570)
 
+class ReporteCitaPDF(View):
+    def cabecera(self,pdf):
+        pdf.setFont("Helvetica", 16)
+        #Dibujamos una cadena en la ubicación X,Y especificada
+        pdf.drawString(110, 700, u"Consultorio Mèdico Oftalmològico: Dra. Lily de Chicas")
+        pdf.setFont("Helvetica", 14)
+        pdf.drawString(210, 650, u"REPORTE DE CITAS")
+        #Definimos el tamaño de la imagen a cargar y las coordenadas correspondientes
+
+    def get(self, request, *args, **kwargs):
+        response = HttpResponse(content_type='application/pdf')
+        buffer = BytesIO()
+        pdf = canvas.Canvas(buffer)
+        pdf.setPageSize((8.5*inch, 11*inch))
+        self.cabecera(pdf)
+        y=400
+        self.tablacita(pdf, 400)
+        pdf.showPage()
+        pdf.save()
+        pdf =buffer.getvalue()
+        buffer.close()
+        response.write(pdf)
+        return response
+
+    def tablacita(self,pdf,y):
+        encabezados = ('Fecha', 'Hora Inicio', 'Hora de Finalizacion','Estado','Paciente')
+        detallesIzquierdo = [(c.fecha,c.horaI,c.horaF,c.estado,c.paciCita.nombrePersona + c.paciCita.apellidoPersona ) for c in Cita.objects.all()]
+        detalleOrden = Table([encabezados] + detallesIzquierdo, colWidths=[1.5*inch, 0.9*inch, 1.8*inch, 1.4*inch, 2.6*inch])
+        detalleOrden.setStyle(TableStyle([
+            ('ALIGN',(0,0),(3,0),'CENTER'),
+            ('GRID', (0, 0), (-1, -1), 1, colors.black),
+            ('FONTSIZE', (0, 0), (-1, -1), 10),
+            ]))
+        detalleOrden.wrapOn(pdf, 800, 600)
+        detalleOrden.drawOn(pdf, 11, 570)
+
 def registroUser(request):
     if request.method == 'POST':
         user = request.POST['username']
